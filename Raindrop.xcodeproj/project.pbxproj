@@ -72,6 +72,88 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A54C0436251FE7A400EEA9D2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A5BB0597251FCD2400694FF9 /* Info.plist */,
+				A5BB058E251FCD2300694FF9 /* RaindropApp.swift */,
+				A5BB0592251FCD2400694FF9 /* Assets.xcassets */,
+				A5BB0594251FCD2400694FF9 /* Preview Content */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A54C0438251FE7C300EEA9D2 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A54C0441251FE8C600EEA9D2 /* SupportTypes */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A54C0439251FE7CC00EEA9D2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A5BB0590251FCD2300694FF9 /* ContentView.swift */,
+				A54C0443251FE90200EEA9D2 /* Templates */,
+				A54C0442251FE8E700EEA9D2 /* UIComponents */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A54C0441251FE8C600EEA9D2 /* SupportTypes */ = {
+			isa = PBXGroup;
+			children = (
+				A54C0444251FE94A00EEA9D2 /* Extensions */,
+				A54C0445251FE95300EEA9D2 /* Protocols */,
+				A54C0446251FE95B00EEA9D2 /* ReferenceTypes */,
+				A54C0447251FE96500EEA9D2 /* ValueTypes */,
+			);
+			path = SupportTypes;
+			sourceTree = "<group>";
+		};
+		A54C0442251FE8E700EEA9D2 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		A54C0443251FE90200EEA9D2 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		A54C0444251FE94A00EEA9D2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A54C0445251FE95300EEA9D2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A54C0446251FE95B00EEA9D2 /* ReferenceTypes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReferenceTypes;
+			sourceTree = "<group>";
+		};
+		A54C0447251FE96500EEA9D2 /* ValueTypes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ValueTypes;
+			sourceTree = "<group>";
+		};
 		A5BB0582251FCD2300694FF9 = {
 			isa = PBXGroup;
 			children = (
@@ -95,11 +177,9 @@
 		A5BB058D251FCD2300694FF9 /* Raindrop */ = {
 			isa = PBXGroup;
 			children = (
-				A5BB058E251FCD2300694FF9 /* RaindropApp.swift */,
-				A5BB0590251FCD2300694FF9 /* ContentView.swift */,
-				A5BB0592251FCD2400694FF9 /* Assets.xcassets */,
-				A5BB0597251FCD2400694FF9 /* Info.plist */,
-				A5BB0594251FCD2400694FF9 /* Preview Content */,
+				A54C0436251FE7A400EEA9D2 /* Application */,
+				A54C0438251FE7C300EEA9D2 /* Domain */,
+				A54C0439251FE7CC00EEA9D2 /* Presentation */,
 			);
 			path = Raindrop;
 			sourceTree = "<group>";
@@ -418,10 +498,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Raindrop/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Raindrop/Application/Preview Content\"";
 				DEVELOPMENT_TEAM = X7WM6K9T24;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Raindrop/Info.plist;
+				INFOPLIST_FILE = Raindrop/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,10 +520,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Raindrop/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Raindrop/Application/Preview Content\"";
 				DEVELOPMENT_TEAM = X7WM6K9T24;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Raindrop/Info.plist;
+				INFOPLIST_FILE = Raindrop/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
