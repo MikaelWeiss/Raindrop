@@ -30,5 +30,4 @@ class TextTypeTests: XCTestCase {
         // Then
         XCTAssertEqual(textType.value, value)
     }
-    
 }

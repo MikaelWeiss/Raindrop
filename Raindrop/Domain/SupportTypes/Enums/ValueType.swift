@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum ValueType {
     case text
     case timer
