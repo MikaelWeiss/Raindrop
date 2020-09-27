@@ -10,9 +10,13 @@ import Foundation
 struct TextType: Standard {
     private(set) var id = UUID()
     private(set) var type: ValueType = .text
-    private(set) var value: String?
+    private(set) var value: String
     
-    mutating func setValue(_ value: String?) {
+    init(_ value: String) {
+        self.value = value
+    }
+    
+    mutating func setValue(_ value: String) {
         self.value = value
     }
 }

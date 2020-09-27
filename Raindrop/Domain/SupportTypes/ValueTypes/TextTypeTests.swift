@@ -9,14 +9,15 @@
 import XCTest
 
 class TextTypeTests: XCTestCase {
-    
     func testInit() {
+        // Given
+        let value = "SomeValue"
+        
         // When
-        let textType = TextType()
+        let textType = TextType(value)
         
         // Then
-        XCTAssertNotNil(textType.id)
-        XCTAssertEqual(textType.type, .text)
+        XCTAssertEqual(textType.value, value)
     }
     
     func testSetValue() {
