@@ -107,8 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				A5BB0590251FCD2300694FF9 /* ContentView.swift */,
-				A54C0443251FE90200EEA9D2 /* Templates */,
-				A54C0442251FE8E700EEA9D2 /* UIComponents */,
+				A5A7007425237D0800C72336 /* Templates */,
+				A5A7007525237D1300C72336 /* UIComponents */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -116,34 +116,13 @@
 		A54C0441251FE8C600EEA9D2 /* SupportTypes */ = {
 			isa = PBXGroup;
 			children = (
-				A54C0444251FE94A00EEA9D2 /* Extensions */,
-				A54C0445251FE95300EEA9D2 /* Protocols */,
 				A54C0446251FE95B00EEA9D2 /* Enums */,
+				A5A7007625237D2500C72336 /* Extensions */,
+				A5A7007725237D2C00C72336 /* Other */,
+				A54C0445251FE95300EEA9D2 /* Protocols */,
 				A54C0447251FE96500EEA9D2 /* ValueTypes */,
-				A5530E362521432E00739F00 /* Other */,
 			);
 			path = SupportTypes;
-			sourceTree = "<group>";
-		};
-		A54C0442251FE8E700EEA9D2 /* UIComponents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UIComponents;
-			sourceTree = "<group>";
-		};
-		A54C0443251FE90200EEA9D2 /* Templates */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Templates;
-			sourceTree = "<group>";
-		};
-		A54C0444251FE94A00EEA9D2 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A54C0445251FE95300EEA9D2 /* Protocols */ = {
@@ -165,15 +144,36 @@
 		A54C0447251FE96500EEA9D2 /* ValueTypes */ = {
 			isa = PBXGroup;
 			children = (
-				A5530E2625213DE000739F00 /* TextType.swift */,
-				A5530E3725214B2C00739F00 /* TextTypeTests.swift */,
 				A5AA8078252157B100C2EC2D /* NumberType.swift */,
 				A5AA807D252158AB00C2EC2D /* NumberTypeTests.swift */,
+				A5530E2625213DE000739F00 /* TextType.swift */,
+				A5530E3725214B2C00739F00 /* TextTypeTests.swift */,
 			);
 			path = ValueTypes;
 			sourceTree = "<group>";
 		};
-		A5530E362521432E00739F00 /* Other */ = {
+		A5A7007425237D0800C72336 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		A5A7007525237D1300C72336 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		A5A7007625237D2500C72336 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A5A7007725237D2C00C72336 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -221,8 +221,8 @@
 		A5BB059F251FCD2400694FF9 /* RaindropTests */ = {
 			isa = PBXGroup;
 			children = (
-				A5BB05A0251FCD2400694FF9 /* RaindropTests.swift */,
 				A5BB05A2251FCD2400694FF9 /* Info.plist */,
+				A5BB05A0251FCD2400694FF9 /* RaindropTests.swift */,
 			);
 			path = RaindropTests;
 			sourceTree = "<group>";
@@ -230,8 +230,8 @@
 		A5BB05AA251FCD2500694FF9 /* RaindropUITests */ = {
 			isa = PBXGroup;
 			children = (
-				A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */,
 				A5BB05AD251FCD2500694FF9 /* Info.plist */,
+				A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */,
 			);
 			path = RaindropUITests;
 			sourceTree = "<group>";
