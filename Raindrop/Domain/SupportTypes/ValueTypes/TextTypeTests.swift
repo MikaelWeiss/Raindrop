@@ -22,8 +22,8 @@ class TextTypeTests: XCTestCase {
     
     func testSetValue() {
         // Given
-        var textType = TextType()
-        let value = "SomeValue"
+        var textType = TextType("SomeValue")
+        let value = "SomeNewValue"
         
         // When
         textType.setValue(value)

@@ -10,4 +10,5 @@ import Foundation
 protocol Standard {
     var id: UUID { get }
     var type: ValueType { get }
+    var title: String { get }
 }

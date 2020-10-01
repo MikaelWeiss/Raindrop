@@ -19,7 +19,7 @@ class NumberTypeTests: XCTestCase {
         
         // Then
         XCTAssertNotNil(number.id)
-        XCTAssertEqual(number.type, .text)
+        XCTAssertEqual(number.type, .number)
         XCTAssertEqual(number.value, value)
     }
     
