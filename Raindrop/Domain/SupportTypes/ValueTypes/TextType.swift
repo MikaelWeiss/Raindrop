@@ -11,9 +11,11 @@ struct TextType: Standard {
     private(set) var id = UUID()
     private(set) var type: ValueType = .text
     private(set) var value: String
+    private(set) var title: String
     
-    init(_ value: String) {
+    init(value: String, title: String) {
         self.value = value
+        self.title = title
     }
     
     mutating func setValue(_ value: String) {

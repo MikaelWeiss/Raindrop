@@ -11,9 +11,11 @@ struct Number: Standard {
     private(set) var id = UUID()
     private(set) var type: ValueType = .number
     private(set) var value: Decimal
+    private(set) var title: String
     
-    init(_ value: Decimal) {
+    init(value: Decimal, title: String) {
         self.value = value
+        self.title = title
     }
     
     mutating func setValue(_ value: Decimal) {

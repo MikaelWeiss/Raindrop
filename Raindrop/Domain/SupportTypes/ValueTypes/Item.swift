@@ -7,7 +7,20 @@
 
 import Foundation
 
-struct Item {
+struct Item: Identifiable {
+    let id = UUID()
     let title: String
     let type: ValueType
+    let value: String?
+    
+    init(title: String, type: ValueType) {
+        self.title = title
+        self.type = type
+        self.value = nil
+    }
+    init(title: String, value: String?) {
+        self.title = title
+        self.value = value
+        self.type = .computed
+    }
 }
