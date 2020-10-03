@@ -21,10 +21,6 @@ struct LogEntry: View {
                         Rectangle()
                             .cornerRadius(25)
                             .frame(height: 64)
-                        Text(item.value ?? "")
-                            .padding(.leading)
-                            .foregroundColor(.secondary)
-                            .font(.system(size: 18, weight: .heavy))
                     }
                     .padding(.horizontal, 16)
                 }
@@ -41,7 +37,7 @@ struct LogEntry_Previews: PreviewProvider {
             Rectangle()
                 .edgesIgnoringSafeArea(.all)
                 .foregroundColor(.primary)
-            LogEntry(items: [Item(title: "Log #", value: "1"),
+            LogEntry(items: [Item(title: "Log #"),
                              Item(title: "Date", type: .date),
                              Item(title: "Description", type: .text),
                              Item(title: "Amount", type: .number),

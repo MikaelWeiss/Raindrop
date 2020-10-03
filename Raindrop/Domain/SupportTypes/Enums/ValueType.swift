@@ -15,18 +15,4 @@ enum ValueType {
     case selection
     case checklist
     case computed
-    
-    var type: Any? {
-        switch self {
-        case .text:
-            return String.self
-        case .timer:
-            return Decimal.self
-        case .number:
-            return Decimal.self
-        case .date:
-            return Date.self
-        default: return nil
-        }
-    }
 }

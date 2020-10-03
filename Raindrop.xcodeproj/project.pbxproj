@@ -16,7 +16,6 @@
 		A5B0221F2525777C007412CC /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0221E2525777C007412CC /* LogEntry.swift */; };
 		A5B022242525791C007412CC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B022232525791C007412CC /* Item.swift */; };
 		A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB058E251FCD2300694FF9 /* RaindropApp.swift */; };
-		A5BB0591251FCD2300694FF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB0590251FCD2300694FF9 /* ContentView.swift */; };
 		A5BB0593251FCD2400694FF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BB0592251FCD2400694FF9 /* Assets.xcassets */; };
 		A5BB0596251FCD2400694FF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BB0595251FCD2400694FF9 /* Preview Assets.xcassets */; };
 		A5BB05A1251FCD2400694FF9 /* RaindropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB05A0251FCD2400694FF9 /* RaindropTests.swift */; };
@@ -51,7 +50,6 @@
 		A5B022232525791C007412CC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A5BB058B251FCD2300694FF9 /* Raindrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raindrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BB058E251FCD2300694FF9 /* RaindropApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaindropApp.swift; sourceTree = "<group>"; };
-		A5BB0590251FCD2300694FF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A5BB0592251FCD2400694FF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5BB0595251FCD2400694FF9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A5BB0597251FCD2400694FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 		A54C0439251FE7CC00EEA9D2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				A5BB0590251FCD2300694FF9 /* ContentView.swift */,
 				A5A7007425237D0800C72336 /* Templates */,
 				A5A7007525237D1300C72336 /* UIComponents */,
 				A5B0221E2525777C007412CC /* LogEntry.swift */,
@@ -372,7 +369,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5530E2725213DE000739F00 /* TextType.swift in Sources */,
-				A5BB0591251FCD2300694FF9 /* ContentView.swift in Sources */,
 				A5B0221F2525777C007412CC /* LogEntry.swift in Sources */,
 				A5530E2C2521406A00739F00 /* ValueType.swift in Sources */,
 				A5B022242525791C007412CC /* Item.swift in Sources */,
