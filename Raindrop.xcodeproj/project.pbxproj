@@ -8,11 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A5530E1E25213C1000739F00 /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E1D25213C1000739F00 /* Standard.swift */; };
-		A5530E2725213DE000739F00 /* TextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E2625213DE000739F00 /* TextType.swift */; };
 		A5530E2C2521406A00739F00 /* ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E2B2521406A00739F00 /* ValueType.swift */; };
-		A5530E3825214B2C00739F00 /* TextTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E3725214B2C00739F00 /* TextTypeTests.swift */; };
-		A5AA8079252157B100C2EC2D /* NumberType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AA8078252157B100C2EC2D /* NumberType.swift */; };
-		A5AA807E252158AB00C2EC2D /* NumberTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AA807D252158AB00C2EC2D /* NumberTypeTests.swift */; };
 		A5B0221F2525777C007412CC /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0221E2525777C007412CC /* LogEntry.swift */; };
 		A5B022242525791C007412CC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B022232525791C007412CC /* Item.swift */; };
 		A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB058E251FCD2300694FF9 /* RaindropApp.swift */; };
@@ -41,11 +37,7 @@
 
 /* Begin PBXFileReference section */
 		A5530E1D25213C1000739F00 /* Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standard.swift; sourceTree = "<group>"; };
-		A5530E2625213DE000739F00 /* TextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextType.swift; sourceTree = "<group>"; };
 		A5530E2B2521406A00739F00 /* ValueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueType.swift; sourceTree = "<group>"; };
-		A5530E3725214B2C00739F00 /* TextTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTypeTests.swift; sourceTree = "<group>"; };
-		A5AA8078252157B100C2EC2D /* NumberType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberType.swift; sourceTree = "<group>"; };
-		A5AA807D252158AB00C2EC2D /* NumberTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTypeTests.swift; sourceTree = "<group>"; };
 		A5B0221E2525777C007412CC /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
 		A5B022232525791C007412CC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A5BB058B251FCD2300694FF9 /* Raindrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raindrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,10 +138,6 @@
 		A54C0447251FE96500EEA9D2 /* ValueTypes */ = {
 			isa = PBXGroup;
 			children = (
-				A5AA8078252157B100C2EC2D /* NumberType.swift */,
-				A5AA807D252158AB00C2EC2D /* NumberTypeTests.swift */,
-				A5530E2625213DE000739F00 /* TextType.swift */,
-				A5530E3725214B2C00739F00 /* TextTypeTests.swift */,
 				A5B022232525791C007412CC /* Item.swift */,
 			);
 			path = ValueTypes;
@@ -368,12 +356,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5530E2725213DE000739F00 /* TextType.swift in Sources */,
 				A5B0221F2525777C007412CC /* LogEntry.swift in Sources */,
 				A5530E2C2521406A00739F00 /* ValueType.swift in Sources */,
 				A5B022242525791C007412CC /* Item.swift in Sources */,
 				A5530E1E25213C1000739F00 /* Standard.swift in Sources */,
-				A5AA8079252157B100C2EC2D /* NumberType.swift in Sources */,
 				A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,8 +368,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5530E3825214B2C00739F00 /* TextTypeTests.swift in Sources */,
-				A5AA807E252158AB00C2EC2D /* NumberTypeTests.swift in Sources */,
 				A5BB05A1251FCD2400694FF9 /* RaindropTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
