@@ -84,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5000C342528D9DB00A0CB77 /* LogEntry */ = {
+			isa = PBXGroup;
+			children = (
+				A5B0221E2525777C007412CC /* LogEntry.swift */,
+			);
+			path = LogEntry;
+			sourceTree = "<group>";
+		};
 		A54C0436251FE7A400EEA9D2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,9 +114,9 @@
 		A54C0439251FE7CC00EEA9D2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A5000C342528D9DB00A0CB77 /* LogEntry */,
 				A5A7007425237D0800C72336 /* Templates */,
 				A5A7007525237D1300C72336 /* UIComponents */,
-				A5B0221E2525777C007412CC /* LogEntry.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
