@@ -16,8 +16,4 @@ struct Item: Identifiable {
         self.title = title
         self.type = type
     }
-    init(title: String) {
-        self.title = title
-        self.type = .computed
-    }
 }

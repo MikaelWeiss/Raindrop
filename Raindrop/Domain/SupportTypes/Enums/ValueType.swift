@@ -8,11 +8,11 @@
 import Foundation
 
 enum ValueType {
-    case text
-    case timer
-    case number
-    case date
-    case selection
-    case checklist
-    case computed
+    case text(String?)
+    case timer(Int)
+    case number(Decimal)
+    case date(Date)
+    case selection(Selection)
+    case checklist(Checklist)
+    case computed(Int)
 }
