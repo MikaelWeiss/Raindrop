@@ -10,8 +10,7 @@
 		A5000C262528D59B00A0CB77 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C252528D59B00A0CB77 /* Selection.swift */; };
 		A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C2A2528D60700A0CB77 /* Checklist.swift */; };
 		A5000C302528D77800A0CB77 /* Date+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */; };
-		A5530E1E25213C1000739F00 /* Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E1D25213C1000739F00 /* Standard.swift */; };
-		A5530E2C2521406A00739F00 /* ValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E2B2521406A00739F00 /* ValueType.swift */; };
+		A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E2B2521406A00739F00 /* LogInputType.swift */; };
 		A5B0221F2525777C007412CC /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0221E2525777C007412CC /* LogEntry.swift */; };
 		A5B022242525791C007412CC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B022232525791C007412CC /* Item.swift */; };
 		A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB058E251FCD2300694FF9 /* RaindropApp.swift */; };
@@ -41,9 +40,8 @@
 /* Begin PBXFileReference section */
 		A5000C252528D59B00A0CB77 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		A5000C2A2528D60700A0CB77 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
-		A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Extentions.swift"; path = "Raindrop/Domain/SupportTypes/Enums/Date+Extentions.swift"; sourceTree = SOURCE_ROOT; };
-		A5530E1D25213C1000739F00 /* Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standard.swift; sourceTree = "<group>"; };
-		A5530E2B2521406A00739F00 /* ValueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueType.swift; sourceTree = "<group>"; };
+		A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Extentions.swift"; path = "Raindrop/Domain/SupportTypes/Extensions/Date+Extentions.swift"; sourceTree = SOURCE_ROOT; };
+		A5530E2B2521406A00739F00 /* LogInputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInputType.swift; sourceTree = "<group>"; };
 		A5B0221E2525777C007412CC /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
 		A5B022232525791C007412CC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A5BB058B251FCD2300694FF9 /* Raindrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raindrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +90,14 @@
 			path = LogEntry;
 			sourceTree = "<group>";
 		};
+		A5399F72253256390096A957 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A54C0436251FE7A400EEA9D2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,9 +128,10 @@
 		A54C0441251FE8C600EEA9D2 /* SupportTypes */ = {
 			isa = PBXGroup;
 			children = (
+				A5399F72253256390096A957 /* Extensions */,
 				A54C0446251FE95B00EEA9D2 /* Enums */,
 				A54C0445251FE95300EEA9D2 /* Protocols */,
-				A54C0447251FE96500EEA9D2 /* ValueTypes */,
+				A54C0447251FE96500EEA9D2 /* HelperTypes */,
 			);
 			path = SupportTypes;
 			sourceTree = "<group>";
@@ -132,7 +139,6 @@
 		A54C0445251FE95300EEA9D2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				A5530E1D25213C1000739F00 /* Standard.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -140,20 +146,19 @@
 		A54C0446251FE95B00EEA9D2 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */,
-				A5530E2B2521406A00739F00 /* ValueType.swift */,
+				A5530E2B2521406A00739F00 /* LogInputType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		A54C0447251FE96500EEA9D2 /* ValueTypes */ = {
+		A54C0447251FE96500EEA9D2 /* HelperTypes */ = {
 			isa = PBXGroup;
 			children = (
 				A5B022232525791C007412CC /* Item.swift */,
 				A5000C252528D59B00A0CB77 /* Selection.swift */,
 				A5000C2A2528D60700A0CB77 /* Checklist.swift */,
 			);
-			path = ValueTypes;
+			path = HelperTypes;
 			sourceTree = "<group>";
 		};
 		A5BB0582251FCD2300694FF9 = {
@@ -179,9 +184,9 @@
 		A5BB058D251FCD2300694FF9 /* Raindrop */ = {
 			isa = PBXGroup;
 			children = (
+				A54C0439251FE7CC00EEA9D2 /* Presentation */,
 				A54C0436251FE7A400EEA9D2 /* Application */,
 				A54C0438251FE7C300EEA9D2 /* Domain */,
-				A54C0439251FE7CC00EEA9D2 /* Presentation */,
 			);
 			path = Raindrop;
 			sourceTree = "<group>";
@@ -344,9 +349,8 @@
 				A5000C262528D59B00A0CB77 /* Selection.swift in Sources */,
 				A5B0221F2525777C007412CC /* LogEntry.swift in Sources */,
 				A5000C302528D77800A0CB77 /* Date+Extentions.swift in Sources */,
-				A5530E2C2521406A00739F00 /* ValueType.swift in Sources */,
+				A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */,
 				A5B022242525791C007412CC /* Item.swift in Sources */,
-				A5530E1E25213C1000739F00 /* Standard.swift in Sources */,
 				A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */,
 				A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */,
 			);

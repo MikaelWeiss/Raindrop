@@ -10,9 +10,9 @@ import Foundation
 struct Item: Identifiable {
     let id = UUID()
     let title: String
-    let type: ValueType
+    let type: LogInputType
     
-    init(title: String, type: ValueType) {
+    init(title: String, type: LogInputType) {
         self.title = title
         self.type = type
     }
