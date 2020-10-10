@@ -8,23 +8,15 @@
 import SwiftUI
 
 struct LogEntry: View {
-    let items: [Item]
+    @State private var date: Date?
+    @State private var description: String = ""
+    
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 0) {
-                ForEach(items) { item in
-                    Text(item.title)
-                        .padding(.leading, 30)
-                        .padding(.bottom, 4)
-                        .padding(.top, 16)
-                    ZStack(alignment: .leading) {
-                        Rectangle()
-                            .cornerRadius(25)
-                            .frame(height: 64)
-                    }
-                    .padding(.horizontal, 16)
-                }
-                .foregroundColor(Color(#colorLiteral(red: 0.2039001584, green: 0.2039352059, blue: 0.20389238, alpha: 1)))
+                ComputedValueItem(title: "Log #", value: "1")
+                DateItem(date: $date, title: "Date")
+                StringEntryItem(placeholder: "Description", value: $description)
             }
         }
         .font(.system(size: 18, weight: .heavy, design: .rounded))
@@ -37,13 +29,46 @@ struct LogEntry_Previews: PreviewProvider {
             Rectangle()
                 .edgesIgnoringSafeArea(.all)
                 .foregroundColor(.primary)
-            LogEntry(items: [Item(title: "Log #", type: .computed(0)),
-                             Item(title: "Date", type: .date(Date.today)),
-                             Item(title: "Description", type: .text(nil)),
-                             Item(title: "Amount", type: .number(0)),
-                             Item(title: "Balance", type: .computed(0)),
-                             Item(title: "Category", type: .selection(Selection(items: ["Sup"], selectedItemIndex: 0)))])
+            LogEntry()
                 .colorScheme(.dark)
         }
+    }
+}
+
+struct DateItem: View {
+    @Binding var date: Date?
+    let title: String
+    
+    var body: some View {
+        let dateBinding = Binding(
+            get: { self.date ?? Date.today },
+            set: { self.date = $0 }
+        )
+        return DatePicker(selection: dateBinding, label: { Text(title) })
+            .padding()
+    }
+}
+
+struct ComputedValueItem: View {
+    let title: String
+    let value: String
+    
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            Text(value)
+        }
+        .padding()
+    }
+}
+
+struct StringEntryItem: View {
+    let placeholder: String
+    @Binding var value: String
+    
+    var body: some View {
+        TextField(placeholder, text: $value)
+            .padding()
     }
 }
