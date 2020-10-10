@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		A5000C252528D59B00A0CB77 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		A5000C2A2528D60700A0CB77 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
-		A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Extentions.swift"; path = "Raindrop/Domain/SupportTypes/ValueTypes/Date+Extentions.swift"; sourceTree = SOURCE_ROOT; };
+		A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Extentions.swift"; path = "Raindrop/Domain/SupportTypes/Enums/Date+Extentions.swift"; sourceTree = SOURCE_ROOT; };
 		A5530E1D25213C1000739F00 /* Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standard.swift; sourceTree = "<group>"; };
 		A5530E2B2521406A00739F00 /* ValueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueType.swift; sourceTree = "<group>"; };
 		A5B0221E2525777C007412CC /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
@@ -115,8 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				A5000C342528D9DB00A0CB77 /* LogEntry */,
-				A5A7007425237D0800C72336 /* Templates */,
-				A5A7007525237D1300C72336 /* UIComponents */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -125,8 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				A54C0446251FE95B00EEA9D2 /* Enums */,
-				A5A7007625237D2500C72336 /* Extensions */,
-				A5A7007725237D2C00C72336 /* Other */,
 				A54C0445251FE95300EEA9D2 /* Protocols */,
 				A54C0447251FE96500EEA9D2 /* ValueTypes */,
 			);
@@ -144,6 +140,7 @@
 		A54C0446251FE95B00EEA9D2 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */,
 				A5530E2B2521406A00739F00 /* ValueType.swift */,
 			);
 			path = Enums;
@@ -157,35 +154,6 @@
 				A5000C2A2528D60700A0CB77 /* Checklist.swift */,
 			);
 			path = ValueTypes;
-			sourceTree = "<group>";
-		};
-		A5A7007425237D0800C72336 /* Templates */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Templates;
-			sourceTree = "<group>";
-		};
-		A5A7007525237D1300C72336 /* UIComponents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UIComponents;
-			sourceTree = "<group>";
-		};
-		A5A7007625237D2500C72336 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A5A7007725237D2C00C72336 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		A5BB0582251FCD2300694FF9 = {
