@@ -45,7 +45,7 @@ struct DateItem: View {
             set: { self.date = $0 }
         )
         return DatePicker(selection: dateBinding, label: { Text(title) })
-            .padding()
+            .cellStyle()
     }
 }
 
@@ -59,7 +59,7 @@ struct ComputedValueItem: View {
             Spacer()
             Text(value)
         }
-        .padding()
+        .cellStyle()
     }
 }
 
@@ -68,7 +68,36 @@ struct StringEntryItem: View {
     @Binding var value: String
     
     var body: some View {
-        TextField(placeholder, text: $value)
-            .padding()
+        ZStack(alignment: .leading) {
+            TextEditor(text: $value)
+            Text(placeholder).foregroundColor(Color(#colorLiteral(red: 0.2783837616, green: 0.2783483267, blue: 0.2912691832, alpha: 1)))
+                .if(value != "") { $0.hidden() }
+        }
+        .cellStyle()
+    }
+}
+
+struct CellStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(height: 56, alignment: .center)
+            .padding(.horizontal, 16)
+    }
+}
+
+extension View {
+    func cellStyle() -> some View {
+        self.modifier(CellStyle())
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func `if`<Content: View>(_ condition: Bool, content: (Self) -> Content) -> some View {
+        if condition {
+            content(self)
+        } else {
+            self
+        }
     }
 }
