@@ -16,7 +16,7 @@ struct LogEntry: View {
             LazyVStack(alignment: .leading, spacing: 0) {
                 ComputedValueItem(title: "Log #", value: "1")
                 DateItem(date: $date, title: "Date")
-                StringEntryItem(placeholder: "Description", value: $description)
+                StringEntryItem(title: "Description", value: $description)
             }
         }
         .font(.system(size: 18, weight: .heavy, design: .rounded))
@@ -64,14 +64,27 @@ struct ComputedValueItem: View {
 }
 
 struct StringEntryItem: View {
-    let placeholder: String
+    let title: LocalizedStringKey
     @Binding var value: String
+    let onEditingChanged: (Bool) -> Void
+    let onCommit: () -> Void
+    
+    init(title: LocalizedStringKey,
+         value: Binding<String>,
+         onEditingChanged: @escaping (Bool) -> Void = {_ in },
+         onCommit: @escaping () -> Void = {}) {
+        self.title = title
+        self._value = value
+        self.onEditingChanged = onEditingChanged
+        self.onCommit = onCommit
+    }
     
     var body: some View {
-        ZStack(alignment: .leading) {
-            TextEditor(text: $value)
-            Text(placeholder).foregroundColor(Color(#colorLiteral(red: 0.2783837616, green: 0.2783483267, blue: 0.2912691832, alpha: 1)))
-                .if(value != "") { $0.hidden() }
+        ZStack(alignment: .topLeading) {
+            TextField(title,
+                      text: $value,
+                      onEditingChanged: onEditingChanged,
+                      onCommit: onCommit)
         }
         .cellStyle()
     }
