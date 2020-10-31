@@ -24,6 +24,9 @@
 		A5DE7799254A110000832862 /* EditValueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7798254A110000832862 /* EditValueScene.swift */; };
 		A5DE779E254A113100832862 /* EditValueModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE779D254A113100832862 /* EditValueModels.swift */; };
 		A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE77A2254A122700832862 /* EditValuePresenter.swift */; };
+		A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CD8254DD7270028B475 /* EditValueService.swift */; };
+		A5E40CDE254DD8C50028B475 /* EditValueRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CDD254DD8C50028B475 /* EditValueRouter.swift */; };
+		A5E40CE8254DFF610028B475 /* RoutingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CE7254DFF610028B475 /* RoutingRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		A5DE7798254A110000832862 /* EditValueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueScene.swift; sourceTree = "<group>"; };
 		A5DE779D254A113100832862 /* EditValueModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueModels.swift; sourceTree = "<group>"; };
 		A5DE77A2254A122700832862 /* EditValuePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValuePresenter.swift; sourceTree = "<group>"; };
+		A5E40CD8254DD7270028B475 /* EditValueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueService.swift; sourceTree = "<group>"; };
+		A5E40CDD254DD8C50028B475 /* EditValueRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueRouter.swift; sourceTree = "<group>"; };
+		A5E40CE7254DFF610028B475 /* RoutingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +108,13 @@
 			path = LogEntry;
 			sourceTree = "<group>";
 		};
-		A51BE9E7254A1B45000BE6DC /* Wayfinder */ = {
+		A51BE9E7254A1B45000BE6DC /* Routing */ = {
 			isa = PBXGroup;
 			children = (
-				A51BE9E8254A1BDE000BE6DC /* Wayfinder.swift */,
+				A5E40CE5254DFF3F0028B475 /* Wayfinder */,
+				A5E40CE7254DFF610028B475 /* RoutingRequest.swift */,
 			);
-			path = Wayfinder;
+			path = Routing;
 			sourceTree = "<group>";
 		};
 		A5399F72253256390096A957 /* Extensions */ = {
@@ -140,7 +147,7 @@
 		A54C0439251FE7CC00EEA9D2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				A51BE9E7254A1B45000BE6DC /* Wayfinder */,
+				A51BE9E7254A1B45000BE6DC /* Routing */,
 				A5B6D7D02547689800DDB5E2 /* EditValue */,
 				A5000C342528D9DB00A0CB77 /* LogEntry */,
 				A5B6D7CF2547689200DDB5E2 /* Templates */,
@@ -194,11 +201,13 @@
 		A5B6D7D02547689800DDB5E2 /* EditValue */ = {
 			isa = PBXGroup;
 			children = (
-				A5B6D7D1254768E000DDB5E2 /* EditValueView.swift */,
 				A5DE7793254A109300832862 /* EditValueInteractor.swift */,
-				A5DE77A2254A122700832862 /* EditValuePresenter.swift */,
-				A5DE7798254A110000832862 /* EditValueScene.swift */,
 				A5DE779D254A113100832862 /* EditValueModels.swift */,
+				A5DE77A2254A122700832862 /* EditValuePresenter.swift */,
+				A5E40CDD254DD8C50028B475 /* EditValueRouter.swift */,
+				A5DE7798254A110000832862 /* EditValueScene.swift */,
+				A5E40CD8254DD7270028B475 /* EditValueService.swift */,
+				A5B6D7D1254768E000DDB5E2 /* EditValueView.swift */,
 			);
 			path = EditValue;
 			sourceTree = "<group>";
@@ -257,6 +266,14 @@
 				A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */,
 			);
 			path = RaindropUITests;
+			sourceTree = "<group>";
+		};
+		A5E40CE5254DFF3F0028B475 /* Wayfinder */ = {
+			isa = PBXGroup;
+			children = (
+				A51BE9E8254A1BDE000BE6DC /* Wayfinder.swift */,
+			);
+			path = Wayfinder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E40CE8254DFF610028B475 /* RoutingRequest.swift in Sources */,
 				A5000C262528D59B00A0CB77 /* Selection.swift in Sources */,
 				A5B0221F2525777C007412CC /* LogEntry.swift in Sources */,
 				A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */,
@@ -397,10 +415,12 @@
 				A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */,
 				A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */,
 				A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */,
+				A5E40CDE254DD8C50028B475 /* EditValueRouter.swift in Sources */,
 				A5DE7799254A110000832862 /* EditValueScene.swift in Sources */,
 				A5B022242525791C007412CC /* Item.swift in Sources */,
 				A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */,
 				A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */,
+				A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

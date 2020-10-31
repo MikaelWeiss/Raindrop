@@ -13,10 +13,14 @@ protocol EditValueRequesting {
 }
 
 struct EditValueInteractor: EditValueRequesting {
+    private let service: EditValueService
     private let presenter: EditValuePresenting
+    private let router: EditValueRouting
     
-    init(presenter: EditValuePresenting) {
+    init(service: EditValueService, presenter: EditValuePresenting, router: EditValueRouting) {
+        self.service = service
         self.presenter = presenter
+        self.router = router
     }
     
     func updateTheme() {

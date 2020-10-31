@@ -8,15 +8,14 @@
 import Foundation
 
 enum EditValue {
-    
     struct Scene {
         let view: EditValueView
         
         init() {
-//            let service = EditValueService()
-//            let router = EditValueRouter()
+            let service = EditValue.Service()
+            let router = EditValueRouter()
             let presenter = EditValuePresenter()
-            let interactor = EditValueInteractor(presenter: presenter)
+            let interactor = EditValueInteractor(service: service, presenter: presenter, router: router)
             view = EditValueView(interactor: interactor, viewModel: presenter.viewModel)
         }
     }
