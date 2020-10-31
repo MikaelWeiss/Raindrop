@@ -10,14 +10,20 @@
 		A5000C262528D59B00A0CB77 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C252528D59B00A0CB77 /* Selection.swift */; };
 		A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C2A2528D60700A0CB77 /* Checklist.swift */; };
 		A5000C302528D77800A0CB77 /* Date+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */; };
+		A51BE9E9254A1BDE000BE6DC /* Wayfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51BE9E8254A1BDE000BE6DC /* Wayfinder.swift */; };
 		A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E2B2521406A00739F00 /* LogInputType.swift */; };
 		A5B0221F2525777C007412CC /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0221E2525777C007412CC /* LogEntry.swift */; };
 		A5B022242525791C007412CC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B022232525791C007412CC /* Item.swift */; };
+		A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6D7D1254768E000DDB5E2 /* EditValueView.swift */; };
 		A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB058E251FCD2300694FF9 /* RaindropApp.swift */; };
 		A5BB0593251FCD2400694FF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BB0592251FCD2400694FF9 /* Assets.xcassets */; };
 		A5BB0596251FCD2400694FF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BB0595251FCD2400694FF9 /* Preview Assets.xcassets */; };
 		A5BB05A1251FCD2400694FF9 /* RaindropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB05A0251FCD2400694FF9 /* RaindropTests.swift */; };
 		A5BB05AC251FCD2500694FF9 /* RaindropUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */; };
+		A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7793254A109300832862 /* EditValueInteractor.swift */; };
+		A5DE7799254A110000832862 /* EditValueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7798254A110000832862 /* EditValueScene.swift */; };
+		A5DE779E254A113100832862 /* EditValueModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE779D254A113100832862 /* EditValueModels.swift */; };
+		A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE77A2254A122700832862 /* EditValuePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +47,11 @@
 		A5000C252528D59B00A0CB77 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		A5000C2A2528D60700A0CB77 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Extentions.swift"; path = "Raindrop/Domain/SupportTypes/Extensions/Date+Extentions.swift"; sourceTree = SOURCE_ROOT; };
+		A51BE9E8254A1BDE000BE6DC /* Wayfinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wayfinder.swift; sourceTree = "<group>"; };
 		A5530E2B2521406A00739F00 /* LogInputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInputType.swift; sourceTree = "<group>"; };
 		A5B0221E2525777C007412CC /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
 		A5B022232525791C007412CC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A5B6D7D1254768E000DDB5E2 /* EditValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueView.swift; sourceTree = "<group>"; };
 		A5BB058B251FCD2300694FF9 /* Raindrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raindrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BB058E251FCD2300694FF9 /* RaindropApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaindropApp.swift; sourceTree = "<group>"; };
 		A5BB0592251FCD2400694FF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +63,10 @@
 		A5BB05A7251FCD2500694FF9 /* RaindropUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaindropUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaindropUITests.swift; sourceTree = "<group>"; };
 		A5BB05AD251FCD2500694FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5DE7793254A109300832862 /* EditValueInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueInteractor.swift; sourceTree = "<group>"; };
+		A5DE7798254A110000832862 /* EditValueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueScene.swift; sourceTree = "<group>"; };
+		A5DE779D254A113100832862 /* EditValueModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueModels.swift; sourceTree = "<group>"; };
+		A5DE77A2254A122700832862 /* EditValuePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValuePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +102,14 @@
 			path = LogEntry;
 			sourceTree = "<group>";
 		};
+		A51BE9E7254A1B45000BE6DC /* Wayfinder */ = {
+			isa = PBXGroup;
+			children = (
+				A51BE9E8254A1BDE000BE6DC /* Wayfinder.swift */,
+			);
+			path = Wayfinder;
+			sourceTree = "<group>";
+		};
 		A5399F72253256390096A957 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +140,10 @@
 		A54C0439251FE7CC00EEA9D2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A51BE9E7254A1B45000BE6DC /* Wayfinder */,
+				A5B6D7D02547689800DDB5E2 /* EditValue */,
 				A5000C342528D9DB00A0CB77 /* LogEntry */,
+				A5B6D7CF2547689200DDB5E2 /* Templates */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -159,6 +182,25 @@
 				A5000C2A2528D60700A0CB77 /* Checklist.swift */,
 			);
 			path = HelperTypes;
+			sourceTree = "<group>";
+		};
+		A5B6D7CF2547689200DDB5E2 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		A5B6D7D02547689800DDB5E2 /* EditValue */ = {
+			isa = PBXGroup;
+			children = (
+				A5B6D7D1254768E000DDB5E2 /* EditValueView.swift */,
+				A5DE7793254A109300832862 /* EditValueInteractor.swift */,
+				A5DE77A2254A122700832862 /* EditValuePresenter.swift */,
+				A5DE7798254A110000832862 /* EditValueScene.swift */,
+				A5DE779D254A113100832862 /* EditValueModels.swift */,
+			);
+			path = EditValue;
 			sourceTree = "<group>";
 		};
 		A5BB0582251FCD2300694FF9 = {
@@ -348,8 +390,14 @@
 			files = (
 				A5000C262528D59B00A0CB77 /* Selection.swift in Sources */,
 				A5B0221F2525777C007412CC /* LogEntry.swift in Sources */,
+				A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */,
+				A51BE9E9254A1BDE000BE6DC /* Wayfinder.swift in Sources */,
+				A5DE779E254A113100832862 /* EditValueModels.swift in Sources */,
 				A5000C302528D77800A0CB77 /* Date+Extentions.swift in Sources */,
+				A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */,
 				A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */,
+				A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */,
+				A5DE7799254A110000832862 /* EditValueScene.swift in Sources */,
 				A5B022242525791C007412CC /* Item.swift in Sources */,
 				A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */,
 				A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */,
