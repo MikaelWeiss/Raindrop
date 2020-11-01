@@ -11,7 +11,7 @@ import SwiftUI
 struct RaindropApp: App {
     var body: some Scene {
         WindowGroup {
-            return EditValue.Scene().view
+            Wayfinder()
         }
     }
 }

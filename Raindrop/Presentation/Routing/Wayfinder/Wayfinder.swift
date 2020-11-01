@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Wayfinder: View {
     var body: some View {
-        Text("Hello, World!")
+        EditValue.Scene().view
     }
 }
 

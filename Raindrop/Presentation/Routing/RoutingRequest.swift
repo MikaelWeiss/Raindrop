@@ -5,7 +5,7 @@
 //  Created by Mikael Weiss on 10/31/20.
 //
 
-import Foundation
+import SwiftUI
 
 struct RoutingRequest {
 }
