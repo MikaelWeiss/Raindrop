@@ -25,6 +25,11 @@
 		A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE77A2254A122700832862 /* EditValuePresenter.swift */; };
 		A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CD8254DD7270028B475 /* EditValueService.swift */; };
 		A5E40CDE254DD8C50028B475 /* EditValueRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CDD254DD8C50028B475 /* EditValueRouter.swift */; };
+		A5E7986D255304F100DCC918 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7986C255304F100DCC918 /* Styles.swift */; };
+		A5E798752553059D00DCC918 /* CellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E798742553059D00DCC918 /* CellStyle.swift */; };
+		A5E7987A255305CC00DCC918 /* View+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E79879255305CC00DCC918 /* View+Extentions.swift */; };
+		A5E7987F255305EA00DCC918 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7987E255305EA00DCC918 /* FontStyle.swift */; };
+		A5E79888255351C800DCC918 /* DataEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E79887255351C800DCC918 /* DataEntryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,11 @@
 		A5DE77A2254A122700832862 /* EditValuePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValuePresenter.swift; sourceTree = "<group>"; };
 		A5E40CD8254DD7270028B475 /* EditValueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueService.swift; sourceTree = "<group>"; };
 		A5E40CDD254DD8C50028B475 /* EditValueRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueRouter.swift; sourceTree = "<group>"; };
+		A5E7986C255304F100DCC918 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		A5E798742553059D00DCC918 /* CellStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellStyle.swift; sourceTree = "<group>"; };
+		A5E79879255305CC00DCC918 /* View+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extentions.swift"; sourceTree = "<group>"; };
+		A5E7987E255305EA00DCC918 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
+		A5E79887255351C800DCC918 /* DataEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */,
+				A5E79879255305CC00DCC918 /* View+Extentions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -134,8 +145,10 @@
 		A54C0439251FE7CC00EEA9D2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A5E7988325534F0100DCC918 /* Cells */,
 				A5B6D7D02547689800DDB5E2 /* EditValue */,
 				A5000C342528D9DB00A0CB77 /* LogEntry */,
+				A5E7986B255304D300DCC918 /* Styles */,
 				A5B6D7CF2547689200DDB5E2 /* Templates */,
 			);
 			path = Presentation;
@@ -252,6 +265,24 @@
 				A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */,
 			);
 			path = RaindropUITests;
+			sourceTree = "<group>";
+		};
+		A5E7986B255304D300DCC918 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				A5E7986C255304F100DCC918 /* Styles.swift */,
+				A5E7987E255305EA00DCC918 /* FontStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		A5E7988325534F0100DCC918 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A5E798742553059D00DCC918 /* CellStyle.swift */,
+				A5E79887255351C800DCC918 /* DataEntryCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,14 +416,19 @@
 			files = (
 				A5000C262528D59B00A0CB77 /* Selection.swift in Sources */,
 				A5B0221F2525777C007412CC /* LogEntry.swift in Sources */,
+				A5E7987F255305EA00DCC918 /* FontStyle.swift in Sources */,
 				A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */,
+				A5E7987A255305CC00DCC918 /* View+Extentions.swift in Sources */,
 				A5DE779E254A113100832862 /* EditValueModels.swift in Sources */,
 				A5000C302528D77800A0CB77 /* Date+Extentions.swift in Sources */,
 				A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */,
+				A5E7986D255304F100DCC918 /* Styles.swift in Sources */,
 				A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */,
 				A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */,
 				A5E40CDE254DD8C50028B475 /* EditValueRouter.swift in Sources */,
 				A5DE7799254A110000832862 /* EditValueScene.swift in Sources */,
+				A5E79888255351C800DCC918 /* DataEntryCell.swift in Sources */,
+				A5E798752553059D00DCC918 /* CellStyle.swift in Sources */,
 				A5B022242525791C007412CC /* Item.swift in Sources */,
 				A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */,
 				A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */,

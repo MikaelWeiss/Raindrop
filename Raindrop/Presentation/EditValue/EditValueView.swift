@@ -14,16 +14,26 @@ protocol EditValueInputing {
 struct EditValueView: View {
     let interactor: EditValueRequesting
     @ObservedObject var viewModel: EditValue.ViewModel
+    @State var otherSceneShowing = false
     
     // MARK: - View Lifecycle
     var body: some View {
         VStack {
-            EntryField(value: viewModel.textFieldText, onTextChanged: didChangeValue(to:))
-            StandardButton()
+            DataEntryCell(
+                title: "\(viewModel.textFieldTitle)",
+                value: viewModel.textFieldValue) {
+                didChangeValue(to: $0)
+            }
+            StandardButton(title: "Go to a different scene") {
+                
+            }
         }
         .onAppear {
             interactor.updateTheme()
         }
+        .sheet(isPresented: $otherSceneShowing, content: {
+            EditValue.Scene().view
+        })
     }
 }
 
@@ -42,27 +52,19 @@ struct EditValueView_Previews: PreviewProvider {
     }
 }
 
-struct EntryField: View {
-    let value: String
-    let onTextChanged: (String) -> Void
-    
-    var body: some View {
-        let binding = Binding<String>(
-            get: {
-                value
-            }, set: {
-                onTextChanged($0)
-            })
-        TextField("Some title", text: binding)
-            .cellStyle()
-    }
-}
-
 struct StandardButton: View {
+    let title: String
+    let onTap: () -> Void
+    
     var body: some View {
         RoundedRectangle(cornerRadius: 25.0)
             .cellStyle()
             .foregroundColor(.blue)
-            .overlay(Text("Go to other scene"))
+            .overlay (
+                Text(title).fontStyle()
+            )
+            .onTapGesture {
+                onTap()
+            }
     }
 }
