@@ -17,12 +17,13 @@ struct EditValueView: View {
     
     // MARK: - View Lifecycle
     var body: some View {
-        //        TextField("Some Value", text: $value.text)
-        //            .padding()
-        Text(viewModel.title)
-            .onAppear {
-                interactor.updateTheme()
-            }
+        VStack {
+            EntryField(value: viewModel.textFieldText, onTextChanged: didChangeValue(to:))
+            StandardButton()
+        }
+        .onAppear {
+            interactor.updateTheme()
+        }
     }
 }
 
@@ -35,22 +36,33 @@ extension EditValueView: EditValueInputing {
     }
 }
 
-//struct EditValueView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditValueView()
-//    }
-//}
-
-class EditingText: ObservableObject {
-    let onValueChanged: (String) -> Void
-    
-    @Published var text: String = "" {
-        didSet {
-            onValueChanged(text)
-        }
+struct EditValueView_Previews: PreviewProvider {
+    static var previews: some View {
+        EditValue.Scene().view
     }
+}
+
+struct EntryField: View {
+    let value: String
+    let onTextChanged: (String) -> Void
     
-    init(onValueChanged: @escaping (String) -> Void) {
-        self.onValueChanged = onValueChanged
+    var body: some View {
+        let binding = Binding<String>(
+            get: {
+                value
+            }, set: {
+                onTextChanged($0)
+            })
+        TextField("Some title", text: binding)
+            .cellStyle()
+    }
+}
+
+struct StandardButton: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 25.0)
+            .cellStyle()
+            .foregroundColor(.blue)
+            .overlay(Text("Go to other scene"))
     }
 }

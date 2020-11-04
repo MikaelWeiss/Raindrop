@@ -23,6 +23,8 @@ extension EditValue {
     }
     
     class ViewModel: ObservableObject {
-        @Published var title: String = ""
+        @Published var title = ""
+        @Published var otherSceneShowing = false
+        @Published var textFieldText = ""
     }
 }
