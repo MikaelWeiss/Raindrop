@@ -33,26 +33,25 @@ struct EditValueView: View {
                 prepareRouteToSheet()
                 sheetShowing = true
             }
+            .sheet(isPresented: $sheetShowing) {
+            }
             
             StandardButton(title: "Route to another scene") {
                 prepareRouteToOtherScene()
                 isShowingOtherScene = true
             }
-            .wrapInNavigationLink(
-                isActive: $isShowingOtherScene,
-                destination: Text("Sup"))
+            .wrapInNavigationLink(isActive: $isShowingOtherScene) {
+                Text("Sup")
+            }
             
             Text("Sup")
-                .wrapInNavigationLink(isActive: $isShowingSecondScene, destination: Text("Sup"))
+                .wrapInNavigationLink(isActive: $isShowingSecondScene) {
+                    Text("Sup")
+                }
         }
         .wrapInNavigationView()
         .onAppear {
             interactor.updateTheme()
-        }
-        .sheet(isPresented: $sheetShowing) {
-            Group {
-                
-            }
         }
     }
 }
