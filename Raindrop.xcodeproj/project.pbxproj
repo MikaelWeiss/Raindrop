@@ -284,7 +284,6 @@
 			children = (
 				A5E798742553059D00DCC918 /* CellStyle.swift */,
 				A5E79887255351C800DCC918 /* DataEntryCell.swift */,
-				A5E7988D255616BC00DCC918 /* WrapInNavigationView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -292,6 +291,7 @@
 		A5E7988C255616A400DCC918 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				A5E7988D255616BC00DCC918 /* WrapInNavigationView.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";

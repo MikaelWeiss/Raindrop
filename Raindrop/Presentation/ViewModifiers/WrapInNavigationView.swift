@@ -24,16 +24,19 @@ extension View {
 
 struct NavigationLinkWrapper<Destination>: ViewModifier where Destination : View {
     let destination: Destination
+    let isActive: Binding<Bool>
+    
     func body(content: Content) -> some View {
         NavigationLink(
             destination: destination,
+            isActive: isActive,
             label: { content })
             .buttonStyle(PlainButtonStyle())
     }
 }
 
 extension View {
-    func wrapInNavigationLink<Destination : View>(destination: Destination) -> some View {
-        self.modifier(NavigationLinkWrapper(destination: destination))
+    func wrapInNavigationLink<Destination : View>(isActive: Binding<Bool>, destination: Destination) -> some View {
+        self.modifier(NavigationLinkWrapper(destination: destination, isActive: isActive))
     }
 }
