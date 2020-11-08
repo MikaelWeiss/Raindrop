@@ -18,14 +18,14 @@ struct EditValueView: View {
     @ObservedObject var viewModel: EditValue.ViewModel
     @State private var sheetShowing = false
     @State private var isShowingOtherScene = false
-    @State private var isShowingSecondScene = false
     
     // MARK: - View Lifecycle
     var body: some View {
         VStack {
             DataEntryCell(
                 title: "\(viewModel.textFieldTitle)",
-                value: viewModel.textFieldValue, onTextChanged:  {
+                value: viewModel.textFieldValue,
+                onTextChanged:  {
                     didChangeValue(to: $0)
                 })
             
@@ -34,6 +34,7 @@ struct EditValueView: View {
                 sheetShowing = true
             }
             .sheet(isPresented: $sheetShowing) {
+                Text("This is a sheet")
             }
             
             StandardButton(title: "Route to another scene") {
@@ -41,15 +42,10 @@ struct EditValueView: View {
                 isShowingOtherScene = true
             }
             .wrapInNavigationLink(isActive: $isShowingOtherScene) {
-                Text("Sup")
+                Text("This is another scene")
             }
-            
-            Text("Sup")
-                .wrapInNavigationLink(isActive: $isShowingSecondScene) {
-                    Text("Sup")
-                }
         }
-        .wrapInNavigationView()
+        .wrapInPlainNavigationView()
         .onAppear {
             interactor.updateTheme()
         }

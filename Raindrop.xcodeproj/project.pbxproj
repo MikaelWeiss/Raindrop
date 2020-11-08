@@ -23,6 +23,7 @@
 		A5DE7799254A110000832862 /* EditValueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7798254A110000832862 /* EditValueScene.swift */; };
 		A5DE779E254A113100832862 /* EditValueModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE779D254A113100832862 /* EditValueModels.swift */; };
 		A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE77A2254A122700832862 /* EditValuePresenter.swift */; };
+		A5DEED7F2558701300CD4E25 /* WrapInNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEED7E2558701300CD4E25 /* WrapInNavigationLink.swift */; };
 		A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CD8254DD7270028B475 /* EditValueService.swift */; };
 		A5E40CDE254DD8C50028B475 /* EditValueRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CDD254DD8C50028B475 /* EditValueRouter.swift */; };
 		A5E7986D255304F100DCC918 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7986C255304F100DCC918 /* Styles.swift */; };
@@ -30,7 +31,7 @@
 		A5E7987A255305CC00DCC918 /* View+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E79879255305CC00DCC918 /* View+Extentions.swift */; };
 		A5E7987F255305EA00DCC918 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7987E255305EA00DCC918 /* FontStyle.swift */; };
 		A5E79888255351C800DCC918 /* DataEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E79887255351C800DCC918 /* DataEntryCell.swift */; };
-		A5E7988E255616BC00DCC918 /* WrapInNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7988D255616BC00DCC918 /* WrapInNavigationView.swift */; };
+		A5E7988E255616BC00DCC918 /* WrapInPlainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7988D255616BC00DCC918 /* WrapInPlainNavigationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		A5DE7798254A110000832862 /* EditValueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueScene.swift; sourceTree = "<group>"; };
 		A5DE779D254A113100832862 /* EditValueModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueModels.swift; sourceTree = "<group>"; };
 		A5DE77A2254A122700832862 /* EditValuePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValuePresenter.swift; sourceTree = "<group>"; };
+		A5DEED7E2558701300CD4E25 /* WrapInNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapInNavigationLink.swift; sourceTree = "<group>"; };
 		A5E40CD8254DD7270028B475 /* EditValueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueService.swift; sourceTree = "<group>"; };
 		A5E40CDD254DD8C50028B475 /* EditValueRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueRouter.swift; sourceTree = "<group>"; };
 		A5E7986C255304F100DCC918 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
@@ -80,7 +82,7 @@
 		A5E79879255305CC00DCC918 /* View+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extentions.swift"; sourceTree = "<group>"; };
 		A5E7987E255305EA00DCC918 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		A5E79887255351C800DCC918 /* DataEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntryCell.swift; sourceTree = "<group>"; };
-		A5E7988D255616BC00DCC918 /* WrapInNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapInNavigationView.swift; sourceTree = "<group>"; };
+		A5E7988D255616BC00DCC918 /* WrapInPlainNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapInPlainNavigationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 		A5E7986B255304D300DCC918 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				A5E798742553059D00DCC918 /* CellStyle.swift */,
 				A5E7986C255304F100DCC918 /* Styles.swift */,
 				A5E7987E255305EA00DCC918 /* FontStyle.swift */,
 			);
@@ -282,7 +285,6 @@
 		A5E7988325534F0100DCC918 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				A5E798742553059D00DCC918 /* CellStyle.swift */,
 				A5E79887255351C800DCC918 /* DataEntryCell.swift */,
 			);
 			path = Cells;
@@ -291,7 +293,8 @@
 		A5E7988C255616A400DCC918 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
-				A5E7988D255616BC00DCC918 /* WrapInNavigationView.swift */,
+				A5E7988D255616BC00DCC918 /* WrapInPlainNavigationView.swift */,
+				A5DEED7E2558701300CD4E25 /* WrapInNavigationLink.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -430,7 +433,7 @@
 				A5E7987F255305EA00DCC918 /* FontStyle.swift in Sources */,
 				A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */,
 				A5E7987A255305CC00DCC918 /* View+Extentions.swift in Sources */,
-				A5E7988E255616BC00DCC918 /* WrapInNavigationView.swift in Sources */,
+				A5E7988E255616BC00DCC918 /* WrapInPlainNavigationView.swift in Sources */,
 				A5DE779E254A113100832862 /* EditValueModels.swift in Sources */,
 				A5000C302528D77800A0CB77 /* Date+Extentions.swift in Sources */,
 				A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */,
@@ -442,6 +445,7 @@
 				A5E79888255351C800DCC918 /* DataEntryCell.swift in Sources */,
 				A5E798752553059D00DCC918 /* CellStyle.swift in Sources */,
 				A5B022242525791C007412CC /* Item.swift in Sources */,
+				A5DEED7F2558701300CD4E25 /* WrapInNavigationLink.swift in Sources */,
 				A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */,
 				A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */,
 				A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */,
