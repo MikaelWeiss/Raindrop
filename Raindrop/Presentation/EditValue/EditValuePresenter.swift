@@ -17,6 +17,7 @@ struct EditValuePresenter: EditValuePresenting {
     
     func presentUpdateTheme() {
         viewModel.title = EditValue.Strings.sceneTitle
+        viewModel.textFieldTitle = "Some title"
     }
     
     func presentDidChangeValue(with response: EditValue.ValidateValue.Response) {

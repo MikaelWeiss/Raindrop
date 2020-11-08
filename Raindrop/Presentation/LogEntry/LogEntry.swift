@@ -16,7 +16,7 @@ struct LogEntry: View {
             LazyVStack(alignment: .leading, spacing: 0) {
                 ComputedValueItem(title: "Log #", value: "1")
                 DateItem(date: $date, title: "Date")
-                StringEntryItem(title: "Description", value: $description)
+                DataEntryCell(title: "Description", value: description)
             }
         }
         .font(.system(size: 18, weight: .heavy, design: .rounded))

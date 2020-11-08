@@ -30,6 +30,7 @@
 		A5E7987A255305CC00DCC918 /* View+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E79879255305CC00DCC918 /* View+Extentions.swift */; };
 		A5E7987F255305EA00DCC918 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7987E255305EA00DCC918 /* FontStyle.swift */; };
 		A5E79888255351C800DCC918 /* DataEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E79887255351C800DCC918 /* DataEntryCell.swift */; };
+		A5E7988E255616BC00DCC918 /* WrapInNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7988D255616BC00DCC918 /* WrapInNavigationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		A5E79879255305CC00DCC918 /* View+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extentions.swift"; sourceTree = "<group>"; };
 		A5E7987E255305EA00DCC918 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		A5E79887255351C800DCC918 /* DataEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntryCell.swift; sourceTree = "<group>"; };
+		A5E7988D255616BC00DCC918 /* WrapInNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapInNavigationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		A54C0439251FE7CC00EEA9D2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A5E7988C255616A400DCC918 /* ViewModifiers */,
 				A5E7988325534F0100DCC918 /* Cells */,
 				A5B6D7D02547689800DDB5E2 /* EditValue */,
 				A5000C342528D9DB00A0CB77 /* LogEntry */,
@@ -281,8 +284,16 @@
 			children = (
 				A5E798742553059D00DCC918 /* CellStyle.swift */,
 				A5E79887255351C800DCC918 /* DataEntryCell.swift */,
+				A5E7988D255616BC00DCC918 /* WrapInNavigationView.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A5E7988C255616A400DCC918 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +430,7 @@
 				A5E7987F255305EA00DCC918 /* FontStyle.swift in Sources */,
 				A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */,
 				A5E7987A255305CC00DCC918 /* View+Extentions.swift in Sources */,
+				A5E7988E255616BC00DCC918 /* WrapInNavigationView.swift in Sources */,
 				A5DE779E254A113100832862 /* EditValueModels.swift in Sources */,
 				A5000C302528D77800A0CB77 /* Date+Extentions.swift in Sources */,
 				A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */,

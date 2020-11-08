@@ -11,6 +11,7 @@ struct CellStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(height: 56, alignment: .center)
+            .frame(maxWidth: 400)
             .padding(.horizontal, 16)
     }
 }

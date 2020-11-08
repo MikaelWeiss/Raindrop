@@ -9,40 +9,63 @@ import SwiftUI
 
 protocol EditValueInputing {
     func didChangeValue(to value: String)
+    func prepareRouteToSheet()
+    func prepareRouteToOtherScene()
 }
 
 struct EditValueView: View {
     let interactor: EditValueRequesting
     @ObservedObject var viewModel: EditValue.ViewModel
-    @State var otherSceneShowing = false
+    @State var sheetShowing = false
     
     // MARK: - View Lifecycle
     var body: some View {
         VStack {
             DataEntryCell(
                 title: "\(viewModel.textFieldTitle)",
-                value: viewModel.textFieldValue) {
-                didChangeValue(to: $0)
+                value: viewModel.textFieldValue, onTextChanged:  {
+                    didChangeValue(to: $0)
+                })
+            
+            StandardButton(title: "Open a sheet") {
+                prepareRouteToSheet()
+                sheetShowing = true
             }
-            StandardButton(title: "Go to a different scene") {
-                
+            
+            StandardButton(title: "Route to another scene") {
+                prepareRouteToOtherScene()
             }
+            .wrapInNavigationLink(destination: Text("Sup"))
+            
+            Text("Sup")
+                .wrapInNavigationLink(destination: Text("What??"))
         }
+        .wrapInNavigationView()
         .onAppear {
             interactor.updateTheme()
         }
-        .sheet(isPresented: $otherSceneShowing, content: {
-            EditValue.Scene().view
-        })
+        .sheet(isPresented: $sheetShowing) {
+            Group {
+                
+            }
+        }
     }
 }
 
-// MARK: Displaying
+// MARK: Inputing
 
 extension EditValueView: EditValueInputing {
     func didChangeValue(to value: String) {
         let request = EditValue.ValidateValue.Request(value: value)
         interactor.didChangeValue(with: request)
+    }
+    
+    func prepareRouteToSheet() {
+        
+    }
+    
+    func prepareRouteToOtherScene() {
+        
     }
 }
 
