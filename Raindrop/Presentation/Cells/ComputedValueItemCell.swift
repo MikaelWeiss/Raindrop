@@ -27,8 +27,11 @@ struct ComputedValueItemCell_Previews: PreviewProvider {
             VStack {
                 ComputedValueItemCell(title: "Some title", value: "Some value")
             }.colorScheme(.light)
-            VStack {
-                ComputedValueItemCell(title: "Some title", value: "Some value")
+            ZStack {
+                Color.black
+                VStack {
+                    ComputedValueItemCell(title: "Some title", value: "Some value")
+                }
             }.colorScheme(.dark)
         }.previewLayout(.sizeThatFits)
     }

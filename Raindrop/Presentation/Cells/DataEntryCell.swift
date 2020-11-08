@@ -48,9 +48,12 @@ struct DataEntryCell_Previews: PreviewProvider {
                 DataEntryCell(title: "Something", value: "")
                 DataEntryCell(title: "Something", value: "Something else")
             }.colorScheme(.light)
-            VStack {
-                DataEntryCell(title: "Something", value: "")
-                DataEntryCell(title: "Something", value: "Something else")
+            ZStack {
+                Color.black
+                VStack {
+                    DataEntryCell(title: "Something", value: "")
+                    DataEntryCell(title: "Something", value: "Something else")
+                }
             }.colorScheme(.dark)
         }.previewLayout(.sizeThatFits)
     }

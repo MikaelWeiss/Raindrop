@@ -27,8 +27,11 @@ struct DateItemCell_Previews: PreviewProvider {
             VStack {
                 DateItemCell(date: .constant(nil), title: "Some title")
             }.colorScheme(.light)
-            VStack {
-                DateItemCell(date: .constant(nil), title: "Some title")
+            ZStack {
+                Color.black
+                VStack {
+                    DateItemCell(date: .constant(nil), title: "Some title")
+                }
             }.colorScheme(.dark)
         }.previewLayout(.sizeThatFits)
     }

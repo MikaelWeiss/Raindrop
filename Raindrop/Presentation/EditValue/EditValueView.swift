@@ -74,20 +74,3 @@ struct EditValueView_Previews: PreviewProvider {
         EditValue.Scene().view
     }
 }
-
-struct StandardButton: View {
-    let title: String
-    let onTap: () -> Void
-    
-    var body: some View {
-        RoundedRectangle(cornerRadius: 25.0)
-            .cellStyle()
-            .foregroundColor(.blue)
-            .overlay (
-                Text(title).fontStyle()
-            )
-            .onTapGesture {
-                onTap()
-            }
-    }
-}
