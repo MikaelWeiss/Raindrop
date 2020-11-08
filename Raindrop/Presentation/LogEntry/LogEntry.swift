@@ -14,8 +14,8 @@ struct LogEntry: View {
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 0) {
-                ComputedValueItem(title: "Log #", value: "1")
-                DateItem(date: $date, title: "Date")
+                ComputedValueItemCell(title: "Log #", value: "1")
+                DateItemCell(date: $date, title: "Date")
                 DataEntryCell(title: "Description", value: description)
             }
         }
@@ -32,33 +32,5 @@ struct LogEntry_Previews: PreviewProvider {
             LogEntry()
                 .colorScheme(.dark)
         }
-    }
-}
-
-struct DateItem: View {
-    @Binding var date: Date?
-    let title: String
-    
-    var body: some View {
-        let dateBinding = Binding(
-            get: { self.date ?? Date.today },
-            set: { self.date = $0 }
-        )
-        return DatePicker(selection: dateBinding, label: { Text(title) })
-            .cellStyle()
-    }
-}
-
-struct ComputedValueItem: View {
-    let title: String
-    let value: String
-    
-    var body: some View {
-        HStack {
-            Text(title)
-            Spacer()
-            Text(value)
-        }
-        .cellStyle()
     }
 }

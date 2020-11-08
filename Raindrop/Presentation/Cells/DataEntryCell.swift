@@ -33,12 +33,25 @@ struct DataEntryCell: View {
             }, set: {
                 onTextChanged($0)
             })
-        return ZStack(alignment: .topLeading) {
-            TextField(title,
-                      text: valueBinding,
-                      onEditingChanged: onEditingChanged,
-                      onCommit: onCommit)
-        }
+        return TextField(title,
+                         text: valueBinding,
+                         onEditingChanged: onEditingChanged,
+                         onCommit: onCommit)
         .cellStyle()
+    }
+}
+
+struct DataEntryCell_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            VStack {
+                DataEntryCell(title: "Something", value: "")
+                DataEntryCell(title: "Something", value: "Something else")
+            }.colorScheme(.light)
+            VStack {
+                DataEntryCell(title: "Something", value: "")
+                DataEntryCell(title: "Something", value: "Something else")
+            }.colorScheme(.dark)
+        }.previewLayout(.sizeThatFits)
     }
 }
