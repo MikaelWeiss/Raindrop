@@ -38,6 +38,7 @@ struct DataEntryCell: View {
                          onEditingChanged: onEditingChanged,
                          onCommit: onCommit)
         .cellStyle()
+        .fontStyle()
     }
 }
 
