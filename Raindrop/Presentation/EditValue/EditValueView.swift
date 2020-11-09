@@ -16,8 +16,6 @@ protocol EditValueInputing {
 struct EditValueView: View {
     let interactor: EditValueRequesting
     @ObservedObject var viewModel: EditValue.ViewModel
-    @State private var sheetShowing = false
-    @State private var isShowingOtherScene = false
     
     // MARK: - View Lifecycle
     var body: some View {
@@ -28,20 +26,17 @@ struct EditValueView: View {
                 onTextChanged:  {
                     didChangeValue(to: $0)
                 })
-            
             StandardButton(title: "Open a sheet") {
                 prepareRouteToSheet()
-                sheetShowing = viewModel.sheetShowing
             }
-            .sheet(isPresented: $sheetShowing) {
+            .sheet(isPresented: $viewModel.sheetShowing) {
                 Text("This is a sheet")
             }
             
             StandardButton(title: "Route to another scene") {
                 prepareRouteToOtherScene()
-                isShowingOtherScene = viewModel.isShowingOtherScene
             }
-            .wrapInNavigationLink(isActive: $isShowingOtherScene) {
+            .wrapInNavigationLink(isActive: $viewModel.isShowingOtherScene) {
                 Text("This is another scene")
             }
         }
