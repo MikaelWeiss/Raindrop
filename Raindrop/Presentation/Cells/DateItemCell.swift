@@ -18,6 +18,7 @@ struct DateItemCell: View {
         )
         return DatePicker(selection: dateBinding, label: { Text(title) })
             .cellStyle()
+            .fontStyle()
     }
 }
 

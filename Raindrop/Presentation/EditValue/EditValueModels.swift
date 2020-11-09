@@ -26,6 +26,7 @@ extension EditValue {
         @Published var title = ""
         @Published var textFieldTitle = ""
         @Published var textFieldValue = ""
-        var otherSceneShowing = false
+        var isShowingOtherScene = false
+        var sheetShowing = false
     }
 }

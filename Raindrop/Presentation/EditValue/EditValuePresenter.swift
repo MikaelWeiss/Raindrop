@@ -10,6 +10,8 @@ import Foundation
 protocol EditValuePresenting {
     func presentDidChangeValue(with response: EditValue.ValidateValue.Response)
     func presentUpdateTheme()
+    func presentPrepareRouteToSheet()
+    func presentPrepareRouteToOtherScene()
 }
 
 struct EditValuePresenter: EditValuePresenting {
@@ -21,6 +23,14 @@ struct EditValuePresenter: EditValuePresenting {
     }
     
     func presentDidChangeValue(with response: EditValue.ValidateValue.Response) {
-        
+        viewModel.textFieldValue = response.value
+    }
+    
+    func presentPrepareRouteToSheet() {
+        viewModel.sheetShowing = true
+    }
+    
+    func presentPrepareRouteToOtherScene() {
+        viewModel.isShowingOtherScene = true
     }
 }

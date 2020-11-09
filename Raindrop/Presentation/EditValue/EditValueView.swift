@@ -31,7 +31,7 @@ struct EditValueView: View {
             
             StandardButton(title: "Open a sheet") {
                 prepareRouteToSheet()
-                sheetShowing = true
+                sheetShowing = viewModel.sheetShowing
             }
             .sheet(isPresented: $sheetShowing) {
                 Text("This is a sheet")
@@ -39,7 +39,7 @@ struct EditValueView: View {
             
             StandardButton(title: "Route to another scene") {
                 prepareRouteToOtherScene()
-                isShowingOtherScene = true
+                isShowingOtherScene = viewModel.isShowingOtherScene
             }
             .wrapInNavigationLink(isActive: $isShowingOtherScene) {
                 Text("This is another scene")
@@ -61,11 +61,11 @@ extension EditValueView: EditValueInputing {
     }
     
     func prepareRouteToSheet() {
-        
+        interactor.prepareRouteToSheet()
     }
     
     func prepareRouteToOtherScene() {
-        
+        interactor.prepareRouteToOtherScene()
     }
 }
 

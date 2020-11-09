@@ -18,6 +18,7 @@ struct ComputedValueItemCell: View {
             Text(value)
         }
         .cellStyle()
+        .fontStyle()
     }
 }
 
