@@ -27,8 +27,9 @@
 		A5DEED872558714100CD4E25 /* DateItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEED862558714100CD4E25 /* DateItemCell.swift */; };
 		A5DEED8F2558716F00CD4E25 /* ComputedValueItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEED8E2558716F00CD4E25 /* ComputedValueItemCell.swift */; };
 		A5DEED982558741200CD4E25 /* StandardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEED972558741200CD4E25 /* StandardButton.swift */; };
+		A5DEEDA02559E6A500CD4E25 /* EditValueInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEED9F2559E6A500CD4E25 /* EditValueInteractorTests.swift */; };
+		A5DEEDAE2559E9ED00CD4E25 /* EditValuePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEEDAD2559E9ED00CD4E25 /* EditValuePresenterTests.swift */; };
 		A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CD8254DD7270028B475 /* EditValueService.swift */; };
-		A5E40CDE254DD8C50028B475 /* EditValueRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CDD254DD8C50028B475 /* EditValueRouter.swift */; };
 		A5E7986D255304F100DCC918 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7986C255304F100DCC918 /* Styles.swift */; };
 		A5E798752553059D00DCC918 /* CellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E798742553059D00DCC918 /* CellStyle.swift */; };
 		A5E7987A255305CC00DCC918 /* View+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E79879255305CC00DCC918 /* View+Extentions.swift */; };
@@ -81,8 +82,9 @@
 		A5DEED862558714100CD4E25 /* DateItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateItemCell.swift; sourceTree = "<group>"; };
 		A5DEED8E2558716F00CD4E25 /* ComputedValueItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputedValueItemCell.swift; sourceTree = "<group>"; };
 		A5DEED972558741200CD4E25 /* StandardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardButton.swift; sourceTree = "<group>"; };
+		A5DEED9F2559E6A500CD4E25 /* EditValueInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueInteractorTests.swift; sourceTree = "<group>"; };
+		A5DEEDAD2559E9ED00CD4E25 /* EditValuePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValuePresenterTests.swift; sourceTree = "<group>"; };
 		A5E40CD8254DD7270028B475 /* EditValueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueService.swift; sourceTree = "<group>"; };
-		A5E40CDD254DD8C50028B475 /* EditValueRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueRouter.swift; sourceTree = "<group>"; };
 		A5E7986C255304F100DCC918 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		A5E798742553059D00DCC918 /* CellStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellStyle.swift; sourceTree = "<group>"; };
 		A5E79879255305CC00DCC918 /* View+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extentions.swift"; sourceTree = "<group>"; };
@@ -213,9 +215,10 @@
 			isa = PBXGroup;
 			children = (
 				A5DE7793254A109300832862 /* EditValueInteractor.swift */,
+				A5DEED9F2559E6A500CD4E25 /* EditValueInteractorTests.swift */,
 				A5DE779D254A113100832862 /* EditValueModels.swift */,
 				A5DE77A2254A122700832862 /* EditValuePresenter.swift */,
-				A5E40CDD254DD8C50028B475 /* EditValueRouter.swift */,
+				A5DEEDAD2559E9ED00CD4E25 /* EditValuePresenterTests.swift */,
 				A5DE7798254A110000832862 /* EditValueScene.swift */,
 				A5E40CD8254DD7270028B475 /* EditValueService.swift */,
 				A5B6D7D1254768E000DDB5E2 /* EditValueView.swift */,
@@ -457,7 +460,6 @@
 				A5E7986D255304F100DCC918 /* Styles.swift in Sources */,
 				A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */,
 				A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */,
-				A5E40CDE254DD8C50028B475 /* EditValueRouter.swift in Sources */,
 				A5DE7799254A110000832862 /* EditValueScene.swift in Sources */,
 				A5E79888255351C800DCC918 /* DataEntryCell.swift in Sources */,
 				A5E798752553059D00DCC918 /* CellStyle.swift in Sources */,
@@ -476,6 +478,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5DEEDAE2559E9ED00CD4E25 /* EditValuePresenterTests.swift in Sources */,
+				A5DEEDA02559E6A500CD4E25 /* EditValueInteractorTests.swift in Sources */,
 				A5BB05A1251FCD2400694FF9 /* RaindropTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

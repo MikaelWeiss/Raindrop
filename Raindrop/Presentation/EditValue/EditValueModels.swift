@@ -20,6 +20,7 @@ extension EditValue {
     
     enum Strings {
         static let sceneTitle = NSLocalizedString("Some title", comment: "The title for the scene")
+        static let textFieldTitle = NSLocalizedString("Some title", comment: "The title for some text field")
     }
     
     class ViewModel: ObservableObject {

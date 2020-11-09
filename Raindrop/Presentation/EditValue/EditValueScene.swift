@@ -13,9 +13,8 @@ enum EditValue {
         
         init() {
             let service = EditValue.Service()
-            let router = EditValueRouter()
             let presenter = EditValuePresenter()
-            let interactor = EditValueInteractor(service: service, presenter: presenter, router: router)
+            let interactor = EditValueInteractor(service: service, presenter: presenter)
             view = EditValueView(interactor: interactor, viewModel: presenter.viewModel)
         }
     }
