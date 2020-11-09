@@ -29,6 +29,7 @@
 		A5DEED982558741200CD4E25 /* StandardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEED972558741200CD4E25 /* StandardButton.swift */; };
 		A5DEEDA02559E6A500CD4E25 /* EditValueInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEED9F2559E6A500CD4E25 /* EditValueInteractorTests.swift */; };
 		A5DEEDAE2559E9ED00CD4E25 /* EditValuePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEEDAD2559E9ED00CD4E25 /* EditValuePresenterTests.swift */; };
+		A5DEEDB32559F77900CD4E25 /* EditValueServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEEDB22559F77900CD4E25 /* EditValueServiceTests.swift */; };
 		A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CD8254DD7270028B475 /* EditValueService.swift */; };
 		A5E7986D255304F100DCC918 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7986C255304F100DCC918 /* Styles.swift */; };
 		A5E798752553059D00DCC918 /* CellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E798742553059D00DCC918 /* CellStyle.swift */; };
@@ -84,6 +85,7 @@
 		A5DEED972558741200CD4E25 /* StandardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardButton.swift; sourceTree = "<group>"; };
 		A5DEED9F2559E6A500CD4E25 /* EditValueInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueInteractorTests.swift; sourceTree = "<group>"; };
 		A5DEEDAD2559E9ED00CD4E25 /* EditValuePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValuePresenterTests.swift; sourceTree = "<group>"; };
+		A5DEEDB22559F77900CD4E25 /* EditValueServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueServiceTests.swift; sourceTree = "<group>"; };
 		A5E40CD8254DD7270028B475 /* EditValueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueService.swift; sourceTree = "<group>"; };
 		A5E7986C255304F100DCC918 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		A5E798742553059D00DCC918 /* CellStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellStyle.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				A5DEEDAD2559E9ED00CD4E25 /* EditValuePresenterTests.swift */,
 				A5DE7798254A110000832862 /* EditValueScene.swift */,
 				A5E40CD8254DD7270028B475 /* EditValueService.swift */,
+				A5DEEDB22559F77900CD4E25 /* EditValueServiceTests.swift */,
 				A5B6D7D1254768E000DDB5E2 /* EditValueView.swift */,
 			);
 			path = EditValue;
@@ -479,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5DEEDAE2559E9ED00CD4E25 /* EditValuePresenterTests.swift in Sources */,
+				A5DEEDB32559F77900CD4E25 /* EditValueServiceTests.swift in Sources */,
 				A5DEEDA02559E6A500CD4E25 /* EditValueInteractorTests.swift in Sources */,
 				A5BB05A1251FCD2400694FF9 /* RaindropTests.swift in Sources */,
 			);
