@@ -20,6 +20,22 @@
 		A5BB05A1251FCD2400694FF9 /* RaindropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB05A0251FCD2400694FF9 /* RaindropTests.swift */; };
 		A5BB05AC251FCD2500694FF9 /* RaindropUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */; };
 		A5C1B472255A26CA00DD35D2 /* EditValueViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEEDB72559FA3F00CD4E25 /* EditValueViewTests.swift */; };
+		A5C1B49A255A39D800DD35D2 /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5C1B487255A39D800DD35D2 /* TemplateIcon@2x.png */; };
+		A5C1B49B255A39D800DD35D2 /* ___FILEBASENAME___Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1B488255A39D800DD35D2 /* ___FILEBASENAME___Presenter.swift */; };
+		A5C1B49D255A39D800DD35D2 /* ___FILEBASENAME___Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1B48A255A39D800DD35D2 /* ___FILEBASENAME___Models.swift */; };
+		A5C1B49E255A39D800DD35D2 /* ___FILEBASENAME___ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1B48B255A39D800DD35D2 /* ___FILEBASENAME___ViewController.swift */; };
+		A5C1B49F255A39D800DD35D2 /* ___FILEBASENAME___Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1B48C255A39D800DD35D2 /* ___FILEBASENAME___Scene.swift */; };
+		A5C1B4A0255A39D800DD35D2 /* ___FILEBASENAME___Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1B48D255A39D800DD35D2 /* ___FILEBASENAME___Interactor.swift */; };
+		A5C1B4A1255A39D800DD35D2 /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5C1B48E255A39D800DD35D2 /* TemplateIcon.png */; };
+		A5C1B4A2255A39D800DD35D2 /* ___FILEBASENAME___Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1B48F255A39D800DD35D2 /* ___FILEBASENAME___Service.swift */; };
+		A5C1B4A3255A39D800DD35D2 /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5C1B490255A39D800DD35D2 /* TemplateInfo.plist */; };
+		A5C1B4A4255A39D800DD35D2 /* ___FILEBASENAME___ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1B492255A39D800DD35D2 /* ___FILEBASENAME___ViewControllerTests.swift */; };
+		A5C1B4A5255A39D800DD35D2 /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5C1B493255A39D800DD35D2 /* TemplateIcon@2x.png */; };
+		A5C1B4A6255A39D800DD35D2 /* ___FILEBASENAME___InteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1B494255A39D800DD35D2 /* ___FILEBASENAME___InteractorTests.swift */; };
+		A5C1B4A7255A39D800DD35D2 /* ___FILEBASENAME___PresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1B495255A39D800DD35D2 /* ___FILEBASENAME___PresenterTests.swift */; };
+		A5C1B4A8255A39D800DD35D2 /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5C1B496255A39D800DD35D2 /* TemplateIcon.png */; };
+		A5C1B4A9255A39D800DD35D2 /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5C1B497255A39D800DD35D2 /* TemplateInfo.plist */; };
+		A5C1B4AA255A39D800DD35D2 /* ___FILEBASENAME___ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1B498255A39D800DD35D2 /* ___FILEBASENAME___ServiceTests.swift */; };
 		A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7793254A109300832862 /* EditValueInteractor.swift */; };
 		A5DE7799254A110000832862 /* EditValueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7798254A110000832862 /* EditValueScene.swift */; };
 		A5DE779E254A113100832862 /* EditValueModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE779D254A113100832862 /* EditValueModels.swift */; };
@@ -76,6 +92,22 @@
 		A5BB05A7251FCD2500694FF9 /* RaindropUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaindropUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaindropUITests.swift; sourceTree = "<group>"; };
 		A5BB05AD251FCD2500694FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5C1B487255A39D800DD35D2 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
+		A5C1B488255A39D800DD35D2 /* ___FILEBASENAME___Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___Presenter.swift"; sourceTree = "<group>"; };
+		A5C1B48A255A39D800DD35D2 /* ___FILEBASENAME___Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___Models.swift"; sourceTree = "<group>"; };
+		A5C1B48B255A39D800DD35D2 /* ___FILEBASENAME___ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___ViewController.swift"; sourceTree = "<group>"; };
+		A5C1B48C255A39D800DD35D2 /* ___FILEBASENAME___Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___Scene.swift"; sourceTree = "<group>"; };
+		A5C1B48D255A39D800DD35D2 /* ___FILEBASENAME___Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___Interactor.swift"; sourceTree = "<group>"; };
+		A5C1B48E255A39D800DD35D2 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
+		A5C1B48F255A39D800DD35D2 /* ___FILEBASENAME___Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___Service.swift"; sourceTree = "<group>"; };
+		A5C1B490255A39D800DD35D2 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
+		A5C1B492255A39D800DD35D2 /* ___FILEBASENAME___ViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___ViewControllerTests.swift"; sourceTree = "<group>"; };
+		A5C1B493255A39D800DD35D2 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
+		A5C1B494255A39D800DD35D2 /* ___FILEBASENAME___InteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___InteractorTests.swift"; sourceTree = "<group>"; };
+		A5C1B495255A39D800DD35D2 /* ___FILEBASENAME___PresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___PresenterTests.swift"; sourceTree = "<group>"; };
+		A5C1B496255A39D800DD35D2 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
+		A5C1B497255A39D800DD35D2 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
+		A5C1B498255A39D800DD35D2 /* ___FILEBASENAME___ServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___ServiceTests.swift"; sourceTree = "<group>"; };
 		A5DE7793254A109300832862 /* EditValueInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueInteractor.swift; sourceTree = "<group>"; };
 		A5DE7798254A110000832862 /* EditValueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueScene.swift; sourceTree = "<group>"; };
 		A5DE779D254A113100832862 /* EditValueModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueModels.swift; sourceTree = "<group>"; };
@@ -211,6 +243,7 @@
 		A5B6D7CF2547689200DDB5E2 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				A5C1B484255A39D800DD35D2 /* Clean Swift */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -286,6 +319,45 @@
 				A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */,
 			);
 			path = RaindropUITests;
+			sourceTree = "<group>";
+		};
+		A5C1B484255A39D800DD35D2 /* Clean Swift */ = {
+			isa = PBXGroup;
+			children = (
+				A5C1B485255A39D800DD35D2 /* Scene.xctemplate */,
+				A5C1B491255A39D800DD35D2 /* Unit Tests.xctemplate */,
+			);
+			path = "Clean Swift";
+			sourceTree = "<group>";
+		};
+		A5C1B485255A39D800DD35D2 /* Scene.xctemplate */ = {
+			isa = PBXGroup;
+			children = (
+				A5C1B490255A39D800DD35D2 /* TemplateInfo.plist */,
+				A5C1B48E255A39D800DD35D2 /* TemplateIcon.png */,
+				A5C1B487255A39D800DD35D2 /* TemplateIcon@2x.png */,
+				A5C1B48D255A39D800DD35D2 /* ___FILEBASENAME___Interactor.swift */,
+				A5C1B48A255A39D800DD35D2 /* ___FILEBASENAME___Models.swift */,
+				A5C1B488255A39D800DD35D2 /* ___FILEBASENAME___Presenter.swift */,
+				A5C1B48C255A39D800DD35D2 /* ___FILEBASENAME___Scene.swift */,
+				A5C1B48F255A39D800DD35D2 /* ___FILEBASENAME___Service.swift */,
+				A5C1B48B255A39D800DD35D2 /* ___FILEBASENAME___ViewController.swift */,
+			);
+			path = Scene.xctemplate;
+			sourceTree = "<group>";
+		};
+		A5C1B491255A39D800DD35D2 /* Unit Tests.xctemplate */ = {
+			isa = PBXGroup;
+			children = (
+				A5C1B497255A39D800DD35D2 /* TemplateInfo.plist */,
+				A5C1B496255A39D800DD35D2 /* TemplateIcon.png */,
+				A5C1B493255A39D800DD35D2 /* TemplateIcon@2x.png */,
+				A5C1B494255A39D800DD35D2 /* ___FILEBASENAME___InteractorTests.swift */,
+				A5C1B495255A39D800DD35D2 /* ___FILEBASENAME___PresenterTests.swift */,
+				A5C1B498255A39D800DD35D2 /* ___FILEBASENAME___ServiceTests.swift */,
+				A5C1B492255A39D800DD35D2 /* ___FILEBASENAME___ViewControllerTests.swift */,
+			);
+			path = "Unit Tests.xctemplate";
 			sourceTree = "<group>";
 		};
 		A5DEED96255873F600CD4E25 /* ReusableViews */ = {
@@ -428,8 +500,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C1B4A8255A39D800DD35D2 /* TemplateIcon.png in Resources */,
+				A5C1B4A3255A39D800DD35D2 /* TemplateInfo.plist in Resources */,
+				A5C1B4A9255A39D800DD35D2 /* TemplateInfo.plist in Resources */,
+				A5C1B49A255A39D800DD35D2 /* TemplateIcon@2x.png in Resources */,
 				A5BB0596251FCD2400694FF9 /* Preview Assets.xcassets in Resources */,
+				A5C1B4A1255A39D800DD35D2 /* TemplateIcon.png in Resources */,
 				A5BB0593251FCD2400694FF9 /* Assets.xcassets in Resources */,
+				A5C1B4A5255A39D800DD35D2 /* TemplateIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,12 +536,18 @@
 				A5B0221F2525777C007412CC /* LogEntry.swift in Sources */,
 				A5E7987F255305EA00DCC918 /* FontStyle.swift in Sources */,
 				A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */,
+				A5C1B49D255A39D800DD35D2 /* ___FILEBASENAME___Models.swift in Sources */,
+				A5C1B4A6255A39D800DD35D2 /* ___FILEBASENAME___InteractorTests.swift in Sources */,
 				A5E7987A255305CC00DCC918 /* View+Extentions.swift in Sources */,
 				A5E7988E255616BC00DCC918 /* WrapInPlainNavigationView.swift in Sources */,
 				A5DE779E254A113100832862 /* EditValueModels.swift in Sources */,
 				A5000C302528D77800A0CB77 /* Date+Extentions.swift in Sources */,
 				A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */,
 				A5E7986D255304F100DCC918 /* Styles.swift in Sources */,
+				A5C1B49F255A39D800DD35D2 /* ___FILEBASENAME___Scene.swift in Sources */,
+				A5C1B4A7255A39D800DD35D2 /* ___FILEBASENAME___PresenterTests.swift in Sources */,
+				A5C1B4AA255A39D800DD35D2 /* ___FILEBASENAME___ServiceTests.swift in Sources */,
+				A5C1B4A2255A39D800DD35D2 /* ___FILEBASENAME___Service.swift in Sources */,
 				A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */,
 				A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */,
 				A5DE7799254A110000832862 /* EditValueScene.swift in Sources */,
@@ -475,7 +559,11 @@
 				A5DEED7F2558701300CD4E25 /* WrapInNavigationLink.swift in Sources */,
 				A5DEED982558741200CD4E25 /* StandardButton.swift in Sources */,
 				A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */,
+				A5C1B49E255A39D800DD35D2 /* ___FILEBASENAME___ViewController.swift in Sources */,
+				A5C1B4A0255A39D800DD35D2 /* ___FILEBASENAME___Interactor.swift in Sources */,
 				A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */,
+				A5C1B49B255A39D800DD35D2 /* ___FILEBASENAME___Presenter.swift in Sources */,
+				A5C1B4A4255A39D800DD35D2 /* ___FILEBASENAME___ViewControllerTests.swift in Sources */,
 				A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
