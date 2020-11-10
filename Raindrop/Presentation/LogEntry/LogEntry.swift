@@ -19,7 +19,7 @@ struct OldLogEntry: View {
                 DataEntryCell(title: "Description", value: description)
             }
         }
-        .font(.system(size: 18, weight: .heavy, design: .rounded))
+        .fontStyle()
     }
 }
 
