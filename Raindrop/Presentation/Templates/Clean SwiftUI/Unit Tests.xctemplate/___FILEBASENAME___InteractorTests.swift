@@ -55,7 +55,7 @@ class ___VARIABLE_sceneName___InteractorTests: XCTestCase {
         super.setUp()
         service = ___VARIABLE_sceneName___ServiceDouble()
         presenter = ___VARIABLE_sceneName___PresenterDouble()
-        interactor = EditValueInteractor(service: service, presenter: presenter)
+        interactor = ___VARIABLE_sceneName___Interactor(service: service, presenter: presenter)
     }
     
     // MARK: - Test Doubles

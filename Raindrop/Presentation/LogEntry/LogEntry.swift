@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LogEntry: View {
+struct OldLogEntry: View {
     @State private var date: Date?
     @State private var description: String = ""
     
@@ -23,13 +23,13 @@ struct LogEntry: View {
     }
 }
 
-struct LogEntry_Previews: PreviewProvider {
+struct OldLogEntry_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Rectangle()
                 .edgesIgnoringSafeArea(.all)
                 .foregroundColor(.primary)
-            LogEntry()
+            OldLogEntry()
                 .colorScheme(.dark)
         }
     }
