@@ -243,7 +243,7 @@
 		A5B6D7CF2547689200DDB5E2 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				A5C1B484255A39D800DD35D2 /* Clean Swift (SwiftUI) */,
+				A5C1B484255A39D800DD35D2 /* Clean SwiftUI */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -321,13 +321,13 @@
 			path = RaindropUITests;
 			sourceTree = "<group>";
 		};
-		A5C1B484255A39D800DD35D2 /* Clean Swift (SwiftUI) */ = {
+		A5C1B484255A39D800DD35D2 /* Clean SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
 				A5C1B485255A39D800DD35D2 /* Scene.xctemplate */,
 				A5C1B491255A39D800DD35D2 /* Unit Tests.xctemplate */,
 			);
-			path = "Clean Swift (SwiftUI)";
+			path = "Clean SwiftUI";
 			sourceTree = "<group>";
 		};
 		A5C1B485255A39D800DD35D2 /* Scene.xctemplate */ = {
