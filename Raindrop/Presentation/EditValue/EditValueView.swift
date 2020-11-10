@@ -14,8 +14,13 @@ protocol EditValueInputing {
 }
 
 struct EditValueView: View {
-    let interactor: EditValueRequesting
-    @ObservedObject var viewModel: EditValue.ViewModel
+    @ObservedObject private var viewModel: EditValue.ViewModel
+    private let interactor: EditValueRequesting
+    
+    init(interactor: EditValueRequesting, viewModel: EditValue.ViewModel) {
+        self.interactor = interactor
+        self.viewModel = viewModel
+    }
     
     // MARK: - View Lifecycle
     var body: some View {
@@ -47,7 +52,7 @@ struct EditValueView: View {
     }
 }
 
-// MARK: Inputing
+// MARK: - Inputing
 
 extension EditValueView: EditValueInputing {
     func didChangeValue(to value: String) {

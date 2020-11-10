@@ -19,6 +19,7 @@
 		A5BB0596251FCD2400694FF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BB0595251FCD2400694FF9 /* Preview Assets.xcassets */; };
 		A5BB05A1251FCD2400694FF9 /* RaindropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB05A0251FCD2400694FF9 /* RaindropTests.swift */; };
 		A5BB05AC251FCD2500694FF9 /* RaindropUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */; };
+		A5C1B472255A26CA00DD35D2 /* EditValueViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEEDB72559FA3F00CD4E25 /* EditValueViewTests.swift */; };
 		A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7793254A109300832862 /* EditValueInteractor.swift */; };
 		A5DE7799254A110000832862 /* EditValueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7798254A110000832862 /* EditValueScene.swift */; };
 		A5DE779E254A113100832862 /* EditValueModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE779D254A113100832862 /* EditValueModels.swift */; };
@@ -30,7 +31,6 @@
 		A5DEEDA02559E6A500CD4E25 /* EditValueInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEED9F2559E6A500CD4E25 /* EditValueInteractorTests.swift */; };
 		A5DEEDAE2559E9ED00CD4E25 /* EditValuePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEEDAD2559E9ED00CD4E25 /* EditValuePresenterTests.swift */; };
 		A5DEEDB32559F77900CD4E25 /* EditValueServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEEDB22559F77900CD4E25 /* EditValueServiceTests.swift */; };
-		A5DEEDBC255A186100CD4E25 /* EditValueViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEEDB72559FA3F00CD4E25 /* EditValueViewTests.swift */; };
 		A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E40CD8254DD7270028B475 /* EditValueService.swift */; };
 		A5E7986D255304F100DCC918 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7986C255304F100DCC918 /* Styles.swift */; };
 		A5E798752553059D00DCC918 /* CellStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E798742553059D00DCC918 /* CellStyle.swift */; };
@@ -486,7 +486,7 @@
 			files = (
 				A5DEEDAE2559E9ED00CD4E25 /* EditValuePresenterTests.swift in Sources */,
 				A5DEEDB32559F77900CD4E25 /* EditValueServiceTests.swift in Sources */,
-				A5DEEDBC255A186100CD4E25 /* EditValueViewTests.swift in Sources */,
+				A5C1B472255A26CA00DD35D2 /* EditValueViewTests.swift in Sources */,
 				A5DEEDA02559E6A500CD4E25 /* EditValueInteractorTests.swift in Sources */,
 				A5BB05A1251FCD2400694FF9 /* RaindropTests.swift in Sources */,
 			);

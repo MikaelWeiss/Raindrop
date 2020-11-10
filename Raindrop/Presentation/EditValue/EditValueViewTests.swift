@@ -9,14 +9,9 @@ import XCTest
 @testable import Raindrop
 
 class EditValueViewTests: XCTestCase {
-    private var view: EditValueView!
     private var interactor: EditValueInteractorDouble!
     private var viewModel: EditValue.ViewModel!
-    
-    func testUpdateThemeCalled() {
-        // Then
-        XCTAssertTrue(interactor.updateThemeCalled)
-    }
+    private var view: EditValueView!
     
     func testDidChangeValue() {
         // When
@@ -74,6 +69,5 @@ class EditValueViewTests: XCTestCase {
         func prepareRouteToOtherScene() {
             prepareRouteToOtherSceneCalled = true
         }
-        
     }
 }

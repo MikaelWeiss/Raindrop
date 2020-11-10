@@ -9,8 +9,8 @@ import XCTest
 @testable import Raindrop
 
 class EditValueInteractorTests: XCTestCase {
-    private var presenter: EditValuePresenterDouble!
     private var service: EditValueServiceDouble!
+    private var presenter: EditValuePresenterDouble!
     private var interactor: EditValueInteractor!
     
     func testUpdateTheme() {
