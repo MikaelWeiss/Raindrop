@@ -16,7 +16,7 @@ protocol ___VARIABLE_sceneName___Presenting {
     func presentPrepareRouteToOtherScene()
 }
 
-struct EditValuePresenter: ___VARIABLE_sceneName___Presenting {
+struct ___VARIABLE_sceneName___Presenter: ___VARIABLE_sceneName___Presenting {
     let viewModel = ___VARIABLE_sceneName___.ViewModel()
     
     func presentUpdateTheme() {

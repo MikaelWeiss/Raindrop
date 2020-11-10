@@ -15,9 +15,9 @@ protocol ___VARIABLE_sceneName___Requesting {
     func prepareRouteToOtherScene()
 }
 
-struct EditValueInteractor: ___VARIABLE_sceneName___Requesting {
-    private let service: EditValueService
-    private let presenter: EditValuePresenting
+struct ___VARIABLE_sceneName___Interactor: ___VARIABLE_sceneName___Requesting {
+    private let service: ___VARIABLE_sceneName___Service
+    private let presenter: ___VARIABLE_sceneName___Presenting
     
     init(service: ___VARIABLE_sceneName___Service, presenter: ___VARIABLE_sceneName___Presenting) {
         self.service = service
