@@ -30,6 +30,6 @@ extension ___VARIABLE_sceneName___ {
         @Published var textFieldTitle = ""
         @Published var textFieldValue = ""
         @Published var isShowingOtherScene = false
-        @Published var sheetShowing = false
+        @Published var isShowingSheet = false
     }
 }

@@ -34,12 +34,20 @@ class EditValuePresenterTests: XCTestCase {
         XCTAssertEqual(viewModel.textFieldValue, "Some value")
     }
     
-    func testPresentPrepareRouteToSheet() {
+    func testPresentPrepareRouteToFirstSheet() {
         // When
-        presenter.presentPrepareRouteToSheet()
+        presenter.presentPrepareRouteToFirstSheet()
         
         // Then
-        XCTAssertTrue(viewModel.isShowingSheet)
+        XCTAssertTrue(viewModel.isShowingFirstSheet)
+    }
+    
+    func testPresentPrepareRouteToSecondSheet() {
+        // When
+        presenter.presentPrepareRouteToSecondSheet()
+        
+        // Then
+        XCTAssertTrue(viewModel.isShowingSecondSheet)
     }
     
     func testPresentPrepareRouteToOtherScene() {

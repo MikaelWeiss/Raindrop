@@ -29,7 +29,7 @@ struct ___VARIABLE_sceneName___Presenter: ___VARIABLE_sceneName___Presenting {
     }
     
     func presentPrepareRouteToSheet() {
-        viewModel.sheetShowing = true
+        viewModel.isShowingSheet = true
     }
     
     func presentPrepareRouteToOtherScene() {

@@ -35,7 +35,7 @@ struct ___VARIABLE_sceneName___View: View {
             StandardButton(title: "Open a sheet") {
                 prepareRouteToSheet()
             }
-            .sheet(isPresented: $viewModel.sheetShowing) {
+            .sheet(isPresented: $viewModel.isShowingSheet) {
                 Text("This is a sheet")
             }
             

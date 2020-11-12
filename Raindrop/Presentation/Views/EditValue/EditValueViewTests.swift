@@ -21,12 +21,20 @@ class EditValueViewTests: XCTestCase {
         XCTAssertEqual(interactor.value, "Some Value")
     }
     
-    func testPrepareRouteToSheet() {
+    func testPrepareRouteToFirstSheet() {
         // When
-        view.prepareRouteToSheet()
+        view.prepareRouteToFirstSheet()
         
         // Then
-        XCTAssertTrue(interactor.prepareRouteToSheetCalled)
+        XCTAssertTrue(interactor.prepareRouteToFirstSheetCalled)
+    }
+    
+    func testPrepareRouteToSecondSheet() {
+        // When
+        view.prepareRouteToSecondSheet()
+        
+        // Then
+        XCTAssertTrue(interactor.prepareRouteToSecondSheetCalled)
     }
     
     func testPrepareRouteToOtherScene() {
@@ -51,7 +59,8 @@ class EditValueViewTests: XCTestCase {
     class EditValueInteractorDouble: EditValueRequesting {
         var value: String?
         var updateThemeCalled = false
-        var prepareRouteToSheetCalled = false
+        var prepareRouteToFirstSheetCalled = false
+        var prepareRouteToSecondSheetCalled = false
         var prepareRouteToOtherSceneCalled = false
         
         func didChangeValue(with request: EditValue.ValidateValue.Request) {
@@ -62,8 +71,11 @@ class EditValueViewTests: XCTestCase {
             updateThemeCalled = true
         }
         
-        func prepareRouteToSheet() {
-            prepareRouteToSheetCalled = true
+        func prepareRouteToFirstSheet() {
+            prepareRouteToFirstSheetCalled = true
+        }
+        func prepareRouteToSecondSheet() {
+            prepareRouteToSecondSheetCalled = true
         }
         
         func prepareRouteToOtherScene() {

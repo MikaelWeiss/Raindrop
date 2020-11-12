@@ -38,7 +38,7 @@ class ___VARIABLE_sceneName___PresenterTests: XCTestCase {
         presenter.presentPrepareRouteToSheet()
         
         // Then
-        XCTAssertTrue(viewModel.sheetShowing)
+        XCTAssertTrue(viewModel.isShowingSheet)
     }
     
     func testPresentPrepareRouteToOtherScene() {
