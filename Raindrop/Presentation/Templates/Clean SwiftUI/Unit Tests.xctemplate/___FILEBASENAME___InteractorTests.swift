@@ -41,7 +41,7 @@ class ___VARIABLE_sceneName___InteractorTests: XCTestCase {
         XCTAssertTrue(presenter.presentPrepareRouteToSheetCalled)
     }
     
-    func tesetPrepareRouteToOtherScene() {
+    func testPrepareRouteToOtherScene() {
         // When
         interactor.prepareRouteToOtherScene()
         

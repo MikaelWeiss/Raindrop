@@ -48,7 +48,7 @@ class EditValueInteractorTests: XCTestCase {
         XCTAssertTrue(presenter.presentPrepareRouteToSecondSheetCalled)
     }
     
-    func tesetPrepareRouteToOtherScene() {
+    func testPrepareRouteToOtherScene() {
         // When
         interactor.prepareRouteToOtherScene()
         
