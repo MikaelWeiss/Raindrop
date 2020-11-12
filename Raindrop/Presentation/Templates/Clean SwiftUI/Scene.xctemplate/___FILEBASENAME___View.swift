@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-protocol ___VARIABLE_sceneName___Inputing {
+protocol ___VARIABLE_sceneName___Inputting {
     func didChangeValue(to value: String)
     func prepareRouteToSheet()
     func prepareRouteToOtherScene()
@@ -55,7 +55,7 @@ struct ___VARIABLE_sceneName___View: View {
 
 // MARK: - Inputing
 
-extension ___VARIABLE_sceneName___View: ___VARIABLE_sceneName___Inputing {
+extension ___VARIABLE_sceneName___View: ___VARIABLE_sceneName___Inputting {
     func didChangeValue(to value: String) {
         let request = ___VARIABLE_sceneName___.ValidateValue.Request(value: value)
         interactor.didChangeValue(with: request)

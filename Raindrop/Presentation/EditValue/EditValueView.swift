@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol EditValueInputing {
+protocol EditValueInputting {
     func didChangeValue(to value: String)
     func prepareRouteToSheet()
     func prepareRouteToOtherScene()
@@ -54,7 +54,7 @@ struct EditValueView: View {
 
 // MARK: - Inputing
 
-extension EditValueView: EditValueInputing {
+extension EditValueView: EditValueInputting {
     func didChangeValue(to value: String) {
         let request = EditValue.ValidateValue.Request(value: value)
         interactor.didChangeValue(with: request)
