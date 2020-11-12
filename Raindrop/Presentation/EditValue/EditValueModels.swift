@@ -18,6 +18,11 @@ extension EditValue {
         }
     }
     
+    enum Views {
+        case text
+        case color
+    }
+    
     enum Strings {
         static let sceneTitle = NSLocalizedString("Some title", comment: "The title for the scene")
         static let textFieldTitle = NSLocalizedString("Some title", comment: "The title for some text field")
@@ -28,6 +33,8 @@ extension EditValue {
         @Published var textFieldTitle = ""
         @Published var textFieldValue = ""
         @Published var isShowingOtherScene = false
-        @Published var sheetShowing = false
+        @Published var isShowingSheet = false
+        var viewForSheet: Views?
+        var viewForNavigationLink: Views?
     }
 }

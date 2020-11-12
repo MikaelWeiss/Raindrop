@@ -27,7 +27,7 @@ struct EditValuePresenter: EditValuePresenting {
     }
     
     func presentPrepareRouteToSheet() {
-        viewModel.sheetShowing = true
+        viewModel.isShowingSheet = true
     }
     
     func presentPrepareRouteToOtherScene() {

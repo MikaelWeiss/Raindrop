@@ -34,9 +34,6 @@ struct EditValueView: View {
             StandardButton(title: "Open a sheet") {
                 prepareRouteToSheet()
             }
-            .sheet(isPresented: $viewModel.sheetShowing) {
-                Text("This is a sheet")
-            }
             
             StandardButton(title: "Route to another scene") {
                 prepareRouteToOtherScene()
@@ -46,6 +43,13 @@ struct EditValueView: View {
             }
         }
         .wrapInPlainNavigationView()
+        .sheet(isPresented: $viewModel.isShowingSheet) {
+            switch viewModel.viewForSheet {
+            case .text: Text("Some text")
+            case .color: Color(.blue)
+            case .none: Text("Default View")
+            }
+        }
         .onAppear {
             interactor.updateTheme()
         }
