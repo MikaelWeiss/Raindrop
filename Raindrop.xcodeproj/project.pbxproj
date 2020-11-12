@@ -177,11 +177,8 @@
 		A54C0439251FE7CC00EEA9D2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				A5DEED96255873F600CD4E25 /* ReusableViews */,
-				A5E7988C255616A400DCC918 /* ViewModifiers */,
-				A5E7988325534F0100DCC918 /* Cells */,
-				A5B6D7D02547689800DDB5E2 /* EditValue */,
-				A5000C342528D9DB00A0CB77 /* LogEntry */,
+				A5A86AE0255DA8F7001D3CD9 /* Views */,
+				A5A86ADF255DA880001D3CD9 /* GenericThings */,
 				A5E7986B255304D300DCC918 /* Styles */,
 				A5B6D7CF2547689200DDB5E2 /* Templates */,
 			);
@@ -222,6 +219,25 @@
 				A5000C2A2528D60700A0CB77 /* Checklist.swift */,
 			);
 			path = HelperTypes;
+			sourceTree = "<group>";
+		};
+		A5A86ADF255DA880001D3CD9 /* GenericThings */ = {
+			isa = PBXGroup;
+			children = (
+				A5E7988325534F0100DCC918 /* Cells */,
+				A5DEED96255873F600CD4E25 /* ReusableViews */,
+				A5E7988C255616A400DCC918 /* ViewModifiers */,
+			);
+			path = GenericThings;
+			sourceTree = "<group>";
+		};
+		A5A86AE0255DA8F7001D3CD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A5B6D7D02547689800DDB5E2 /* EditValue */,
+				A5000C342528D9DB00A0CB77 /* LogEntry */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A5B6D7CF2547689200DDB5E2 /* Templates */ = {
@@ -365,9 +381,9 @@
 		A5E7988325534F0100DCC918 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A5DEED8E2558716F00CD4E25 /* ComputedValueItemCell.swift */,
 				A5E79887255351C800DCC918 /* DataEntryCell.swift */,
 				A5DEED862558714100CD4E25 /* DateItemCell.swift */,
-				A5DEED8E2558716F00CD4E25 /* ComputedValueItemCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -375,8 +391,8 @@
 		A5E7988C255616A400DCC918 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
-				A5E7988D255616BC00DCC918 /* WrapInPlainNavigationView.swift */,
 				A5DEED7E2558701300CD4E25 /* WrapInNavigationLink.swift */,
+				A5E7988D255616BC00DCC918 /* WrapInPlainNavigationView.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
