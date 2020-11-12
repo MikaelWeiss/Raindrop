@@ -18,14 +18,11 @@ extension EditValue {
         }
     }
     
-    enum Views {
-        case text
-        case color
-    }
-    
     enum Strings {
         static let sceneTitle = NSLocalizedString("Some title", comment: "The title for the scene")
         static let textFieldTitle = NSLocalizedString("Some title", comment: "The title for some text field")
+        static let sheetButtonTitle = NSLocalizedString("Open a sheet", comment: "The title for the button that opens the sheet")
+        static let navigationLinkButtonTitle = NSLocalizedString("Route to another scene", comment: "The title for the button that navigates to another scene")
     }
     
     class ViewModel: ObservableObject {
@@ -33,8 +30,9 @@ extension EditValue {
         @Published var textFieldTitle = ""
         @Published var textFieldValue = ""
         @Published var isShowingOtherScene = false
-        @Published var isShowingSheet = false
-        var viewForSheet: Views?
-        var viewForNavigationLink: Views?
+        @Published var isShowingFirstSheet = false
+        @Published var isShowingSecondSheet = false
+        @Published var sheetButtonTitle = ""
+        @Published var navigationLinkButtonTitle = ""
     }
 }

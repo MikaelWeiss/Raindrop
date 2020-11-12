@@ -10,7 +10,8 @@ import Foundation
 protocol EditValueRequesting {
     func didChangeValue(with request: EditValue.ValidateValue.Request)
     func updateTheme()
-    func prepareRouteToSheet()
+    func prepareRouteToFirstSheet()
+    func prepareRouteToSecondSheet()
     func prepareRouteToOtherScene()
 }
 
@@ -32,8 +33,12 @@ struct EditValueInteractor: EditValueRequesting {
         presenter.presentDidChangeValue(with: response)
     }
     
-    func prepareRouteToSheet() {
-        presenter.presentPrepareRouteToSheet()
+    func prepareRouteToFirstSheet() {
+        presenter.presentPrepareRouteToFirstSheet()
+    }
+    
+    func prepareRouteToSecondSheet() {
+        presenter.presentPrepareRouteToSecondSheet()
     }
     
     func prepareRouteToOtherScene() {

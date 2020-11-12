@@ -9,7 +9,8 @@ import SwiftUI
 
 protocol EditValueInputting {
     func didChangeValue(to value: String)
-    func prepareRouteToSheet()
+    func prepareRouteToFirstSheet()
+    func prepareRouteToSecondSheet()
     func prepareRouteToOtherScene()
 }
 
@@ -31,25 +32,29 @@ struct EditValueView: View {
                 onTextChanged:  {
                     didChangeValue(to: $0)
                 })
-            StandardButton(title: "Open a sheet") {
-                prepareRouteToSheet()
+            
+            StandardButton(title: viewModel.sheetButtonTitle) {
+                prepareRouteToFirstSheet()
+            }
+            .sheet(isPresented: $viewModel.isShowingFirstSheet) {
+                Text("Showing first sheet")
             }
             
-            StandardButton(title: "Route to another scene") {
+            StandardButton(title: viewModel.sheetButtonTitle) {
+                prepareRouteToSecondSheet()
+            }
+            .sheet(isPresented: $viewModel.isShowingSecondSheet) {
+                Text("Showing second sheet")
+            }
+            
+            StandardButton(title: viewModel.navigationLinkButtonTitle) {
                 prepareRouteToOtherScene()
             }
             .wrapInNavigationLink(isActive: $viewModel.isShowingOtherScene) {
-                Text("This is another scene")
+                Text("Showing view from navigation link")
             }
         }
         .wrapInPlainNavigationView()
-        .sheet(isPresented: $viewModel.isShowingSheet) {
-            switch viewModel.viewForSheet {
-            case .text: Text("Some text")
-            case .color: Color(.blue)
-            case .none: Text("Default View")
-            }
-        }
         .onAppear {
             interactor.updateTheme()
         }
@@ -64,8 +69,12 @@ extension EditValueView: EditValueInputting {
         interactor.didChangeValue(with: request)
     }
     
-    func prepareRouteToSheet() {
-        interactor.prepareRouteToSheet()
+    func prepareRouteToFirstSheet() {
+        interactor.prepareRouteToFirstSheet()
+    }
+    
+    func prepareRouteToSecondSheet() {
+        interactor.prepareRouteToSecondSheet()
     }
     
     func prepareRouteToOtherScene() {

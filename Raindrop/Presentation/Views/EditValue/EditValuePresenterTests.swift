@@ -19,6 +19,8 @@ class EditValuePresenterTests: XCTestCase {
         // Then
         XCTAssertEqual(viewModel.title, EditValue.Strings.sceneTitle)
         XCTAssertEqual(viewModel.textFieldTitle, EditValue.Strings.textFieldTitle)
+        XCTAssertEqual(viewModel.sheetButtonTitle, EditValue.Strings.sheetButtonTitle)
+        XCTAssertEqual(viewModel.navigationLinkButtonTitle, EditValue.Strings.navigationLinkButtonTitle)
     }
     
     func testPresentDidChangeValue() {
@@ -37,7 +39,7 @@ class EditValuePresenterTests: XCTestCase {
         presenter.presentPrepareRouteToSheet()
         
         // Then
-        XCTAssertTrue(viewModel.sheetShowing)
+        XCTAssertTrue(viewModel.isShowingSheet)
     }
     
     func testPresentPrepareRouteToOtherScene() {
