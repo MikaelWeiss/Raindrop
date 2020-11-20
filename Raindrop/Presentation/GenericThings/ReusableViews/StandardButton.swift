@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StandardButton: View {
+    @Environment(\.colorScheme) var colorScheme
     let title: String
     let onTap: () -> Void
     
@@ -16,7 +17,9 @@ struct StandardButton: View {
             .cellStyle()
             .foregroundColor(.blue)
             .overlay (
-                Text(title).fontStyle()
+                Text(title)
+                    .fontStyle()
+                    .foregroundColor(colorScheme == .dark ? Color.darkPurpleTextColor : Color.white)
             )
             .onTapGesture {
                 onTap()

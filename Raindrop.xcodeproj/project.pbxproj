@@ -19,6 +19,7 @@
 		A5BB0596251FCD2400694FF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BB0595251FCD2400694FF9 /* Preview Assets.xcassets */; };
 		A5BB05A1251FCD2400694FF9 /* RaindropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB05A0251FCD2400694FF9 /* RaindropTests.swift */; };
 		A5BB05AC251FCD2500694FF9 /* RaindropUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */; };
+		A5C05D252567608D005D7F60 /* Color+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C05D242567608D005D7F60 /* Color+Extentions.swift */; };
 		A5C1B472255A26CA00DD35D2 /* EditValueViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEEDB72559FA3F00CD4E25 /* EditValueViewTests.swift */; };
 		A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7793254A109300832862 /* EditValueInteractor.swift */; };
 		A5DE7799254A110000832862 /* EditValueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7798254A110000832862 /* EditValueScene.swift */; };
@@ -76,6 +77,7 @@
 		A5BB05A7251FCD2500694FF9 /* RaindropUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaindropUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaindropUITests.swift; sourceTree = "<group>"; };
 		A5BB05AD251FCD2500694FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5C05D242567608D005D7F60 /* Color+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extentions.swift"; sourceTree = "<group>"; };
 		A5C1B487255A39D800DD35D2 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
 		A5C1B488255A39D800DD35D2 /* ___FILEBASENAME___Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___Presenter.swift"; sourceTree = "<group>"; };
 		A5C1B48A255A39D800DD35D2 /* ___FILEBASENAME___Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___Models.swift"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				A5000C2F2528D77800A0CB77 /* Date+Extentions.swift */,
 				A5E79879255305CC00DCC918 /* View+Extentions.swift */,
+				A5C05D242567608D005D7F60 /* Color+Extentions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				A5E7986D255304F100DCC918 /* Styles.swift in Sources */,
 				A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */,
 				A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */,
+				A5C05D252567608D005D7F60 /* Color+Extentions.swift in Sources */,
 				A5DE7799254A110000832862 /* EditValueScene.swift in Sources */,
 				A5E79888255351C800DCC918 /* DataEntryCell.swift in Sources */,
 				A5E798752553059D00DCC918 /* CellStyle.swift in Sources */,
