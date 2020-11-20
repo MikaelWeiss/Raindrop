@@ -1,5 +1,5 @@
 //
-//  View+Extentions.swift
+//  View+Extensions.swift
 //  Raindrop
 //
 //  Created by Mikael Weiss on 11/4/20.

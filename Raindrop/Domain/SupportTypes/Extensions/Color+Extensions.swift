@@ -1,5 +1,5 @@
 //
-//  Color+Extentions.swift
+//  Color+Extensions.swift
 //  Raindrop
 //
 //  Created by Mikael Weiss on 11/19/20.
