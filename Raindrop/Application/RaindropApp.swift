@@ -19,14 +19,16 @@ struct RaindropApp: App {
     var body: some Scene {
         WindowGroup {
             TabView(selection: $selectedTab) {
-                EditValue.Scene().view
+                NavigationView {
+                    EditEntry.Scene().view
+                }
                     .tabItem {
                         Image(systemName: "pencil.circle.fill")
                         Text("EditValue")
                     }.tag(Tabs.editValue)
                 Text("Tab Content 2")
                     .tabItem {
-                        Image(systemName: "doc.fill")
+                        Image(systemName: "line.horizontal.3.circle")
                         Text("View Values")
                     }.tag(Tabs.secondTab)
             }
