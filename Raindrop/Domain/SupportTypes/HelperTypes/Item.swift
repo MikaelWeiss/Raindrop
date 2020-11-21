@@ -7,13 +7,18 @@
 
 import Foundation
 
-struct Item: Identifiable {
+struct Item<Value>: Identifiable {
     let id = UUID()
     let title: String
-    let type: LogInputType
+    let type: InputType
+    let value: Value
+    let onValueChanged: (Value) -> Void
     
-    init(title: String, type: LogInputType) {
+    init(title: String, type: InputType, value: Value, onValueChanged: @escaping (Value) -> Void) {
         self.title = title
         self.type = type
+        self.value = value
+        self.onValueChanged = onValueChanged
     }
 }
+

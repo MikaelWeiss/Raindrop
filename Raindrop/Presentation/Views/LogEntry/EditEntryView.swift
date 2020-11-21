@@ -38,6 +38,7 @@ struct EditEntryView: View {
                     NumberEntry($viewModel.numberEntryValue)
                     ItemSelectionCell(allItems: $viewModel.allItems, currentlySelectedItem: $viewModel.currentlySelectedItem)
                     Checklist(items: $viewModel.checklistItems)
+                    StandardButton(title: "Save", onTap: { } )
                 }
             }
             GroupSelectionBar()
@@ -265,7 +266,9 @@ struct Checklist: View {
                     }
                     .valueFontStyle()
                     .onTapGesture {
-                        item.isSelected.toggle()
+                        if let index = items.firstIndex(where: { $0.id == item.id } ) {
+                            items[index].isSelected.toggle()
+                        }
                     }
                 }
             }

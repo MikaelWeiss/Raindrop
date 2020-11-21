@@ -14,13 +14,14 @@ struct StandardButton: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 25.0)
-            .cellStyle()
+            .frame(height: 56, alignment: .center)
             .foregroundColor(.blue)
             .overlay (
                 Text(title)
-                    .fontStyle()
                     .foregroundColor(colorScheme == .dark ? Color.darkPurpleTextColor : Color.white)
+                    .fontStyle()
             )
+            .padding()
             .onTapGesture {
                 onTap()
             }

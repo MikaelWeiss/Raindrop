@@ -10,7 +10,7 @@
 		A5000C262528D59B00A0CB77 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C252528D59B00A0CB77 /* Selection.swift */; };
 		A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C2A2528D60700A0CB77 /* Checklist.swift */; };
 		A5000C302528D77800A0CB77 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C2F2528D77800A0CB77 /* Date+Extensions.swift */; };
-		A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E2B2521406A00739F00 /* LogInputType.swift */; };
+		A5530E2C2521406A00739F00 /* InputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E2B2521406A00739F00 /* InputType.swift */; };
 		A567572625682CE90038C61D /* EditEntryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567572025682CE90038C61D /* EditEntryPresenter.swift */; };
 		A567572725682CE90038C61D /* EditEntryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567572125682CE90038C61D /* EditEntryModels.swift */; };
 		A567572825682CE90038C61D /* EditEntryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567572225682CE90038C61D /* EditEntryScene.swift */; };
@@ -71,7 +71,7 @@
 		A5000C252528D59B00A0CB77 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		A5000C2A2528D60700A0CB77 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		A5000C2F2528D77800A0CB77 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Extensions.swift"; path = "Raindrop/Domain/SupportTypes/Extensions/Date+Extensions.swift"; sourceTree = SOURCE_ROOT; };
-		A5530E2B2521406A00739F00 /* LogInputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInputType.swift; sourceTree = "<group>"; };
+		A5530E2B2521406A00739F00 /* InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputType.swift; sourceTree = "<group>"; };
 		A567572025682CE90038C61D /* EditEntryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryPresenter.swift; sourceTree = "<group>"; };
 		A567572125682CE90038C61D /* EditEntryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryModels.swift; sourceTree = "<group>"; };
 		A567572225682CE90038C61D /* EditEntryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryScene.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 		A54C0446251FE95B00EEA9D2 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				A5530E2B2521406A00739F00 /* LogInputType.swift */,
+				A5530E2B2521406A00739F00 /* InputType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -567,7 +567,7 @@
 				A5000C302528D77800A0CB77 /* Date+Extensions.swift in Sources */,
 				A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */,
 				A5E7986D255304F100DCC918 /* Styles.swift in Sources */,
-				A5530E2C2521406A00739F00 /* LogInputType.swift in Sources */,
+				A5530E2C2521406A00739F00 /* InputType.swift in Sources */,
 				A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */,
 				A567572B25682CE90038C61D /* EditEntryService.swift in Sources */,
 				A567572A25682CE90038C61D /* EditEntryView.swift in Sources */,

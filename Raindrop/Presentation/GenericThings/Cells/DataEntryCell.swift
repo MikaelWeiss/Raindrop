@@ -46,14 +46,14 @@ struct DataEntryCell_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             VStack {
-                DataEntryCell(title: "Something", value: "")
-                DataEntryCell(title: "Something", value: "Something else")
+                DataEntryCell(title: "Placeholder", value: "")
+                DataEntryCell(title: "Placeholder", value: "Something value")
             }.colorScheme(.light)
             ZStack {
                 Color.black
                 VStack {
-                    DataEntryCell(title: "Something", value: "")
-                    DataEntryCell(title: "Something", value: "Something else")
+                    DataEntryCell(title: "Placeholder", value: "")
+                    DataEntryCell(title: "Placeholder", value: "Something value")
                 }
             }.colorScheme(.dark)
         }.previewLayout(.sizeThatFits)
