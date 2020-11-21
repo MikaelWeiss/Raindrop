@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Checklist {
+struct Checklistsssss {
     var items: [(selected: Bool, title: String)]
 }

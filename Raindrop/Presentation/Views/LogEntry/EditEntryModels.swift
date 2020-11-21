@@ -26,8 +26,11 @@ extension EditEntry {
     }
     
     class ViewModel: ObservableObject {
-        @Published var dateOfEntry: Date = Date.now
-        @Published var textEntryValue: String = ""
-        @Published var numberEntryValue: String = ""
+        @Published var dateOfEntry = Date.now
+        @Published var textEntryValue = ""
+        @Published var numberEntryValue = ""
+        @Published var currentlySelectedItem: SelectionItem?
+        @Published var allItems = [SelectionItem(value: "Some Item")]
+        @Published var checklistItems = [ChecklistItem(value: "Some Name")]
     }
 }

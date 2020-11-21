@@ -36,6 +36,8 @@ struct EditEntryView: View {
                     DateSelection($viewModel.dateOfEntry)
                     TextEntry($viewModel.textEntryValue)
                     NumberEntry($viewModel.numberEntryValue)
+                    ItemSelectionCell(allItems: $viewModel.allItems, currentlySelectedItem: $viewModel.currentlySelectedItem)
+                    Checklist(items: $viewModel.checklistItems)
                 }
             }
             GroupSelectionBar()
@@ -110,31 +112,28 @@ struct GroupSelectionBar: View {
 }
 
 struct ComputedValue: View {
+    let title = "Entry Number"
+    let value = "1,000,000,000"
+    
     var body: some View {
-        HStack {
-            Text("Entry Number")
-            Spacer()
-            Text("1,000,000,000")
-                .valueFontStyle()
+        HorizontalDataEntryCell(title: title) {
+            Text(value)
         }
-        .cellStyle()
     }
 }
 
 struct DateSelection: View {
+    let title: String = "Date"
     @Binding var dateOfEntry: Date
     init(_ dateOfEntry: Binding<Date>) {
         _dateOfEntry = dateOfEntry
     }
     
     var body: some View {
-        HStack {
-            Text("Date")
-            Spacer()
-            DatePicker("Date", selection: $dateOfEntry)
+        HorizontalDataEntryCell(title: title) {
+            DatePicker(title, selection: $dateOfEntry)
                 .labelsHidden()
         }
-        .cellStyle()
     }
 }
 
@@ -147,12 +146,9 @@ struct TextEntry: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(title)
+        VerticalDataEntryCell(title: title) {
             TextField("Enter Value Here", text: $value)
-                .valueFontStyle()
         }
-        .cellStyle()
     }
 }
 
@@ -165,28 +161,114 @@ struct NumberEntry: View {
     }
     
     var body: some View {
-        HStack {
-            Text(title)
-            Spacer()
-            TextField("Enter Number", text: .constant("999,999,999,999"))
+        HorizontalDataEntryCell(title: title) {
+            TextField("Enter Number", text: $value)
                 .frame(width: 164)
                 .multilineTextAlignment(.trailing)
-                .valueFontStyle()
         }
-        .cellStyle()
     }
 }
 
 struct VerticalDataEntryCell<Content>: View where Content: View {
-    let title: LocalizedStringKey
-    let content: Content
+    let title: String
+    let content: () -> Content
     
-    init(title: LocalizedStringKey, @ViewBuilder content: @escaping () -> Content) {
+    init(title: String, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
-        self.content = Content
+        self.content = content
     }
     
     var body: some View {
-        Text(title)
+        VStack(alignment: .leading) {
+            Text(title)
+            content().valueFontStyle()
+        }.cellStyle()
+    }
+}
+
+struct HorizontalDataEntryCell<Content>: View where Content: View {
+    let title: String
+    let content: () -> Content
+    
+    init(title: String, @ViewBuilder content: @escaping () -> Content) {
+        self.title = title
+        self.content = content
+    }
+    
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            content().valueFontStyle()
+        }.cellStyle()
+    }
+}
+
+struct ItemSelectionCell: View {
+    @Binding var allItems: [SelectionItem]
+    @Binding var currentlySelectedItem: SelectionItem?
+    @State private var isShowingSelectionSheet = false
+    
+    var body: some View {
+        HorizontalDataEntryCell(title: "Item Selection") {
+            Text(currentlySelectedItem?.value ?? "Select Value")
+            Image(systemName: "arrowtriangle.down.square.fill")
+        }
+        .onTapGesture {
+            isShowingSelectionSheet = true
+        }
+        .sheet(isPresented: $isShowingSelectionSheet) {
+            ItemSelectionView(items: allItems, currentlySelectedItem: $currentlySelectedItem, viewShowing: $isShowingSelectionSheet)
+        }
+    }
+}
+
+struct ItemSelectionView: View {
+    let items: [SelectionItem]
+    @Binding var currentlySelectedItem: SelectionItem?
+    @Binding var viewShowing: Bool
+    
+    var body: some View {
+        ScrollView {
+            ForEach(items) { item in
+                HStack {
+                    Image(systemName: item.id == currentlySelectedItem?.id ? "square.fill" : "square")
+                    Text(item.value)
+                    Spacer()
+                }
+                .valueFontStyle()
+                .cellStyle()
+                .onTapGesture {
+                    if currentlySelectedItem?.id == item.id {
+                        currentlySelectedItem = nil
+                    } else {
+                        currentlySelectedItem = item
+                    }
+                    viewShowing = false
+                }
+            }
+        }
+    }
+}
+
+struct Checklist: View {
+    @Binding var items: [ChecklistItem]
+    
+    var body: some View {
+        VerticalDataEntryCell(title: "Checklist") {
+            ScrollView {
+                ForEach(items) { item in
+                    HStack {
+                        Image(systemName: item.isSelected ? "square.fill" : "square")
+                        Text(item.value)
+                        Spacer()
+                    }
+                    .valueFontStyle()
+                    .onTapGesture {
+                        item.isSelected.toggle()
+                    }
+                }
+            }
+        }
     }
 }

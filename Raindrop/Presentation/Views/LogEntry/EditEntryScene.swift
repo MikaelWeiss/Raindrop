@@ -28,3 +28,14 @@ enum EditEntry {
         let service = EditEntry.Service()
     }
 }
+
+struct SelectionItem: Identifiable {
+    var id = UUID()
+    var value: String
+}
+
+struct ChecklistItem: Identifiable {
+    var id = UUID()
+    var value: String
+    var isSelected = false
+}
