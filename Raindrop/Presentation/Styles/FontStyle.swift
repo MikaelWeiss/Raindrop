@@ -11,11 +11,24 @@ struct FontStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(Styles.standardFontStyle)
+            .foregroundColor(.standardCellFontColor)
+    }
+}
+
+struct ValueFontStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(Styles.standardValueFontStyle)
+            .foregroundColor(.standardCellValueFontColor)
     }
 }
 
 extension View {
     func fontStyle() -> some View {
         self.modifier(FontStyle())
+    }
+    
+    func valueFontStyle() -> some View {
+        self.modifier(ValueFontStyle())
     }
 }

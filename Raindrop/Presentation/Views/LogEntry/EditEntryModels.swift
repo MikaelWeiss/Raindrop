@@ -26,10 +26,8 @@ extension EditEntry {
     }
     
     class ViewModel: ObservableObject {
-        @Published var title = ""
-        @Published var textFieldTitle = ""
-        @Published var textFieldValue = ""
-        @Published var isShowingOtherScene = false
-        @Published var isShowingSheet = false
+        @Published var dateOfEntry: Date = Date.now
+        @Published var textEntryValue: String = ""
+        @Published var numberEntryValue: String = ""
     }
 }

@@ -20,19 +20,14 @@ struct EditEntryPresenter: EditEntryPresenting {
     let viewModel = EditEntry.ViewModel()
     
     func presentUpdateTheme() {
-        viewModel.title = EditEntry.Strings.sceneTitle
-        viewModel.textFieldTitle = EditEntry.Strings.textFieldTitle
     }
     
     func presentDidChangeValue(with response: EditEntry.ValidateValue.Response) {
-        viewModel.textFieldValue = response.value
     }
     
     func presentPrepareRouteToSheet() {
-        viewModel.isShowingSheet = true
     }
     
     func presentPrepareRouteToOtherScene() {
-        viewModel.isShowingOtherScene = true
     }
 }

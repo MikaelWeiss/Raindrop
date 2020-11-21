@@ -9,10 +9,14 @@ import SwiftUI
 
 struct CellStyle: ViewModifier {
     func body(content: Content) -> some View {
-        content
-            .frame(height: 56, alignment: .center)
-            .frame(maxWidth: 400)
-            .padding(.horizontal, 16)
+        VStack {
+            content
+                .padding()
+            Color(#colorLiteral(red: 0.2195718288, green: 0.2195555866, blue: 0.2281640768, alpha: 1))
+                .frame(height: 1)
+                .padding(.leading)
+        }
+        .fontStyle()
     }
 }
 

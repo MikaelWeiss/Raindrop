@@ -32,17 +32,10 @@ struct EditEntryView: View {
             ScrollView {
                 LazyVStack(alignment: .leading) {
                     Color(.systemBackground).frame(height: 60)
-                    HStack {
-                        Text("Entry Number")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(Color(#colorLiteral(red: 0.5411272645, green: 0.5412079692, blue: 0.5411095023, alpha: 1)))
-                        Spacer()
-                        Text("1,000,000,000")
-                            .fontWeight(.heavy)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2500658035, green: 0.4984801412, blue: 0.65720433, alpha: 1)))
-                    }
-                    .font(.system(size: 18, weight: .bold, design: .rounded))
-                    .padding([.horizontal, .bottom])
+                    ComputedValue()
+                    DateSelection($viewModel.dateOfEntry)
+                    TextEntry($viewModel.textEntryValue)
+                    NumberEntry($viewModel.numberEntryValue)
                 }
             }
             GroupSelectionBar()
@@ -72,6 +65,8 @@ extension EditEntryView: EditEntryInputting {
     }
 }
 
+// MARK: - Previews
+
 struct EditEntry_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
@@ -79,6 +74,8 @@ struct EditEntry_Previews: PreviewProvider {
         }.colorScheme(.dark)
     }
 }
+
+// MARK: - Other Views
 
 struct GroupSelectionItem: View {
     var body: some View {
@@ -107,7 +104,89 @@ struct GroupSelectionBar: View {
         .frame(maxWidth: .infinity)
         .background(Color(hex: 0xc1d1d1d))
         .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-        .padding(.all, 10)
+        .padding(10)
         .background(Color(.systemBackground))
+    }
+}
+
+struct ComputedValue: View {
+    var body: some View {
+        HStack {
+            Text("Entry Number")
+            Spacer()
+            Text("1,000,000,000")
+                .valueFontStyle()
+        }
+        .cellStyle()
+    }
+}
+
+struct DateSelection: View {
+    @Binding var dateOfEntry: Date
+    init(_ dateOfEntry: Binding<Date>) {
+        _dateOfEntry = dateOfEntry
+    }
+    
+    var body: some View {
+        HStack {
+            Text("Date")
+            Spacer()
+            DatePicker("Date", selection: $dateOfEntry)
+                .labelsHidden()
+        }
+        .cellStyle()
+    }
+}
+
+struct TextEntry: View {
+    @Binding var value: String
+    let title = "Text Entry Value"
+    
+    init(_ value: Binding<String>) {
+        _value = value
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(title)
+            TextField("Enter Value Here", text: $value)
+                .valueFontStyle()
+        }
+        .cellStyle()
+    }
+}
+
+struct NumberEntry: View {
+    @Binding var value: String
+    let title = "Number Entry Value"
+    
+    init(_ value: Binding<String>) {
+        _value = value
+    }
+    
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            TextField("Enter Number", text: .constant("999,999,999,999"))
+                .frame(width: 164)
+                .multilineTextAlignment(.trailing)
+                .valueFontStyle()
+        }
+        .cellStyle()
+    }
+}
+
+struct VerticalDataEntryCell<Content>: View where Content: View {
+    let title: LocalizedStringKey
+    let content: Content
+    
+    init(title: LocalizedStringKey, @ViewBuilder content: @escaping () -> Content) {
+        self.title = title
+        self.content = Content
+    }
+    
+    var body: some View {
+        Text(title)
     }
 }
