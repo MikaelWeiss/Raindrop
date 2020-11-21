@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 protocol EditEntryPresenting {
-    func presentDidChangeValue(with response: EditEntry.ValidateValue.Response)
     func presentUpdateTheme()
     func presentPrepareRouteToSheet()
     func presentPrepareRouteToOtherScene()
+    func presentDidChangeTextFieldValue(with response: EditEntry.ValidateTextEntryValue.Response)
+    func presentDidChangeNumberEntryValue(with response: EditEntry.ValidateNumberEntryValue.Response)
 }
 
 struct EditEntryPresenter: EditEntryPresenting {
@@ -22,7 +23,17 @@ struct EditEntryPresenter: EditEntryPresenting {
     func presentUpdateTheme() {
     }
     
-    func presentDidChangeValue(with response: EditEntry.ValidateValue.Response) {
+    func presentDidChangeTextFieldValue(with response: EditEntry.ValidateTextEntryValue.Response) {
+        if let index = viewModel.entryItems.firstIndex(where: { $0.id == response.id }) {
+//            viewModel.objectWillChange
+            viewModel.entryItems[index].type = .text(response.newValue)
+        }
+    }
+    
+    func presentDidChangeNumberEntryValue(with response: EditEntry.ValidateNumberEntryValue.Response) {
+        if let index = viewModel.entryItems.firstIndex(where: {$0.id == response.id }) {
+            viewModel.entryItems[index].type = .number(response.newValue)
+        }
     }
     
     func presentPrepareRouteToSheet() {

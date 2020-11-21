@@ -10,9 +10,10 @@ import Foundation
 
 protocol EditEntryRequesting {
     func updateTheme()
-    func didChangeValue(with request: EditEntry.ValidateValue.Request)
     func prepareRouteToSheet()
     func prepareRouteToOtherScene()
+    func didChangeTextFieldValue(with request: EditEntry.ValidateTextEntryValue.Request)
+    func didChangeNumberEntryValue(with request: EditEntry.ValidateNumberEntryValue.Request)
 }
 
 struct EditEntryInteractor: EditEntryRequesting {
@@ -28,9 +29,14 @@ struct EditEntryInteractor: EditEntryRequesting {
         presenter.presentUpdateTheme()
     }
     
-    func didChangeValue(with request: EditEntry.ValidateValue.Request) {
-        let response = EditEntry.ValidateValue.Response(value: request.value)
-        presenter.presentDidChangeValue(with: response)
+    func didChangeTextFieldValue(with request: EditEntry.ValidateTextEntryValue.Request) {
+        let response = EditEntry.ValidateTextEntryValue.Response(newValue: request.newValue, id: request.id)
+        presenter.presentDidChangeTextFieldValue(with: response)
+    }
+    
+    func didChangeNumberEntryValue(with request: EditEntry.ValidateNumberEntryValue.Request) {
+        let response = EditEntry.ValidateNumberEntryValue.Response(newValue: request.newValue, id: request.id)
+        presenter.presentDidChangeNumberEntryValue(with: response)
     }
     
     func prepareRouteToSheet() {

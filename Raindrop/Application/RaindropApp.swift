@@ -24,12 +24,12 @@ struct RaindropApp: App {
                 }
                     .tabItem {
                         Image(systemName: "pencil.circle.fill")
-                        Text("EditValue")
+                        Text("Entry")
                     }.tag(Tabs.editValue)
                 Text("Tab Content 2")
                     .tabItem {
                         Image(systemName: "line.horizontal.3.circle")
-                        Text("View Values")
+                        Text("Overview")
                     }.tag(Tabs.secondTab)
             }
         }

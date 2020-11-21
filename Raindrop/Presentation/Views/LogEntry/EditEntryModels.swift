@@ -10,13 +10,27 @@ import Foundation
 import UIKit
 
 extension EditEntry {
-    enum ValidateValue {
+    enum ValidateTextEntryValue {
         struct Request {
-            let value: String
+            let newValue: String
+            let id: UUID
         }
         
         struct Response {
-            let value: String
+            let newValue: String
+            let id: UUID
+        }
+    }
+    
+    enum ValidateNumberEntryValue {
+        struct Request {
+            let newValue: String
+            let id: UUID
+        }
+        
+        struct Response {
+            let newValue: String
+            let id: UUID
         }
     }
     
@@ -26,11 +40,6 @@ extension EditEntry {
     }
     
     class ViewModel: ObservableObject {
-        @Published var dateOfEntry = Date.now
-        @Published var textEntryValue = ""
-        @Published var numberEntryValue = ""
-        @Published var currentlySelectedItem: SelectionItem?
-        @Published var allItems = [SelectionItem(value: "Some Item")]
-        @Published var checklistItems = [ChecklistItem(value: "Some Name")]
+        @Published var entryItems: [Item] = [Item(title: "Text Entry", type: .text("YES")), Item(title: "Text Entry", type: .text("YES")), Item(title: "Text Entry", type: .text("YES")), Item(title: "Number Entry", type: .number("$999,999,999"))]
     }
 }

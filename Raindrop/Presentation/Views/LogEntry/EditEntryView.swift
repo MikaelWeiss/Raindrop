@@ -9,7 +9,8 @@
 import SwiftUI
 
 protocol EditEntryInputting {
-    func didChangeValue(to value: String)
+    func didChangeTextValue(to value: String, withID id: UUID)
+    func didChangeNumberEntryValue(to value: String, withID id: UUID)
     func prepareRouteToSheet()
     func prepareRouteToOtherScene()
 }
@@ -32,12 +33,15 @@ struct EditEntryView: View {
             ScrollView {
                 LazyVStack(alignment: .leading) {
                     Color(.systemBackground).frame(height: 60)
-                    ComputedValue()
-                    DateSelection($viewModel.dateOfEntry)
-                    TextEntry($viewModel.textEntryValue)
-                    NumberEntry($viewModel.numberEntryValue)
-                    ItemSelectionCell(allItems: $viewModel.allItems, currentlySelectedItem: $viewModel.currentlySelectedItem)
-                    Checklist(items: $viewModel.checklistItems)
+                    
+                    ForEach(viewModel.entryItems) { item in
+                        switch item.type {
+                        case let .text(value): TextEntry(item.title, value: value) { didChangeTextValue(to: $0, withID: item.id) }
+                        case let .number(value): NumberEntry(item.title, value: value) { didChangeNumberEntryValue(to: $0, withID: item.id) }
+                        default: Text("I'm not working right")
+                        }
+                    }
+                    
                     StandardButton(title: "Save", onTap: { } )
                 }
             }
@@ -54,9 +58,14 @@ struct EditEntryView: View {
 // MARK: - Inputing
 
 extension EditEntryView: EditEntryInputting {
-    func didChangeValue(to value: String) {
-        let request = EditEntry.ValidateValue.Request(value: value)
-        interactor.didChangeValue(with: request)
+    func didChangeTextValue(to value: String, withID id: UUID) {
+        let request = EditEntry.ValidateTextEntryValue.Request(newValue: value, id: id)
+        interactor.didChangeTextFieldValue(with: request)
+    }
+    
+    func didChangeNumberEntryValue(to value: String, withID id: UUID) {
+        let request = EditEntry.ValidateNumberEntryValue.Request(newValue: value, id: id)
+        interactor.didChangeNumberEntryValue(with: request)
     }
     
     func prepareRouteToSheet() {
@@ -122,48 +131,63 @@ struct ComputedValue: View {
         }
     }
 }
-
-struct DateSelection: View {
-    let title: String = "Date"
-    @Binding var dateOfEntry: Date
-    init(_ dateOfEntry: Binding<Date>) {
-        _dateOfEntry = dateOfEntry
-    }
-    
-    var body: some View {
-        HorizontalDataEntryCell(title: title) {
-            DatePicker(title, selection: $dateOfEntry)
-                .labelsHidden()
-        }
-    }
-}
+//
+//struct DateSelection: View {
+//    let item: Item<Date, Date>
+//
+//    init(_ entryItem: Item<Date, Date>) {
+//        item = entryItem
+//    }
+//
+//    var body: some View {
+//        let binding = Binding(get: { item.value }, set: { item.onValueChanged($0) })
+//        HorizontalDataEntryCell(title: item.title) {
+//            DatePicker(item.title, selection: binding)
+//                .labelsHidden()
+//        }
+//    }
+//}
 
 struct TextEntry: View {
-    @Binding var value: String
-    let title = "Text Entry Value"
+    let title: String
+    let value: String
+    let onTextChanged: (String) -> Void
     
-    init(_ value: Binding<String>) {
-        _value = value
+    init(_ title: String, value: String, onTextChanged: @escaping (String) -> Void) {
+        self.title = title
+        self.value = value
+        self.onTextChanged = onTextChanged
     }
     
     var body: some View {
+        let binding = Binding(
+            get: {
+                value
+            },
+            set: {
+                onTextChanged($0)
+            })
         VerticalDataEntryCell(title: title) {
-            TextField("Enter Value Here", text: $value)
+            TextField("Enter Value Here", text: binding)
         }
     }
 }
 
 struct NumberEntry: View {
-    @Binding var value: String
-    let title = "Number Entry Value"
+    let title: String
+    let value: String
+    let onValueChanged: (String) -> Void
     
-    init(_ value: Binding<String>) {
-        _value = value
+    init(_ title: String, value: String, onValueChanged: @escaping (String) -> Void) {
+        self.title = title
+        self.value = value
+        self.onValueChanged = onValueChanged
     }
-    
+
     var body: some View {
+        let binding = Binding(get: { value }, set: { onValueChanged($0) })
         HorizontalDataEntryCell(title: title) {
-            TextField("Enter Number", text: $value)
+            TextField("Enter Number", text: binding)
                 .frame(width: 164)
                 .multilineTextAlignment(.trailing)
         }
@@ -173,12 +197,12 @@ struct NumberEntry: View {
 struct VerticalDataEntryCell<Content>: View where Content: View {
     let title: String
     let content: () -> Content
-    
+
     init(title: String, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.content = content
     }
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
@@ -190,12 +214,12 @@ struct VerticalDataEntryCell<Content>: View where Content: View {
 struct HorizontalDataEntryCell<Content>: View where Content: View {
     let title: String
     let content: () -> Content
-    
+
     init(title: String, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.content = content
     }
-    
+
     var body: some View {
         HStack {
             Text(title)
@@ -204,74 +228,103 @@ struct HorizontalDataEntryCell<Content>: View where Content: View {
         }.cellStyle()
     }
 }
+//
+//struct ItemSelectionCell: View {
+//    let item: Item<ItemSelectionValue, SelectionItem?>
+//
+//    init(item: Item<ItemSelectionValue, SelectionItem?>) {
+//        self.item = item
+//    }
+//
+//    @State private var isShowingSelectionSheet: Bool = false
+//
+//    var body: some View {
+//        let currentlySelectedItem = self.item.value.currentlySelectedItem
+//
+//        HorizontalDataEntryCell(title: "Item Selection") {
+//            Text(currentlySelectedItem?.value ?? "Select Value")
+//            Image(systemName: "arrowtriangle.down.square.fill")
+//        }
+//        .onTapGesture {
+//            isShowingSelectionSheet = true
+//        }
+//        .sheet(isPresented: $isShowingSelectionSheet) {
+//            ItemSelectionView(item: self.item, isShowing: $isShowingSelectionSheet)
+//        }
+//    }
+//}
+//
+//struct ItemSelectionValue {
+//    let items: [SelectionItem]
+//    let currentlySelectedItem: SelectionItem?
+//}
+//
+//struct ItemSelectionView: View {
+//    let item: Item<ItemSelectionValue, SelectionItem?>
+//
+//    init(item: Item<ItemSelectionValue, SelectionItem?>, isShowing: Binding<Bool>) {
+//        self.item = item
+//        self._isShowing = isShowing
+//    }
+//
+//    @Binding var isShowing: Bool
+//
+//    var body: some View {
+//        let currentlySelectedItem = self.item.value.currentlySelectedItem
+//        ScrollView {
+//            ForEach(item.value.items) { item in
+//                HStack {
+//                    Image(systemName: item.id == currentlySelectedItem?.id ? "square.fill" : "square")
+//                    Text(item.value)
+//                    Spacer()
+//                }
+//                .valueFontStyle()
+//                .cellStyle()
+//                .onTapGesture {
+//                    self.isShowing = false
+//                    self.item.onValueChanged(item)
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//struct Checklist: View {
+//    let item: Item<[ChecklistItem], Int>
+//
+//    init(_ entryItem: Item<[ChecklistItem], Int>) {
+//        item = entryItem
+//    }
+//
+//    var body: some View {
+//        VerticalDataEntryCell(title: "Checklist") {
+//            ScrollView {
+//                ForEach(item.value) { item in
+//                    HStack {
+//                        Image(systemName: item.isSelected ? "square.fill" : "square")
+//                        Text(item.value)
+//                        Spacer()
+//                    }
+//                    .valueFontStyle()
+//                    .onTapGesture {
+//                        if let index = self.item.value.firstIndex(where: { $0.id == item.id } ) {
+//                            self.item.onValueChanged(index)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 
-struct ItemSelectionCell: View {
-    @Binding var allItems: [SelectionItem]
-    @Binding var currentlySelectedItem: SelectionItem?
-    @State private var isShowingSelectionSheet = false
-    
-    var body: some View {
-        HorizontalDataEntryCell(title: "Item Selection") {
-            Text(currentlySelectedItem?.value ?? "Select Value")
-            Image(systemName: "arrowtriangle.down.square.fill")
-        }
-        .onTapGesture {
-            isShowingSelectionSheet = true
-        }
-        .sheet(isPresented: $isShowingSelectionSheet) {
-            ItemSelectionView(items: allItems, currentlySelectedItem: $currentlySelectedItem, viewShowing: $isShowingSelectionSheet)
-        }
-    }
-}
-
-struct ItemSelectionView: View {
-    let items: [SelectionItem]
-    @Binding var currentlySelectedItem: SelectionItem?
-    @Binding var viewShowing: Bool
-    
-    var body: some View {
-        ScrollView {
-            ForEach(items) { item in
-                HStack {
-                    Image(systemName: item.id == currentlySelectedItem?.id ? "square.fill" : "square")
-                    Text(item.value)
-                    Spacer()
-                }
-                .valueFontStyle()
-                .cellStyle()
-                .onTapGesture {
-                    if currentlySelectedItem?.id == item.id {
-                        currentlySelectedItem = nil
-                    } else {
-                        currentlySelectedItem = item
-                    }
-                    viewShowing = false
-                }
-            }
-        }
-    }
-}
-
-struct Checklist: View {
-    @Binding var items: [ChecklistItem]
-    
-    var body: some View {
-        VerticalDataEntryCell(title: "Checklist") {
-            ScrollView {
-                ForEach(items) { item in
-                    HStack {
-                        Image(systemName: item.isSelected ? "square.fill" : "square")
-                        Text(item.value)
-                        Spacer()
-                    }
-                    .valueFontStyle()
-                    .onTapGesture {
-                        if let index = items.firstIndex(where: { $0.id == item.id } ) {
-                            items[index].isSelected.toggle()
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+//struct TextView: UIViewRepresentable {
+//    @Binding var text: String
+//
+//    func makeUIView(context: Context) -> UITextView {
+//        return UITextView()
+//    }
+//
+//    func updateUIView(_ uiView: UITextView, context: Context) {
+//        uiView.text = text
+//    }
+//}
