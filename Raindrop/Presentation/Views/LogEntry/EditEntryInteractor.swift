@@ -14,6 +14,7 @@ protocol EditEntryRequesting {
     func prepareRouteToOtherScene()
     func didChangeTextFieldValue(with request: EditEntry.ValidateTextEntryValue.Request)
     func didChangeNumberEntryValue(with request: EditEntry.ValidateNumberEntryValue.Request)
+    func didChangeDate(with request: EditEntry.ValidateDateEntry.Request)
 }
 
 struct EditEntryInteractor: EditEntryRequesting {
@@ -37,6 +38,11 @@ struct EditEntryInteractor: EditEntryRequesting {
     func didChangeNumberEntryValue(with request: EditEntry.ValidateNumberEntryValue.Request) {
         let response = EditEntry.ValidateNumberEntryValue.Response(newValue: request.newValue, id: request.id)
         presenter.presentDidChangeNumberEntryValue(with: response)
+    }
+    
+    func didChangeDate(with request: EditEntry.ValidateDateEntry.Request) {
+        let response = EditEntry.ValidateDateEntry.Response(newValue: request.newValue, id: request.id)
+        presenter.presentDidChangeDate(with: response)
     }
     
     func prepareRouteToSheet() {

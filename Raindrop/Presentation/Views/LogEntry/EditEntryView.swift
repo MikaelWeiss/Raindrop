@@ -11,6 +11,7 @@ import SwiftUI
 protocol EditEntryInputting {
     func didChangeTextValue(to value: String, withID id: UUID)
     func didChangeNumberEntryValue(to value: String, withID id: UUID)
+    func didChangeDate(to value: Date, withID id: UUID)
     func prepareRouteToSheet()
     func prepareRouteToOtherScene()
 }
@@ -38,6 +39,7 @@ struct EditEntryView: View {
                         switch item.type {
                         case let .text(value): TextEntry(item.title, value: value) { didChangeTextValue(to: $0, withID: item.id) }
                         case let .number(value): NumberEntry(item.title, value: value) { didChangeNumberEntryValue(to: $0, withID: item.id) }
+                        case let .date(value): DateSelection(item.title, value: value) { didChangeDate(to: $0, withID: item.id) }
                         default: Text("I'm not working right")
                         }
                     }
@@ -66,6 +68,11 @@ extension EditEntryView: EditEntryInputting {
     func didChangeNumberEntryValue(to value: String, withID id: UUID) {
         let request = EditEntry.ValidateNumberEntryValue.Request(newValue: value, id: id)
         interactor.didChangeNumberEntryValue(with: request)
+    }
+    
+    func didChangeDate(to value: Date, withID id: UUID) {
+        let request = EditEntry.ValidateDateEntry.Request(newValue: value, id: id)
+        interactor.didChangeDate(with: request)
     }
     
     func prepareRouteToSheet() {
@@ -131,22 +138,26 @@ struct ComputedValue: View {
         }
     }
 }
-//
-//struct DateSelection: View {
-//    let item: Item<Date, Date>
-//
-//    init(_ entryItem: Item<Date, Date>) {
-//        item = entryItem
-//    }
-//
-//    var body: some View {
-//        let binding = Binding(get: { item.value }, set: { item.onValueChanged($0) })
-//        HorizontalDataEntryCell(title: item.title) {
-//            DatePicker(item.title, selection: binding)
-//                .labelsHidden()
-//        }
-//    }
-//}
+
+struct DateSelection: View {
+    let title: String
+    let value: Date
+    let onDateChanged: (Date) -> Void
+    
+    init(_ title: String, value: Date, onDateChanged: @escaping (Date) -> Void) {
+        self.title = title
+        self.value = value
+        self.onDateChanged = onDateChanged
+    }
+
+    var body: some View {
+        let binding = Binding(get: { value }, set: { onDateChanged($0) })
+        HorizontalDataEntryCell(title: title) {
+            DatePicker(title, selection: binding)
+                .labelsHidden()
+        }
+    }
+}
 
 struct TextEntry: View {
     let title: String

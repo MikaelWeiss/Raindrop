@@ -15,6 +15,7 @@ protocol EditEntryPresenting {
     func presentPrepareRouteToOtherScene()
     func presentDidChangeTextFieldValue(with response: EditEntry.ValidateTextEntryValue.Response)
     func presentDidChangeNumberEntryValue(with response: EditEntry.ValidateNumberEntryValue.Response)
+    func presentDidChangeDate(with response: EditEntry.ValidateDateEntry.Response)
 }
 
 struct EditEntryPresenter: EditEntryPresenting {
@@ -33,6 +34,12 @@ struct EditEntryPresenter: EditEntryPresenting {
     func presentDidChangeNumberEntryValue(with response: EditEntry.ValidateNumberEntryValue.Response) {
         if let index = viewModel.entryItems.firstIndex(where: {$0.id == response.id }) {
             viewModel.entryItems[index].type = .number(response.newValue)
+        }
+    }
+    
+    func presentDidChangeDate(with response: EditEntry.ValidateDateEntry.Response) {
+        if let index = viewModel.entryItems.firstIndex(where: {$0.id == response.id }) {
+            viewModel.entryItems[index].type = .date(response.newValue)
         }
     }
     

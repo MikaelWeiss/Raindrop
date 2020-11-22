@@ -34,12 +34,24 @@ extension EditEntry {
         }
     }
     
+    enum ValidateDateEntry {
+        struct Request {
+            let newValue: Date
+            let id: UUID
+        }
+        
+        struct Response {
+            let newValue: Date
+            let id: UUID
+        }
+    }
+    
     enum Strings {
         static let sceneTitle = NSLocalizedString("Some title", comment: "The title for the scene")
         static let textFieldTitle = NSLocalizedString("Some title", comment: "The title for some text field")
     }
     
     class ViewModel: ObservableObject {
-        @Published var entryItems: [Item] = [Item(title: "Text Entry", type: .text("YES")), Item(title: "Text Entry", type: .text("YES")), Item(title: "Text Entry", type: .text("YES")), Item(title: "Number Entry", type: .number("$999,999,999"))]
+        @Published var entryItems: [Item] = [Item(title: "Text Entry", type: .text("YES")), Item(title: "Text Entry", type: .text("YES")), Item(title: "Text Entry", type: .text("YES")), Item(title: "Number Entry", type: .number("$999,999,999")), Item(title: "Date", type: .date(Date.now))]
     }
 }
