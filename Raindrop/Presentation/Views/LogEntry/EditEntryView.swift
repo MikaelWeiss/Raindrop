@@ -12,6 +12,7 @@ protocol EditEntryInputting {
     func didChangeTextValue(to value: String, withID id: UUID)
     func didChangeNumberEntryValue(to value: String, withID id: UUID)
     func didChangeDate(to value: Date, withID id: UUID)
+    func didSelectChecklistItem(checklistID: UUID, itemID: UUID)
     func prepareRouteToSheet()
     func prepareRouteToOtherScene()
 }
@@ -41,6 +42,7 @@ struct EditEntryView: View {
                         case let .number(value): NumberEntry(item.title, value: value) { didChangeNumberEntryValue(to: $0, withID: item.id) }
                         case let .date(value): DateSelection(item.title, value: value) { didChangeDate(to: $0, withID: item.id) }
                         case let .computed(value): ComputedValue(title: item.title, value: value)
+                        case let .checklist(value): Checklist(item.title, value: value) { didSelectChecklistItem(checklistID: item.id, itemID: $0) }
                         default: Text("I'm not working right")
                         }
                     }
@@ -74,6 +76,11 @@ extension EditEntryView: EditEntryInputting {
     func didChangeDate(to value: Date, withID id: UUID) {
         let request = EditEntry.ValidateDateEntry.Request(newValue: value, id: id)
         interactor.didChangeDate(with: request)
+    }
+    
+    func didSelectChecklistItem(checklistID: UUID, itemID: UUID) {
+        let request = EditEntry.ValidateChecklistSelection.Request(checklistID: checklistID, itemID: itemID)
+        interactor.didSelectChecklistItem(with: request)
     }
     
     func prepareRouteToSheet() {
@@ -301,33 +308,35 @@ struct HorizontalDataEntryCell<Content>: View where Content: View {
 //    }
 //}
 //
-//struct Checklist: View {
-//    let item: Item<[ChecklistItem], Int>
-//
-//    init(_ entryItem: Item<[ChecklistItem], Int>) {
-//        item = entryItem
-//    }
-//
-//    var body: some View {
-//        VerticalDataEntryCell(title: "Checklist") {
-//            ScrollView {
-//                ForEach(item.value) { item in
-//                    HStack {
-//                        Image(systemName: item.isSelected ? "square.fill" : "square")
-//                        Text(item.value)
-//                        Spacer()
-//                    }
-//                    .valueFontStyle()
-//                    .onTapGesture {
-//                        if let index = self.item.value.firstIndex(where: { $0.id == item.id } ) {
-//                            self.item.onValueChanged(index)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
+
+struct Checklist: View {
+    let title: String
+    let value: [ChecklistItem]
+    let onValueChanged: (UUID) -> Void
+    
+    init(_ title: String, value: [ChecklistItem], onValueChanged: @escaping (UUID) -> Void) {
+        self.title = title
+        self.value = value
+        self.onValueChanged = onValueChanged
+    }
+
+    var body: some View {
+        VerticalDataEntryCell(title: "Checklist") {
+            ForEach(value) { item in
+                HStack {
+                    Image(systemName: item.isSelected ? "square.fill" : "square")
+                    Text(item.value)
+                    Color(.systemBackground)
+                }
+                .frame(height: 30)
+                .valueFontStyle()
+                .onTapGesture {
+                    onValueChanged(item.id)
+                }
+            }
+        }
+    }
+}
 
 //struct TextView: UIViewRepresentable {
 //    @Binding var text: String

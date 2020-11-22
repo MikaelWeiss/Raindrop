@@ -13,6 +13,6 @@ enum InputType {
     case number(String)
     case date(Date)
     case selection
-    case checklist
+    case checklist([ChecklistItem])
     case computed(String)
 }

@@ -16,6 +16,7 @@ protocol EditEntryPresenting {
     func presentDidChangeTextFieldValue(with response: EditEntry.ValidateTextEntryValue.Response)
     func presentDidChangeNumberEntryValue(with response: EditEntry.ValidateNumberEntryValue.Response)
     func presentDidChangeDate(with response: EditEntry.ValidateDateEntry.Response)
+    func presentDidSelectChecklistItem(with response: EditEntry.ValidateChecklistSelection.Response)
 }
 
 struct EditEntryPresenter: EditEntryPresenting {
@@ -32,15 +33,24 @@ struct EditEntryPresenter: EditEntryPresenting {
     }
     
     func presentDidChangeNumberEntryValue(with response: EditEntry.ValidateNumberEntryValue.Response) {
-        if let index = viewModel.entryItems.firstIndex(where: {$0.id == response.id }) {
+        if let index = viewModel.entryItems.firstIndex(where: { $0.id == response.id }) {
             viewModel.entryItems[index].type = .number(response.newValue)
         }
     }
     
     func presentDidChangeDate(with response: EditEntry.ValidateDateEntry.Response) {
-        if let index = viewModel.entryItems.firstIndex(where: {$0.id == response.id }) {
+        if let index = viewModel.entryItems.firstIndex(where: { $0.id == response.id }) {
             viewModel.entryItems[index].type = .date(response.newValue)
         }
+    }
+    
+    func presentDidSelectChecklistItem(with response: EditEntry.ValidateChecklistSelection.Response) {
+        guard let checklistIndex = viewModel.entryItems.firstIndex(where: { $0.id == response.checklistID }) else { return }
+        guard case let .checklist(list) = viewModel.entryItems[checklistIndex].type else { return }
+        guard let itemIndex = list.firstIndex(where: { $0.id == response.itemID }) else { return }
+        var temporaryList = list
+        temporaryList[itemIndex].isSelected.toggle()
+        viewModel.entryItems[checklistIndex].type = .checklist(temporaryList)
     }
     
     func presentPrepareRouteToSheet() {

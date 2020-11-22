@@ -7,6 +7,12 @@
 
 import Foundation
 
-struct Checklistsssss {
-    var items: [(selected: Bool, title: String)]
+struct ChecklistItems {
+    struct ChecklistItem: Identifiable {
+        let id = UUID()
+        let title: String
+        var selected: Bool
+    }
+    
+    var items: [ChecklistItem]
 }
