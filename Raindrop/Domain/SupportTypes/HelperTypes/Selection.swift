@@ -8,6 +8,10 @@
 import Foundation
 
 struct Selection {
-    var items: [String]
-    var selectedItemIndex: Int
+    struct SelectionItem: Identifiable {
+        let id = UUID()
+        let title: String
+    }
+    var items: [SelectionItem]
+    var currentlySelectedItem: SelectionItem?
 }

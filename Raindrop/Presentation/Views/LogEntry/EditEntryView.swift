@@ -13,6 +13,7 @@ protocol EditEntryInputting {
     func didChangeNumberEntryValue(to value: String, withID id: UUID)
     func didChangeDate(to value: Date, withID id: UUID)
     func didSelectChecklistItem(checklistID: UUID, itemID: UUID)
+    func didSelectSelectionItem(selectionID: UUID, itemID: UUID)
     func prepareRouteToSheet()
     func prepareRouteToOtherScene()
 }
@@ -43,6 +44,7 @@ struct EditEntryView: View {
                         case let .date(value): DateSelection(item.title, value: value) { didChangeDate(to: $0, withID: item.id) }
                         case let .computed(value): ComputedValue(title: item.title, value: value)
                         case let .checklist(value): Checklist(item.title, value: value) { didSelectChecklistItem(checklistID: item.id, itemID: $0) }
+                        case let .selection(value): ItemSelectionCell(item.title, value: value) { didSelectSelectionItem(selectionID: item.id, itemID: $0) }
                         default: Text("I'm not working right")
                         }
                     }
@@ -81,6 +83,11 @@ extension EditEntryView: EditEntryInputting {
     func didSelectChecklistItem(checklistID: UUID, itemID: UUID) {
         let request = EditEntry.ValidateChecklistSelection.Request(checklistID: checklistID, itemID: itemID)
         interactor.didSelectChecklistItem(with: request)
+    }
+    
+    func didSelectSelectionItem(selectionID: UUID, itemID: UUID) {
+        let request = EditEntry.ValidateSelectionItemSelection.Request(selectionID: selectionID, itemID: itemID)
+        interactor.didSelectSelectionItem(with: request)
     }
     
     func prepareRouteToSheet() {
@@ -157,7 +164,7 @@ struct DateSelection: View {
         self.value = value
         self.onDateChanged = onDateChanged
     }
-
+    
     var body: some View {
         let binding = Binding(get: { value }, set: { onDateChanged($0) })
         HorizontalDataEntryCell(title: title) {
@@ -202,7 +209,7 @@ struct NumberEntry: View {
         self.value = value
         self.onValueChanged = onValueChanged
     }
-
+    
     var body: some View {
         let binding = Binding(get: { value }, set: { onValueChanged($0) })
         HorizontalDataEntryCell(title: title) {
@@ -213,101 +220,72 @@ struct NumberEntry: View {
     }
 }
 
-struct VerticalDataEntryCell<Content>: View where Content: View {
+struct ItemSelectionCell: View {
     let title: String
-    let content: () -> Content
-
-    init(title: String, @ViewBuilder content: @escaping () -> Content) {
+    let value: Selection
+    let onValueChanged: (UUID) -> Void
+    
+    init(_ title: String, value: Selection, onValueChanged: @escaping (UUID) -> Void) {
         self.title = title
-        self.content = content
+        self.value = value
+        self.onValueChanged = onValueChanged
     }
-
+    
+    @State private var isShowingSelectionSheet: Bool = false
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(title)
-            content().valueFontStyle()
-        }.cellStyle()
+        let currentlySelectedItem = value.currentlySelectedItem
+        
+        HorizontalDataEntryCell(title: title) {
+            Text(currentlySelectedItem?.title ?? "Select Value")
+            Image(systemName: "arrowtriangle.down.square.fill")
+        }
+        .onTapGesture {
+            isShowingSelectionSheet = true
+        }
+        .sheet(isPresented: $isShowingSelectionSheet) {
+            ItemSelectionView(value: value, isShowing: $isShowingSelectionSheet) { onValueChanged($0) }
+        }
     }
 }
 
-struct HorizontalDataEntryCell<Content>: View where Content: View {
-    let title: String
-    let content: () -> Content
+struct ItemSelectionValue {
+    let items: [SelectionItem]
+    let currentlySelectedItem: SelectionItem?
+}
 
-    init(title: String, @ViewBuilder content: @escaping () -> Content) {
-        self.title = title
-        self.content = content
+struct ItemSelectionView: View {
+    let value: Selection
+    let onValueChanged: (UUID) -> Void
+    @Binding var isShowing: Bool
+    
+    init(value: Selection, isShowing: Binding<Bool>, onValueChanged: @escaping (UUID) -> Void) {
+        self.value = value
+        self._isShowing = isShowing
+        self.onValueChanged = onValueChanged
     }
-
+    
     var body: some View {
-        HStack {
-            Text(title)
-            Spacer()
-            content().valueFontStyle()
-        }.cellStyle()
+        let currentlySelectedItem = value.currentlySelectedItem
+        
+        ScrollView {
+            ForEach(value.items) { item in
+                HStack {
+                    Image(systemName: item.id == currentlySelectedItem?.id ? "square.fill" : "square")
+                    Text(item.title)
+                    Spacer()
+                }
+                .valueFontStyle()
+                .cellStyle()
+                .onTapGesture {
+                    self.isShowing = false
+                    self.onValueChanged(item.id)
+                }
+            }
+        }
     }
 }
-//
-//struct ItemSelectionCell: View {
-//    let item: Item<ItemSelectionValue, SelectionItem?>
-//
-//    init(item: Item<ItemSelectionValue, SelectionItem?>) {
-//        self.item = item
-//    }
-//
-//    @State private var isShowingSelectionSheet: Bool = false
-//
-//    var body: some View {
-//        let currentlySelectedItem = self.item.value.currentlySelectedItem
-//
-//        HorizontalDataEntryCell(title: "Item Selection") {
-//            Text(currentlySelectedItem?.value ?? "Select Value")
-//            Image(systemName: "arrowtriangle.down.square.fill")
-//        }
-//        .onTapGesture {
-//            isShowingSelectionSheet = true
-//        }
-//        .sheet(isPresented: $isShowingSelectionSheet) {
-//            ItemSelectionView(item: self.item, isShowing: $isShowingSelectionSheet)
-//        }
-//    }
-//}
-//
-//struct ItemSelectionValue {
-//    let items: [SelectionItem]
-//    let currentlySelectedItem: SelectionItem?
-//}
-//
-//struct ItemSelectionView: View {
-//    let item: Item<ItemSelectionValue, SelectionItem?>
-//
-//    init(item: Item<ItemSelectionValue, SelectionItem?>, isShowing: Binding<Bool>) {
-//        self.item = item
-//        self._isShowing = isShowing
-//    }
-//
-//    @Binding var isShowing: Bool
-//
-//    var body: some View {
-//        let currentlySelectedItem = self.item.value.currentlySelectedItem
-//        ScrollView {
-//            ForEach(item.value.items) { item in
-//                HStack {
-//                    Image(systemName: item.id == currentlySelectedItem?.id ? "square.fill" : "square")
-//                    Text(item.value)
-//                    Spacer()
-//                }
-//                .valueFontStyle()
-//                .cellStyle()
-//                .onTapGesture {
-//                    self.isShowing = false
-//                    self.item.onValueChanged(item)
-//                }
-//            }
-//        }
-//    }
-//}
-//
+
 
 struct Checklist: View {
     let title: String
@@ -319,7 +297,7 @@ struct Checklist: View {
         self.value = value
         self.onValueChanged = onValueChanged
     }
-
+    
     var body: some View {
         VerticalDataEntryCell(title: "Checklist") {
             ForEach(value) { item in
@@ -335,6 +313,43 @@ struct Checklist: View {
                 }
             }
         }
+    }
+}
+
+// MARK: - Data Entry Cell
+
+struct VerticalDataEntryCell<Content>: View where Content: View {
+    let title: String
+    let content: () -> Content
+    
+    init(title: String, @ViewBuilder content: @escaping () -> Content) {
+        self.title = title
+        self.content = content
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(title)
+            content().valueFontStyle()
+        }.cellStyle()
+    }
+}
+
+struct HorizontalDataEntryCell<Content>: View where Content: View {
+    let title: String
+    let content: () -> Content
+    
+    init(title: String, @ViewBuilder content: @escaping () -> Content) {
+        self.title = title
+        self.content = content
+    }
+    
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            content().valueFontStyle()
+        }.cellStyle()
     }
 }
 

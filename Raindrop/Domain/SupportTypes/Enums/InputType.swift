@@ -12,7 +12,7 @@ enum InputType {
     case timer(Int)
     case number(String)
     case date(Date)
-    case selection
+    case selection(Selection)
     case checklist([ChecklistItem])
     case computed(String)
 }

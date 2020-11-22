@@ -17,6 +17,7 @@ protocol EditEntryPresenting {
     func presentDidChangeNumberEntryValue(with response: EditEntry.ValidateNumberEntryValue.Response)
     func presentDidChangeDate(with response: EditEntry.ValidateDateEntry.Response)
     func presentDidSelectChecklistItem(with response: EditEntry.ValidateChecklistSelection.Response)
+    func presentDidSelectSelectionItem(with response: EditEntry.ValidateSelectionItemSelection.Response)
 }
 
 struct EditEntryPresenter: EditEntryPresenting {
@@ -51,6 +52,15 @@ struct EditEntryPresenter: EditEntryPresenting {
         var temporaryList = list
         temporaryList[itemIndex].isSelected.toggle()
         viewModel.entryItems[checklistIndex].type = .checklist(temporaryList)
+    }
+    
+    func presentDidSelectSelectionItem(with response: EditEntry.ValidateSelectionItemSelection.Response) {
+        guard let selectionIndex = viewModel.entryItems.firstIndex(where: { $0.id == response.selectionID }) else { return }
+        guard case let .selection(value) = viewModel.entryItems[selectionIndex].type else { return }
+        guard let selectedItem = value.items.first(where: { $0.id == response.itemID }) else { return }
+        var tempValue = value
+        tempValue.currentlySelectedItem = selectedItem
+        viewModel.entryItems[selectionIndex].type = .selection(tempValue)
     }
     
     func presentPrepareRouteToSheet() {

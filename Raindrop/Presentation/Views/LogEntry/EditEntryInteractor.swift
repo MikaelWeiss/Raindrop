@@ -16,6 +16,7 @@ protocol EditEntryRequesting {
     func didChangeNumberEntryValue(with request: EditEntry.ValidateNumberEntryValue.Request)
     func didChangeDate(with request: EditEntry.ValidateDateEntry.Request)
     func didSelectChecklistItem(with request: EditEntry.ValidateChecklistSelection.Request)
+    func didSelectSelectionItem(with request: EditEntry.ValidateSelectionItemSelection.Request)
 }
 
 struct EditEntryInteractor: EditEntryRequesting {
@@ -49,6 +50,11 @@ struct EditEntryInteractor: EditEntryRequesting {
     func didSelectChecklistItem(with request: EditEntry.ValidateChecklistSelection.Request) {
         let response = EditEntry.ValidateChecklistSelection.Response(checklistID: request.checklistID, itemID: request.itemID)
         presenter.presentDidSelectChecklistItem(with: response)
+    }
+    
+    func didSelectSelectionItem(with request: EditEntry.ValidateSelectionItemSelection.Request) {
+        let response = EditEntry.ValidateSelectionItemSelection.Response(selectionID: request.selectionID, itemID: request.itemID)
+        presenter.presentDidSelectSelectionItem(with: response)
     }
     
     func prepareRouteToSheet() {
