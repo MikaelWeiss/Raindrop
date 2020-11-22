@@ -40,6 +40,7 @@ struct EditEntryView: View {
                         case let .text(value): TextEntry(item.title, value: value) { didChangeTextValue(to: $0, withID: item.id) }
                         case let .number(value): NumberEntry(item.title, value: value) { didChangeNumberEntryValue(to: $0, withID: item.id) }
                         case let .date(value): DateSelection(item.title, value: value) { didChangeDate(to: $0, withID: item.id) }
+                        case let .computed(value): ComputedValue(title: item.title, value: value)
                         default: Text("I'm not working right")
                         }
                     }
@@ -129,8 +130,8 @@ struct GroupSelectionBar: View {
 }
 
 struct ComputedValue: View {
-    let title = "Entry Number"
-    let value = "1,000,000,000"
+    let title: String
+    let value: String
     
     var body: some View {
         HorizontalDataEntryCell(title: title) {
