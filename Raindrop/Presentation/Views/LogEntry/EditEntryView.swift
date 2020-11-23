@@ -34,7 +34,7 @@ struct EditEntryView: View {
     var body: some View {
         ZStack(alignment: .top) {
             ScrollView {
-                LazyVStack(alignment: .leading) {
+                LazyVStack(alignment: .leading, spacing: 0) {
                     Color(.systemBackground).frame(height: 60)
                     
                     ForEach(viewModel.entryItems) { item in
@@ -121,13 +121,14 @@ struct GroupSelectionItem: View {
                 .foregroundColor(Color(#colorLiteral(red: 0.03318550438, green: 0.06916820258, blue: 0.2289170027, alpha: 1)))
                 .fontWeight(.heavy)
         }
+        .padding(.trailing, 8)
     }
 }
 
 struct GroupSelectionBar: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
+            HStack(spacing: 0) {
                 ForEach (0 ..< 10) {_ in
                     GroupSelectionItem()
                 }

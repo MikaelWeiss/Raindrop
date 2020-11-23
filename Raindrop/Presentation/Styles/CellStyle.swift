@@ -12,9 +12,11 @@ struct CellStyle: ViewModifier {
         VStack {
             content
                 .padding()
-            Color(#colorLiteral(red: 0.2195718288, green: 0.2195555866, blue: 0.2281640768, alpha: 1))
-                .frame(height: 1)
-                .padding(.leading)
+                .overlay (
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .stroke(Color.standardCellValueFontColor, lineWidth: 1.5)
+                )
+                .padding([.horizontal, .top])
         }
         .fontStyle()
     }
@@ -23,5 +25,16 @@ struct CellStyle: ViewModifier {
 extension View {
     func cellStyle() -> some View {
         self.modifier(CellStyle())
+    }
+}
+
+// MARK: - Previews
+
+struct CellStyle_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            Text("Sup")
+                .cellStyle()
+        }.colorScheme(.dark)
     }
 }
