@@ -76,6 +76,6 @@ extension EditEntry {
     }
     
     class ViewModel: ObservableObject {
-        @Published var entryItems: [Item] = [Item(title: "Entry Number", type: .computed("1")), Item(title: "Date", type: .date(Date.now)), Item(title: "Text Entry", type: .text("YES")), Item(title: "Number Entry", type: .number("$999,999,999")), Item(title: "Checklist", type: .checklist([ChecklistItem(value: "Some Name"), ChecklistItem(value: "Some Name"), ChecklistItem(value: "Some Name"), ChecklistItem(value: "Some Name")])), Item(title: "Select Value", type: .selection(Selection(items: [.init(title: "Some value")], currentlySelectedItem: nil)))]
+        @Published var entryItems: [Item] = [Item(title: "Entry Number", type: .computed("1")), Item(title: "Date", type: .date(Date.now)), Item(title: "Text Entry", type: .text("YES")), Item(title: "Number Entry", type: .number("$999,999,999")), Item(title: "Checklist", type: .checklist([ChecklistItem(value: "Some Name"), ChecklistItem(value: "Some Name"), ChecklistItem(value: "Some Name"), ChecklistItem(value: "Some Name")])), Item(title: "Select Value", type: .selection(Selection(items: [.init(title: "Some selection item"), .init(title: "Some selection item"), .init(title: "Some selection item")], currentlySelectedItem: nil)))]
     }
 }

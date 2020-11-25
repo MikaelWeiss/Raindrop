@@ -26,13 +26,6 @@ struct EditValueView: View {
     // MARK: - View Lifecycle
     var body: some View {
         VStack {
-            DataEntryCell(
-                title: "\(viewModel.textFieldTitle)",
-                value: viewModel.textFieldValue,
-                onTextChanged:  {
-                    didChangeValue(to: $0)
-                })
-            
             StandardButton(title: viewModel.sheetButtonTitle) {
                 prepareRouteToFirstSheet()
             }

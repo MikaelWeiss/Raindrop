@@ -9,15 +9,13 @@ import SwiftUI
 
 struct CellStyle: ViewModifier {
     func body(content: Content) -> some View {
-        VStack {
-            content
-                .padding()
-                .overlay (
-                    RoundedRectangle(cornerRadius: 14, style: .continuous)
-                        .stroke(Color.standardCellValueFontColor, lineWidth: 1.5)
-                )
-                .padding([.horizontal, .top])
-        }
+        content
+            .padding()
+            .overlay (
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .stroke(Color.standardCellValueFontColor, lineWidth: 1.5)
+            )
+            .padding([.horizontal, .top])
         .fontStyle()
     }
 }

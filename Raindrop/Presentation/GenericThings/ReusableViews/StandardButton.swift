@@ -31,15 +31,11 @@ struct StandardButton: View {
 struct StandardButton_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            VStack {
-                StandardButton(title: "Some title", onTap: { })
-            }.colorScheme(.light)
-            ZStack {
-                Color.black
-                VStack {
-                    StandardButton(title: "Some title", onTap: { })
-                }
-            }.colorScheme(.dark)
+            StandardButton(title: "Some title", onTap: { })
+                .colorScheme(.light)
+            StandardButton(title: "Some title", onTap: { })
+                .background(Color(.systemBackground))
+                .colorScheme(.dark)
         }.previewLayout(.sizeThatFits)
     }
 }
