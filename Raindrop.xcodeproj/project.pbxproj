@@ -252,7 +252,7 @@
 			children = (
 				A5C6515925708CE100192BD2 /* UIdentifiable.swift */,
 			);
-			path = Protocols;
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		A54C0446251FE95B00EEA9D2 /* Enums */ = {
