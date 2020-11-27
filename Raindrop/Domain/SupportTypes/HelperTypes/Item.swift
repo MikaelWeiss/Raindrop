@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item: Identifiable {
+struct Item: Identifiable, UIdentifiable {
     let id = UUID()
     let title: String
     var type: InputType

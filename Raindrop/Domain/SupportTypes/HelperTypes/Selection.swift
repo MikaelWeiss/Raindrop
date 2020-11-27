@@ -8,7 +8,7 @@
 import Foundation
 
 struct Selection {
-    struct SelectionItem: Identifiable {
+    struct SelectionItem: Identifiable, UIdentifiable {
         let id = UUID()
         let title: String
     }

@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 
 extension EditEntry {
+    
+    enum FetchItems {
+        struct Response {
+            let items: [Item]
+        }
+    }
+    
     enum ValidateTextEntryValue {
         struct Request {
-            let newValue: String
-            let id: UUID
-        }
-        
-        struct Response {
             let newValue: String
             let id: UUID
         }
@@ -27,20 +29,10 @@ extension EditEntry {
             let newValue: String
             let id: UUID
         }
-        
-        struct Response {
-            let newValue: String
-            let id: UUID
-        }
     }
     
     enum ValidateDateEntry {
         struct Request {
-            let newValue: Date
-            let id: UUID
-        }
-        
-        struct Response {
             let newValue: Date
             let id: UUID
         }
@@ -49,33 +41,44 @@ extension EditEntry {
     enum ValidateChecklistSelection {
         struct Request {
             let checklistID: UUID
-            let itemID: UUID
-        }
-        
-        struct Response {
-            let checklistID: UUID
-            let itemID: UUID
+            let checklistItemID: UUID
         }
     }
     
     enum ValidateSelectionItemSelection {
         struct Request {
             let selectionID: UUID
-            let itemID: UUID
+            let selectionItemID: UUID
         }
-        
+    }
+    
+    enum ValidateItem {
         struct Response {
-            let selectionID: UUID
-            let itemID: UUID
+            let item: Item
+        }
+    }
+    
+    enum CheckCanSave {
+        struct Response {
+            let canSave: Bool
         }
     }
     
     enum Strings {
         static let sceneTitle = NSLocalizedString("Some title", comment: "The title for the scene")
         static let textFieldTitle = NSLocalizedString("Some title", comment: "The title for some text field")
+        static let defaultErrorMessage = NSLocalizedString("Oh no, something unexpected happened", comment: "The default error message")
+        static let saveFailedErrorMessage = NSLocalizedString("Oh no, the entry was unable to save", comment: "The save failed error message")
+        static let defaultErrorButtonTitle = NSLocalizedString("Ok", comment: "The default error button title")
+        static let defaultSaveMessage = NSLocalizedString("Hurray! Save was successful!", comment: "The default save message")
     }
     
     class ViewModel: ObservableObject {
-        @Published var entryItems: [Item] = [Item(title: "Entry Number", type: .computed("1")), Item(title: "Date", type: .date(Date.now)), Item(title: "Text Entry", type: .text("YES")), Item(title: "Number Entry", type: .number("$999,999,999")), Item(title: "Checklist", type: .checklist([ChecklistItem(value: "Some Name"), ChecklistItem(value: "Some Name"), ChecklistItem(value: "Some Name"), ChecklistItem(value: "Some Name")])), Item(title: "Select Value", type: .selection(Selection(items: [.init(title: "Some selection item"), .init(title: "Some selection item"), .init(title: "Some selection item")], currentlySelectedItem: nil)))]
+        @Published var entryItems: [Item] = []
+        @Published var showError = false
+        @Published var showSuccessfulMessage = false
+        @Published var canSave = false
+        var errorMessage = Strings.defaultErrorMessage
+        var saveMessage = Strings.defaultSaveMessage
     }
 }

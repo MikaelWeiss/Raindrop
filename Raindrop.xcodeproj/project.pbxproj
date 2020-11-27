@@ -35,6 +35,11 @@
 		A5BB05AC251FCD2500694FF9 /* RaindropUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB05AB251FCD2500694FF9 /* RaindropUITests.swift */; };
 		A5C05D252567608D005D7F60 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C05D242567608D005D7F60 /* Color+Extensions.swift */; };
 		A5C1B472255A26CA00DD35D2 /* EditValueViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DEEDB72559FA3F00CD4E25 /* EditValueViewTests.swift */; };
+		A5C6515525707F7900192BD2 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C6515425707F7900192BD2 /* ChecklistItem.swift */; };
+		A5C6515A25708CE100192BD2 /* UIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C6515925708CE100192BD2 /* UIdentifiable.swift */; };
+		A5C6515F25708D0D00192BD2 /* Decimal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C6515E25708D0D00192BD2 /* Decimal+Extensions.swift */; };
+		A5C6516425708D6900192BD2 /* NumberSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C6516325708D6900192BD2 /* NumberSupport.swift */; };
+		A5C6516E25709A2A00192BD2 /* ServiceSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C6516D25709A2A00192BD2 /* ServiceSupport.swift */; };
 		A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7793254A109300832862 /* EditValueInteractor.swift */; };
 		A5DE7799254A110000832862 /* EditValueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE7798254A110000832862 /* EditValueScene.swift */; };
 		A5DE779E254A113100832862 /* EditValueModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE779D254A113100832862 /* EditValueModels.swift */; };
@@ -121,6 +126,11 @@
 		A5C1B496255A39D800DD35D2 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
 		A5C1B497255A39D800DD35D2 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
 		A5C1B498255A39D800DD35D2 /* ___FILEBASENAME___ServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___ServiceTests.swift"; sourceTree = "<group>"; };
+		A5C6515425707F7900192BD2 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		A5C6515925708CE100192BD2 /* UIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIdentifiable.swift; path = Raindrop/Domain/SupportTypes/HelperTypes/UIdentifiable.swift; sourceTree = SOURCE_ROOT; };
+		A5C6515E25708D0D00192BD2 /* Decimal+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Extensions.swift"; sourceTree = "<group>"; };
+		A5C6516325708D6900192BD2 /* NumberSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSupport.swift; sourceTree = "<group>"; };
+		A5C6516D25709A2A00192BD2 /* ServiceSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSupport.swift; sourceTree = "<group>"; };
 		A5DE7793254A109300832862 /* EditValueInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueInteractor.swift; sourceTree = "<group>"; };
 		A5DE7798254A110000832862 /* EditValueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueScene.swift; sourceTree = "<group>"; };
 		A5DE779D254A113100832862 /* EditValueModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueModels.swift; sourceTree = "<group>"; };
@@ -186,9 +196,11 @@
 		A5399F72253256390096A957 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A5000C2F2528D77800A0CB77 /* Date+Extensions.swift */,
-				A5E79879255305CC00DCC918 /* View+Extensions.swift */,
 				A5C05D242567608D005D7F60 /* Color+Extensions.swift */,
+				A5000C2F2528D77800A0CB77 /* Date+Extensions.swift */,
+				A5C6515E25708D0D00192BD2 /* Decimal+Extensions.swift */,
+				A5E79879255305CC00DCC918 /* View+Extensions.swift */,
+				A5C6516325708D6900192BD2 /* NumberSupport.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,6 +242,7 @@
 				A54C0446251FE95B00EEA9D2 /* Enums */,
 				A54C0445251FE95300EEA9D2 /* Protocols */,
 				A54C0447251FE96500EEA9D2 /* HelperTypes */,
+				A5C6516B25709A0A00192BD2 /* Other */,
 			);
 			path = SupportTypes;
 			sourceTree = "<group>";
@@ -237,6 +250,7 @@
 		A54C0445251FE95300EEA9D2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				A5C6515925708CE100192BD2 /* UIdentifiable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -252,6 +266,7 @@
 		A54C0447251FE96500EEA9D2 /* HelperTypes */ = {
 			isa = PBXGroup;
 			children = (
+				A5C6515425707F7900192BD2 /* ChecklistItem.swift */,
 				A5B022232525791C007412CC /* Item.swift */,
 				A5000C252528D59B00A0CB77 /* Selection.swift */,
 			);
@@ -398,11 +413,19 @@
 			path = "Unit Tests.xctemplate";
 			sourceTree = "<group>";
 		};
+		A5C6516B25709A0A00192BD2 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A5C6516D25709A2A00192BD2 /* ServiceSupport.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		A5DEED96255873F600CD4E25 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
-				A5DEED972558741200CD4E25 /* StandardButton.swift */,
 				A59D1E8D256DDABF0066555E /* GroupSelectionBar.swift */,
+				A5DEED972558741200CD4E25 /* StandardButton.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -423,9 +446,9 @@
 				A5000C2A2528D60700A0CB77 /* Checklist.swift */,
 				A59D1E92256DDE500066555E /* ComputedValue.swift */,
 				A5DEED862558714100CD4E25 /* DateSelection.swift */,
-				A5E79887255351C800DCC918 /* TextEntry.swift */,
-				A59D1EAE256E00350066555E /* NumberEntry.swift */,
 				A59D1EB3256E00D70066555E /* ItemSelection.swift */,
+				A59D1EAE256E00350066555E /* NumberEntry.swift */,
+				A5E79887255351C800DCC918 /* TextEntry.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -577,18 +600,21 @@
 				A5E7987A255305CC00DCC918 /* View+Extensions.swift in Sources */,
 				A59D1E9B256DE2DB0066555E /* TestingThingsOutSwiftUI.swift in Sources */,
 				A59D1EAF256E00350066555E /* NumberEntry.swift in Sources */,
+				A5C6515F25708D0D00192BD2 /* Decimal+Extensions.swift in Sources */,
 				A5E7988E255616BC00DCC918 /* WrapInPlainNavigationView.swift in Sources */,
 				A5DE779E254A113100832862 /* EditValueModels.swift in Sources */,
 				A5000C302528D77800A0CB77 /* Date+Extensions.swift in Sources */,
 				A5DE7794254A109300832862 /* EditValueInteractor.swift in Sources */,
 				A5E7986D255304F100DCC918 /* Styles.swift in Sources */,
 				A5530E2C2521406A00739F00 /* InputType.swift in Sources */,
+				A5C6515525707F7900192BD2 /* ChecklistItem.swift in Sources */,
 				A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */,
 				A567572B25682CE90038C61D /* EditEntryService.swift in Sources */,
 				A567572A25682CE90038C61D /* EditEntryView.swift in Sources */,
 				A5C05D252567608D005D7F60 /* Color+Extensions.swift in Sources */,
 				A567572825682CE90038C61D /* EditEntryScene.swift in Sources */,
 				A5DE7799254A110000832862 /* EditValueScene.swift in Sources */,
+				A5C6516E25709A2A00192BD2 /* ServiceSupport.swift in Sources */,
 				A5E79888255351C800DCC918 /* TextEntry.swift in Sources */,
 				A5E798752553059D00DCC918 /* CellStyle.swift in Sources */,
 				A59D1E8E256DDABF0066555E /* GroupSelectionBar.swift in Sources */,
@@ -600,7 +626,9 @@
 				A5DEED982558741200CD4E25 /* StandardButton.swift in Sources */,
 				A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */,
 				A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */,
+				A5C6515A25708CE100192BD2 /* UIdentifiable.swift in Sources */,
 				A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */,
+				A5C6516425708D6900192BD2 /* NumberSupport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

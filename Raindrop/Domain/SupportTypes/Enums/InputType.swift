@@ -16,3 +16,13 @@ enum InputType {
     case checklist([ChecklistItem])
     case computed(String)
 }
+
+enum OutlineInputType {
+    case text
+    case timer
+    case number
+    case date
+    case selection
+    case checklist
+    case computed
+}

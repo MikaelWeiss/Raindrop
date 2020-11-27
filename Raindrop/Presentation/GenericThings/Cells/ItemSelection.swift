@@ -21,11 +21,10 @@ struct ItemSelectionCell: View {
     @State private var isShowingSelectionSheet: Bool = false
     
     var body: some View {
-        let currentlySelectedItem = value.currentlySelectedItem
         HStack {
             Text(title)
             Spacer()
-            Text(currentlySelectedItem?.title ?? "Select Value")
+            Text(value.currentlySelectedItem?.title ?? "Select Value")
                 .valueFontStyle()
                 .lineLimit(1)
             Image(systemName: "arrowtriangle.down.square.fill")

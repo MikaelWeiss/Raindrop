@@ -11,13 +11,11 @@ import UIKit
 
 protocol EditEntryPresenting {
     func presentUpdateTheme()
-    func presentPrepareRouteToSheet()
-    func presentPrepareRouteToOtherScene()
-    func presentDidChangeTextFieldValue(with response: EditEntry.ValidateTextEntryValue.Response)
-    func presentDidChangeNumberEntryValue(with response: EditEntry.ValidateNumberEntryValue.Response)
-    func presentDidChangeDate(with response: EditEntry.ValidateDateEntry.Response)
-    func presentDidSelectChecklistItem(with response: EditEntry.ValidateChecklistSelection.Response)
-    func presentDidSelectSelectionItem(with response: EditEntry.ValidateSelectionItemSelection.Response)
+    func presentFetchItems(with response: EditEntry.FetchItems.Response)
+    func presentUpdateItem(with response: EditEntry.ValidateItem.Response)
+    func presentError(_ error: Error)
+    func presentDidTapSave()
+    func presentCheckCanSave(with response: EditEntry.CheckCanSave.Response)
 }
 
 struct EditEntryPresenter: EditEntryPresenting {
@@ -26,46 +24,42 @@ struct EditEntryPresenter: EditEntryPresenting {
     func presentUpdateTheme() {
     }
     
-    func presentDidChangeTextFieldValue(with response: EditEntry.ValidateTextEntryValue.Response) {
-        if let index = viewModel.entryItems.firstIndex(where: { $0.id == response.id }) {
-//            viewModel.objectWillChange
-            viewModel.entryItems[index].type = .text(response.newValue)
+    func presentFetchItems(with response: EditEntry.FetchItems.Response) {
+        viewModel.entryItems = response.items
+    }
+    
+    func presentUpdateItem(with response: EditEntry.ValidateItem.Response) {
+        do {
+            let itemIndex = try findItemIndexWith(id: response.item.id, in: viewModel.entryItems)
+            viewModel.entryItems[itemIndex] = response.item
+        } catch {
+            presentError(error)
         }
     }
     
-    func presentDidChangeNumberEntryValue(with response: EditEntry.ValidateNumberEntryValue.Response) {
-        if let index = viewModel.entryItems.firstIndex(where: { $0.id == response.id }) {
-            viewModel.entryItems[index].type = .number(response.newValue)
+    private func findItemIndexWith<T: UIdentifiable>(id: UUID, in array: [T]) throws -> Int {
+        guard let itemIndex = array.firstIndex(where: { $0.id == id }) else { throw EditEntry.ServiceError.itemNotFound }
+        return itemIndex
+    }
+    
+    func presentError(_ error: Error) {
+        if let error = error as? EditEntry.ServiceError {
+            switch error {
+            case .invalidFormat, .itemNotFound, .wrongItemType: viewModel.errorMessage = EditEntry.Strings.defaultErrorMessage
+            case .saveFailed: viewModel.errorMessage = EditEntry.Strings.saveFailedErrorMessage
+            }
+        } else {
+            viewModel.errorMessage = EditEntry.Strings.defaultErrorMessage
         }
+        viewModel.showError = true
     }
     
-    func presentDidChangeDate(with response: EditEntry.ValidateDateEntry.Response) {
-        if let index = viewModel.entryItems.firstIndex(where: { $0.id == response.id }) {
-            viewModel.entryItems[index].type = .date(response.newValue)
-        }
+    func presentDidTapSave() {
+        viewModel.saveMessage = EditEntry.Strings.defaultSaveMessage
+        viewModel.showSuccessfulMessage = true
     }
     
-    func presentDidSelectChecklistItem(with response: EditEntry.ValidateChecklistSelection.Response) {
-        guard let checklistIndex = viewModel.entryItems.firstIndex(where: { $0.id == response.checklistID }) else { return }
-        guard case let .checklist(list) = viewModel.entryItems[checklistIndex].type else { return }
-        guard let itemIndex = list.firstIndex(where: { $0.id == response.itemID }) else { return }
-        var temporaryList = list
-        temporaryList[itemIndex].isSelected.toggle()
-        viewModel.entryItems[checklistIndex].type = .checklist(temporaryList)
-    }
-    
-    func presentDidSelectSelectionItem(with response: EditEntry.ValidateSelectionItemSelection.Response) {
-        guard let selectionIndex = viewModel.entryItems.firstIndex(where: { $0.id == response.selectionID }) else { return }
-        guard case let .selection(value) = viewModel.entryItems[selectionIndex].type else { return }
-        guard let selectedItem = value.items.first(where: { $0.id == response.itemID }) else { return }
-        var tempValue = value
-        tempValue.currentlySelectedItem = selectedItem
-        viewModel.entryItems[selectionIndex].type = .selection(tempValue)
-    }
-    
-    func presentPrepareRouteToSheet() {
-    }
-    
-    func presentPrepareRouteToOtherScene() {
+    func presentCheckCanSave(with response: EditEntry.CheckCanSave.Response) {
+        viewModel.canSave = response.canSave
     }
 }

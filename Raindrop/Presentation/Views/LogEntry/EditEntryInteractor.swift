@@ -10,13 +10,14 @@ import Foundation
 
 protocol EditEntryRequesting {
     func updateTheme()
-    func prepareRouteToSheet()
-    func prepareRouteToOtherScene()
+    func fetchItems()
     func didChangeTextFieldValue(with request: EditEntry.ValidateTextEntryValue.Request)
     func didChangeNumberEntryValue(with request: EditEntry.ValidateNumberEntryValue.Request)
     func didChangeDate(with request: EditEntry.ValidateDateEntry.Request)
     func didSelectChecklistItem(with request: EditEntry.ValidateChecklistSelection.Request)
     func didSelectSelectionItem(with request: EditEntry.ValidateSelectionItemSelection.Request)
+    func checkCanSave()
+    func didTapSave()
 }
 
 struct EditEntryInteractor: EditEntryRequesting {
@@ -32,36 +33,74 @@ struct EditEntryInteractor: EditEntryRequesting {
         presenter.presentUpdateTheme()
     }
     
+    func fetchItems() {
+        let items = service.fetchItems()
+        let response = EditEntry.FetchItems.Response(items: items)
+        presenter.presentFetchItems(with: response)
+    }
+    
     func didChangeTextFieldValue(with request: EditEntry.ValidateTextEntryValue.Request) {
-        let response = EditEntry.ValidateTextEntryValue.Response(newValue: request.newValue, id: request.id)
-        presenter.presentDidChangeTextFieldValue(with: response)
+        do {
+            let item = try service.validateTextFieldInput(request.newValue, id: request.id)
+            let response = EditEntry.ValidateItem.Response(item: item)
+            presenter.presentUpdateItem(with: response)
+        } catch {
+            presenter.presentError(error)
+        }
     }
     
     func didChangeNumberEntryValue(with request: EditEntry.ValidateNumberEntryValue.Request) {
-        let response = EditEntry.ValidateNumberEntryValue.Response(newValue: request.newValue, id: request.id)
-        presenter.presentDidChangeNumberEntryValue(with: response)
+        do {
+            let item = try service.validateNumberInput(request.newValue, id: request.id)
+            let response = EditEntry.ValidateItem.Response(item: item)
+            presenter.presentUpdateItem(with: response)
+        } catch {
+            presenter.presentError(error)
+        }
     }
     
     func didChangeDate(with request: EditEntry.ValidateDateEntry.Request) {
-        let response = EditEntry.ValidateDateEntry.Response(newValue: request.newValue, id: request.id)
-        presenter.presentDidChangeDate(with: response)
+        do {
+            let item = try service.validateDateInput(request.newValue, id: request.id)
+            let response = EditEntry.ValidateItem.Response(item: item)
+            presenter.presentUpdateItem(with: response)
+        } catch {
+            presenter.presentError(error)
+        }
     }
     
     func didSelectChecklistItem(with request: EditEntry.ValidateChecklistSelection.Request) {
-        let response = EditEntry.ValidateChecklistSelection.Response(checklistID: request.checklistID, itemID: request.itemID)
-        presenter.presentDidSelectChecklistItem(with: response)
+        do {
+            let item = try service.validateChecklistInput(checklistID: request.checklistID, checklistItemID: request.checklistItemID)
+            let response = EditEntry.ValidateItem.Response(item: item)
+            presenter.presentUpdateItem(with: response)
+        } catch {
+            presenter.presentError(error)
+        }
     }
     
     func didSelectSelectionItem(with request: EditEntry.ValidateSelectionItemSelection.Request) {
-        let response = EditEntry.ValidateSelectionItemSelection.Response(selectionID: request.selectionID, itemID: request.itemID)
-        presenter.presentDidSelectSelectionItem(with: response)
+        do {
+            let item = try service.validateSelectionInput(selectionID: request.selectionID, selectionItemID: request.selectionItemID)
+            let response = EditEntry.ValidateItem.Response(item: item)
+            presenter.presentUpdateItem(with: response)
+        } catch {
+            presenter.presentError(error)
+        }
     }
     
-    func prepareRouteToSheet() {
-        presenter.presentPrepareRouteToSheet()
+    func checkCanSave() {
+        let canSave = service.canSave()
+        let response = EditEntry.CheckCanSave.Response(canSave: canSave)
+        presenter.presentCheckCanSave(with: response)
     }
     
-    func prepareRouteToOtherScene() {
-        presenter.presentPrepareRouteToOtherScene()
+    func didTapSave() {
+        do {
+            try service.save()
+            presenter.presentDidTapSave()
+        } catch {
+            presenter.presentError(error)
+        }
     }
 }

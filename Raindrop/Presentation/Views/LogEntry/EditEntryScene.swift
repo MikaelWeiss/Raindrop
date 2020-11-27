@@ -19,23 +19,6 @@ enum EditEntry {
             view = EditEntryView(interactor: interactor, viewModel: presenter.viewModel)
         }
         
-        private func buildService() -> EditEntryService {
-            if true {
-                return EditEntry.DemoService()
-            }
-        }
-        
         let service = EditEntry.Service()
     }
-}
-
-struct SelectionItem: Identifiable {
-    var id = UUID()
-    var value: String
-}
-
-struct ChecklistItem: Identifiable {
-    var id = UUID()
-    var value: String
-    var isSelected = false
 }
