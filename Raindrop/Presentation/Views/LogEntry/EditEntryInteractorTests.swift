@@ -23,38 +23,105 @@ class EditEntryInteractorTests: XCTestCase {
     }
     
     func testFetchItems() {
+        // Given
+        let items = [Item(title: "Some title", type: .text(""))]
+        service.items = items
+        
         // When
         interactor.fetchItems()
         
         // Then
-        XCTAssertTrue(service.fetchItemsCalled)
+        XCTAssertTrue(service.items == items)
+        XCTAssertTrue(presenter.presentFetchItemsResponse.items == items)
     }
     
-    func testDidChangeValue() {
+    func testDidChangeTextFieldValue() throws {
         // Given
-        let request = EditEntry.ValidateValue.Request(value: "Some new value")
+        let item = Item(title: "Some Title", type: .text("A cool value 😎"))
+        service.validateTextFieldInputItem = item
+        let request = EditEntry.ValidateTextEntryValue.Request(newValue: "Some other value", id: item.id)
         
         // When
-        interactor.didChangeValue(with: request)
+        interactor.didChangeTextFieldValue(with: request)
         
         // Then
-        XCTAssertEqual(presenter.value, "Some new value")
+        XCTAssertEqual(presenter.presentUpdateItemResponse.item.title, "Some Title")
+        XCTAssertEqual(presenter.presentUpdateItemResponse.item.id, item.id)
+        XCTAssertEqual(service.validateTextFieldInputSpy?.input, "Some other value")
+        XCTAssertEqual(service.validateTextFieldInputSpy?.id, item.id)
+        if case .text(let value) = presenter.presentUpdateItemResponse.item.type {
+            XCTAssertEqual(value, "A cool value 😎")
+        } else {
+            throw TestError.error
+        }
     }
     
-    func testPrepareRouteToSheet() {
+    func testDidChangeTextFieldValueCatchesError() {
+        // Given
+        service.validateTextFieldInputError = TestError.error
+        let request = EditEntry.ValidateTextEntryValue.Request(newValue: "Some other value", id: UUID())
+        
         // When
-        interactor.prepareRouteToSheet()
+        interactor.didChangeTextFieldValue(with: request)
         
         // Then
-        XCTAssertTrue(presenter.presentPrepareRouteToSheetCalled)
+        XCTAssertEqual(presenter.presentErrorError, .error)
     }
     
-    func testPrepareRouteToOtherScene() {
+    func testDidChangeNumberEntryValue() throws {
+        // Given
+        let item = Item(title: "Some Title", type: .number("A cool value 😎"))
+        service.validateNumberInputItem = item
+        let request = EditEntry.ValidateNumberEntryValue.Request(newValue: "Some other value", id: item.id)
+        
         // When
-        interactor.prepareRouteToOtherScene()
+        interactor.didChangeNumberEntryValue(with: request)
         
         // Then
-        XCTAssertTrue(presenter.presentPrepareRouteToOtherSceneCalled)
+        XCTAssertEqual(presenter.presentUpdateItemResponse.item.title, "Some Title")
+        XCTAssertEqual(presenter.presentUpdateItemResponse.item.id, item.id)
+        XCTAssertEqual(service.validateNumberInputSpy?.input, "Some other value")
+        XCTAssertEqual(service.validateNumberInputSpy?.id, item.id)
+        if case .number(let value) = presenter.presentUpdateItemResponse.item.type {
+            XCTAssertEqual(value, "A cool value 😎")
+        } else {
+            throw TestError.error
+        }
+    }
+    
+    func testDidChangeNumberEntryValueCatchesError() {
+        // Given
+        service.validateNumberInputError = TestError.error
+        let request = EditEntry.ValidateNumberEntryValue.Request(newValue: "Some other value", id: UUID())
+        
+        // When
+        interactor.didChangeNumberEntryValue(with: request)
+        
+        // Then
+        XCTAssertEqual(presenter.presentErrorError, .error)
+    }
+    
+    func testDidChangeDate() throws {
+        // Given
+        let firstDate = Date.today
+        let secondDate = firstDate.addingTimeInterval(60)
+        let item = Item(title: "Some Title", type: .date(firstDate))
+        service.validateDateInputItem = item
+        let request = EditEntry.ValidateDateEntry.Request(newValue: secondDate, id: item.id)
+        
+        // When
+        interactor.didChangeDate(with: request)
+        
+        // Then
+        XCTAssertEqual(presenter.presentUpdateItemResponse.item.title, "Some Title")
+        XCTAssertEqual(presenter.presentUpdateItemResponse.item.id, item.id)
+        XCTAssertEqual(service.validateDateInputSpy?.input, secondDate)
+        XCTAssertEqual(service.validateDateInputSpy?.id, item.id)
+        if case .date(let value) = presenter.presentUpdateItemResponse.item.type {
+            XCTAssertEqual(value, firstDate)
+        } else {
+            throw TestError.error
+        }
     }
     
     // MARK: - Test Setup
@@ -72,10 +139,10 @@ class EditEntryInteractorTests: XCTestCase {
     class EditEntryPresenterDouble: EditEntryPresenting {
         var presentUpdateThemeCalled = false
         var presentDidTapSaveCalled = false
-        var presentFetchItemsResponse: EditEntry.FetchItems.Response?
-        var presentUpdateitemResponse: EditEntry.ValidateItem.Response?
-        var presentErrorError: Error?
-        var presentCheckCanSaveResponse: EditEntry.CheckCanSave.Response?
+        var presentFetchItemsResponse: EditEntry.FetchItems.Response!
+        var presentUpdateItemResponse: EditEntry.ValidateItem.Response!
+        var presentErrorError: TestError?
+        var presentCheckCanSaveResponse: EditEntry.CheckCanSave.Response!
         
         func presentUpdateTheme() {
             presentUpdateThemeCalled = true
@@ -86,11 +153,11 @@ class EditEntryInteractorTests: XCTestCase {
         }
         
         func presentUpdateItem(with response: EditEntry.ValidateItem.Response) {
-            presentUpdateitemResponse = response
+            presentUpdateItemResponse = response
         }
         
         func presentError(_ error: Error) {
-            presentErrorError = error
+            presentErrorError = error as? TestError
         }
         
         func presentDidTapSave() {
