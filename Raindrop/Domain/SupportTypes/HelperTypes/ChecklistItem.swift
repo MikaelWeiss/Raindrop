@@ -7,8 +7,17 @@
 
 import Foundation
 
-struct ChecklistItem: Identifiable, UIdentifiable {
-    var id = UUID()
+struct ChecklistItem: Identifiable, UIdentifiable, Equatable {
+    let id = UUID()
     var value: String
     var isSelected = false
+    
+    init(value: String, isSelected: Bool = false) {
+        self.value = value
+        self.isSelected = isSelected
+    }
+    
+    init(value: String) {
+        self.value = value
+    }
 }

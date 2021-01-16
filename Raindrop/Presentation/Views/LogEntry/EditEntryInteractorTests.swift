@@ -124,6 +124,87 @@ class EditEntryInteractorTests: XCTestCase {
         }
     }
     
+    func testDidChangeDateCatchesError() {
+        // Given
+        service.validateDateInputError = TestError.error
+        let request = EditEntry.ValidateDateEntry.Request(newValue: Date.now, id: UUID())
+        
+        // When
+        interactor.didChangeDate(with: request)
+        
+        // Then
+        XCTAssertEqual(presenter.presentErrorError, .error)
+    }
+    
+    func testDidSelectChecklistItem() throws {
+        // Given
+        let checklistItem = ChecklistItem(value: "Some Value")
+        let checklist = Item(title: "Some Title", type: .checklist([checklistItem]))
+        service.validateChecklistInputItem = checklist
+        let request = EditEntry.ValidateChecklistSelection.Request(checklistID: checklist.id, checklistItemID: checklistItem.id)
+        
+        // When
+        interactor.didSelectChecklistItem(with: request)
+        
+        // Then
+        XCTAssertEqual(presenter.presentUpdateItemResponse.item.title, "Some Title")
+        XCTAssertEqual(presenter.presentUpdateItemResponse.item.id, checklist.id)
+        XCTAssertEqual(service.validateChecklistInputSpy?.checklistID, checklist.id)
+        XCTAssertEqual(service.validateChecklistInputSpy?.checklistItemID, checklistItem.id)
+        if case .checklist(let value) = presenter.presentUpdateItemResponse.item.type {
+            XCTAssertTrue(value == [checklistItem])
+        } else {
+            throw TestError.error
+        }
+    }
+    
+    func testDidSelectChecklistItemCatchesError() {
+        // Given
+        service.validateChecklistInputError = TestError.error
+        let request = EditEntry.ValidateChecklistSelection.Request(checklistID: UUID(), checklistItemID: UUID())
+        
+        // When
+        interactor.didSelectChecklistItem(with: request)
+        
+        // Then
+        XCTAssertEqual(presenter.presentErrorError, .error)
+    }
+    
+    func testDidSelectSelectionItem() throws {
+        // Given
+        let selectionItem = SelectionItem(title: "Some title")
+        let selectionValue = Selection(items: [selectionItem])
+        let selection = Item(title: "Some Title", type: .selection(selectionValue))
+        service.validateSelectionInputItem = selection
+        let request = EditEntry.ValidateSelectionItemSelection.Request(selectionID: selection.id, selectionItemID: selectionItem.id)
+        
+        // When
+        interactor.didSelectSelectionItem(with: request)
+        
+        // Then
+        XCTAssertEqual(presenter.presentUpdateItemResponse.item.title, "Some Title")
+        XCTAssertEqual(presenter.presentUpdateItemResponse.item.id, selection.id)
+        XCTAssertEqual(service.validateSelectionInputSpy?.selectionID, selection.id)
+        XCTAssertEqual(service.validateSelectionInputSpy?.selectionItemID, selectionItem.id)
+        if case .selection(let value) = presenter.presentUpdateItemResponse.item.type {
+            XCTAssertTrue(value == selectionValue)
+        } else {
+            throw TestError.error
+        }
+    }
+    
+    func testDidSelectSelectionItemCatchesError() {
+        // Given
+        service.validateSelectionInputError = TestError.error
+        let request = EditEntry.ValidateSelectionItemSelection.Request(selectionID: UUID(), selectionItemID: UUID())
+        
+        // When
+        interactor.didSelectSelectionItem(with: request)
+        
+        // Then
+        XCTAssertEqual(presenter.presentErrorError, .error)
+    }
+    
     // MARK: - Test Setup
     
     override func setUp() {
