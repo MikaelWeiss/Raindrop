@@ -13,6 +13,7 @@
 		A5530E2C2521406A00739F00 /* InputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E2B2521406A00739F00 /* InputType.swift */; };
 		A55E861D25B27696000A4890 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E861C25B27696000A4890 /* Entry.swift */; };
 		A55E864925B27D23000A4890 /* EntryGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E864825B27D23000A4890 /* EntryGroup.swift */; };
+		A55E867925B32DA8000A4890 /* TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E867825B32DA8000A4890 /* TestSupport.swift */; };
 		A567572625682CE90038C61D /* EditEntryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567572025682CE90038C61D /* EditEntryPresenter.swift */; };
 		A567572725682CE90038C61D /* EditEntryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567572125682CE90038C61D /* EditEntryModels.swift */; };
 		A567572825682CE90038C61D /* EditEntryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567572225682CE90038C61D /* EditEntryScene.swift */; };
@@ -85,6 +86,7 @@
 		A5530E2B2521406A00739F00 /* InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputType.swift; sourceTree = "<group>"; };
 		A55E861C25B27696000A4890 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A55E864825B27D23000A4890 /* EntryGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryGroup.swift; sourceTree = "<group>"; };
+		A55E867825B32DA8000A4890 /* TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSupport.swift; sourceTree = "<group>"; };
 		A567572025682CE90038C61D /* EditEntryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryPresenter.swift; sourceTree = "<group>"; };
 		A567572125682CE90038C61D /* EditEntryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryModels.swift; sourceTree = "<group>"; };
 		A567572225682CE90038C61D /* EditEntryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryScene.swift; sourceTree = "<group>"; };
@@ -242,11 +244,12 @@
 		A54C0441251FE8C600EEA9D2 /* SupportTypes */ = {
 			isa = PBXGroup;
 			children = (
-				A5399F72253256390096A957 /* Extensions */,
 				A54C0446251FE95B00EEA9D2 /* Enums */,
-				A54C0445251FE95300EEA9D2 /* Protocols */,
+				A5399F72253256390096A957 /* Extensions */,
 				A54C0447251FE96500EEA9D2 /* HelperTypes */,
 				A5C6516B25709A0A00192BD2 /* Other */,
+				A54C0445251FE95300EEA9D2 /* Protocols */,
+				A55E867725B32D96000A4890 /* Test Support */,
 			);
 			path = SupportTypes;
 			sourceTree = "<group>";
@@ -277,6 +280,14 @@
 				A5B022232525791C007412CC /* Item.swift */,
 			);
 			path = HelperTypes;
+			sourceTree = "<group>";
+		};
+		A55E867725B32D96000A4890 /* Test Support */ = {
+			isa = PBXGroup;
+			children = (
+				A55E867825B32DA8000A4890 /* TestSupport.swift */,
+			);
+			path = "Test Support";
 			sourceTree = "<group>";
 		};
 		A5A86ADF255DA880001D3CD9 /* GenericThings */ = {
@@ -601,6 +612,7 @@
 				A5000C262528D59B00A0CB77 /* Selection.swift in Sources */,
 				A59D1EB4256E00D70066555E /* ItemSelection.swift in Sources */,
 				A5E7987F255305EA00DCC918 /* FontStyle.swift in Sources */,
+				A55E867925B32DA8000A4890 /* TestSupport.swift in Sources */,
 				A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */,
 				A567572925682CE90038C61D /* EditEntryInteractor.swift in Sources */,
 				A567572625682CE90038C61D /* EditEntryPresenter.swift in Sources */,
