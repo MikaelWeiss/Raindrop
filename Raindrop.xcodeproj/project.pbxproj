@@ -182,7 +182,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A5000C342528D9DB00A0CB77 /* LogEntry */ = {
+		A5000C342528D9DB00A0CB77 /* EditEntry */ = {
 			isa = PBXGroup;
 			children = (
 				A567572325682CE90038C61D /* EditEntryInteractor.swift */,
@@ -196,7 +196,7 @@
 				A567572425682CE90038C61D /* EditEntryView.swift */,
 				A567573025682CFD0038C61D /* EditEntryViewTests.swift */,
 			);
-			path = LogEntry;
+			path = EditEntry;
 			sourceTree = "<group>";
 		};
 		A5399F72253256390096A957 /* Extensions */ = {
@@ -304,7 +304,7 @@
 		A5A86AE0255DA8F7001D3CD9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A5000C342528D9DB00A0CB77 /* LogEntry */,
+				A5000C342528D9DB00A0CB77 /* EditEntry */,
 			);
 			path = Views;
 			sourceTree = "<group>";
