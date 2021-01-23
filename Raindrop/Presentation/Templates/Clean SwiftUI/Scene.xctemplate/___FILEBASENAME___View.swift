@@ -26,8 +26,8 @@ struct ___VARIABLE_sceneName___View: View {
     // MARK: - View Lifecycle
     var body: some View {
         VStack {
-            DataEntryCell(
-                title: "\(viewModel.textFieldTitle)",
+            TextEntry(
+                "\(viewModel.textFieldTitle)",
                 value: viewModel.textFieldValue,
                 onTextChanged:  {
                     didChangeValue(to: $0)
