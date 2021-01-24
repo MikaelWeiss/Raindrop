@@ -9,13 +9,18 @@ import Foundation
 
 class EntryGroup: Identifiable, ObservableObject {
     let id = UUID()
-    let name: String
-    let groupEntryOutline: [OutlineInputType]
-    let entrys: [Entry]
+    @Published var name: String
+    @Published var groupEntryOutline: [OutlineType]
+    @Published var entrys: [Entry]
     
-    init(name: String, groupEntryOutline: [OutlineInputType], entrys: [Entry]) {
+    init(name: String, groupEntryOutline: [OutlineType], entrys: [Entry]) {
         self.name = name
         self.groupEntryOutline = groupEntryOutline
         self.entrys = entrys
     }
+}
+
+struct OutlineType: Identifiable {
+    let id = UUID()
+    let type: OutlineInputType
 }
