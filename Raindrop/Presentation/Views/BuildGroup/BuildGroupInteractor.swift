@@ -10,9 +10,6 @@ import Foundation
 
 protocol BuildGroupRequesting {
     func updateTheme()
-    func didChangeValue(with request: BuildGroup.ValidateValue.Request)
-    func prepareRouteToSheet()
-    func prepareRouteToOtherScene()
 }
 
 struct BuildGroupInteractor: BuildGroupRequesting {
@@ -26,18 +23,5 @@ struct BuildGroupInteractor: BuildGroupRequesting {
     
     func updateTheme() {
         presenter.presentUpdateTheme()
-    }
-    
-    func didChangeValue(with request: BuildGroup.ValidateValue.Request) {
-        let response = BuildGroup.ValidateValue.Response(value: request.value)
-        presenter.presentDidChangeValue(with: response)
-    }
-    
-    func prepareRouteToSheet() {
-        presenter.presentPrepareRouteToSheet()
-    }
-    
-    func prepareRouteToOtherScene() {
-        presenter.presentPrepareRouteToOtherScene()
     }
 }
