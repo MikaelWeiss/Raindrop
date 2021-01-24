@@ -15,7 +15,7 @@ struct CellStyle: ViewModifier {
                 RoundedRectangle(cornerRadius: 14, style: .continuous)
                     .stroke(Color.standardCellValueFontColor, lineWidth: 1.5)
             )
-            .padding([.horizontal, .top])
+            .padding(.horizontal)
         .fontStyle()
     }
 }

@@ -21,7 +21,7 @@ struct StandardButton: View {
                     .foregroundColor(colorScheme == .dark ? Color.darkPurpleTextColor : Color.white)
                     .fontStyle()
             )
-            .padding()
+            .padding(.horizontal)
             .onTapGesture {
                 onTap()
             }

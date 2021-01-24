@@ -33,7 +33,7 @@ struct EditEntryView: View {
     var body: some View {
         ZStack(alignment: .top) {
             ScrollView {
-                LazyVStack(alignment: .leading, spacing: 0) {
+                LazyVStack(alignment: .leading, spacing: 20) {
                     Color(.systemBackground).frame(height: 60)
                     
                     ForEach(viewModel.entryItems) { item in
