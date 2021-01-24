@@ -10,6 +10,16 @@
 		A5000C262528D59B00A0CB77 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C252528D59B00A0CB77 /* Selection.swift */; };
 		A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C2A2528D60700A0CB77 /* Checklist.swift */; };
 		A5000C302528D77800A0CB77 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000C2F2528D77800A0CB77 /* Date+Extensions.swift */; };
+		A51E163725BCF0B000DAED7B /* BuildGroupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E163125BCF0B000DAED7B /* BuildGroupPresenter.swift */; };
+		A51E163825BCF0B000DAED7B /* BuildGroupModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E163225BCF0B000DAED7B /* BuildGroupModels.swift */; };
+		A51E163925BCF0B000DAED7B /* BuildGroupScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E163325BCF0B000DAED7B /* BuildGroupScene.swift */; };
+		A51E163A25BCF0B000DAED7B /* BuildGroupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E163425BCF0B000DAED7B /* BuildGroupInteractor.swift */; };
+		A51E163B25BCF0B000DAED7B /* BuildGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E163525BCF0B000DAED7B /* BuildGroupView.swift */; };
+		A51E163C25BCF0B000DAED7B /* BuildGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E163625BCF0B000DAED7B /* BuildGroupService.swift */; };
+		A51E164425BCF0BF00DAED7B /* BuildGroupInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E164025BCF0BF00DAED7B /* BuildGroupInteractorTests.swift */; };
+		A51E164525BCF0BF00DAED7B /* BuildGroupViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E164125BCF0BF00DAED7B /* BuildGroupViewTests.swift */; };
+		A51E164625BCF0BF00DAED7B /* BuildGroupPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E164225BCF0BF00DAED7B /* BuildGroupPresenterTests.swift */; };
+		A51E164725BCF0BF00DAED7B /* BuildGroupServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E164325BCF0BF00DAED7B /* BuildGroupServiceTests.swift */; };
 		A5530E2C2521406A00739F00 /* InputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5530E2B2521406A00739F00 /* InputType.swift */; };
 		A55E861D25B27696000A4890 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E861C25B27696000A4890 /* Entry.swift */; };
 		A55E864925B27D23000A4890 /* EntryGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E864825B27D23000A4890 /* EntryGroup.swift */; };
@@ -83,6 +93,16 @@
 		A5000C252528D59B00A0CB77 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		A5000C2A2528D60700A0CB77 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		A5000C2F2528D77800A0CB77 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Date+Extensions.swift"; path = "Raindrop/Domain/SupportTypes/Extensions/Date+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		A51E163125BCF0B000DAED7B /* BuildGroupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupPresenter.swift; sourceTree = "<group>"; };
+		A51E163225BCF0B000DAED7B /* BuildGroupModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupModels.swift; sourceTree = "<group>"; };
+		A51E163325BCF0B000DAED7B /* BuildGroupScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupScene.swift; sourceTree = "<group>"; };
+		A51E163425BCF0B000DAED7B /* BuildGroupInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupInteractor.swift; sourceTree = "<group>"; };
+		A51E163525BCF0B000DAED7B /* BuildGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupView.swift; sourceTree = "<group>"; };
+		A51E163625BCF0B000DAED7B /* BuildGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupService.swift; sourceTree = "<group>"; };
+		A51E164025BCF0BF00DAED7B /* BuildGroupInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupInteractorTests.swift; sourceTree = "<group>"; };
+		A51E164125BCF0BF00DAED7B /* BuildGroupViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupViewTests.swift; sourceTree = "<group>"; };
+		A51E164225BCF0BF00DAED7B /* BuildGroupPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupPresenterTests.swift; sourceTree = "<group>"; };
+		A51E164325BCF0BF00DAED7B /* BuildGroupServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupServiceTests.swift; sourceTree = "<group>"; };
 		A5530E2B2521406A00739F00 /* InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputType.swift; sourceTree = "<group>"; };
 		A55E861C25B27696000A4890 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A55E864825B27D23000A4890 /* EntryGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryGroup.swift; sourceTree = "<group>"; };
@@ -199,6 +219,23 @@
 			path = EditEntry;
 			sourceTree = "<group>";
 		};
+		A51E163025BCF04400DAED7B /* BuildGroup */ = {
+			isa = PBXGroup;
+			children = (
+				A51E163425BCF0B000DAED7B /* BuildGroupInteractor.swift */,
+				A51E164025BCF0BF00DAED7B /* BuildGroupInteractorTests.swift */,
+				A51E163225BCF0B000DAED7B /* BuildGroupModels.swift */,
+				A51E163125BCF0B000DAED7B /* BuildGroupPresenter.swift */,
+				A51E164225BCF0BF00DAED7B /* BuildGroupPresenterTests.swift */,
+				A51E163325BCF0B000DAED7B /* BuildGroupScene.swift */,
+				A51E163625BCF0B000DAED7B /* BuildGroupService.swift */,
+				A51E164325BCF0BF00DAED7B /* BuildGroupServiceTests.swift */,
+				A51E163525BCF0B000DAED7B /* BuildGroupView.swift */,
+				A51E164125BCF0BF00DAED7B /* BuildGroupViewTests.swift */,
+			);
+			path = BuildGroup;
+			sourceTree = "<group>";
+		};
 		A5399F72253256390096A957 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +341,7 @@
 		A5A86AE0255DA8F7001D3CD9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A51E163025BCF04400DAED7B /* BuildGroup */,
 				A5000C342528D9DB00A0CB77 /* EditEntry */,
 			);
 			path = Views;
@@ -612,12 +650,15 @@
 				A5000C262528D59B00A0CB77 /* Selection.swift in Sources */,
 				A59D1EB4256E00D70066555E /* ItemSelection.swift in Sources */,
 				A5E7987F255305EA00DCC918 /* FontStyle.swift in Sources */,
+				A51E163825BCF0B000DAED7B /* BuildGroupModels.swift in Sources */,
 				A55E867925B32DA8000A4890 /* TestSupport.swift in Sources */,
 				A5DE77A3254A122700832862 /* EditValuePresenter.swift in Sources */,
 				A567572925682CE90038C61D /* EditEntryInteractor.swift in Sources */,
 				A567572625682CE90038C61D /* EditEntryPresenter.swift in Sources */,
+				A51E163C25BCF0B000DAED7B /* BuildGroupService.swift in Sources */,
 				A5E7987A255305CC00DCC918 /* View+Extensions.swift in Sources */,
 				A59D1E9B256DE2DB0066555E /* TestingThingsOutSwiftUI.swift in Sources */,
+				A51E163A25BCF0B000DAED7B /* BuildGroupInteractor.swift in Sources */,
 				A59D1EAF256E00350066555E /* NumberEntry.swift in Sources */,
 				A5C6515F25708D0D00192BD2 /* Decimal+Extensions.swift in Sources */,
 				A5E7988E255616BC00DCC918 /* WrapInPlainNavigationView.swift in Sources */,
@@ -629,6 +670,8 @@
 				A5C6515525707F7900192BD2 /* ChecklistItem.swift in Sources */,
 				A55E864925B27D23000A4890 /* EntryGroup.swift in Sources */,
 				A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */,
+				A51E163725BCF0B000DAED7B /* BuildGroupPresenter.swift in Sources */,
+				A51E163925BCF0B000DAED7B /* BuildGroupScene.swift in Sources */,
 				A567572B25682CE90038C61D /* EditEntryService.swift in Sources */,
 				A567572A25682CE90038C61D /* EditEntryView.swift in Sources */,
 				A5C05D252567608D005D7F60 /* Color+Extensions.swift in Sources */,
@@ -645,6 +688,7 @@
 				A5DEED7F2558701300CD4E25 /* WrapInNavigationLink.swift in Sources */,
 				A5DEED982558741200CD4E25 /* StandardButton.swift in Sources */,
 				A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */,
+				A51E163B25BCF0B000DAED7B /* BuildGroupView.swift in Sources */,
 				A5000C2B2528D60700A0CB77 /* Checklist.swift in Sources */,
 				A5C6515A25708CE100192BD2 /* UIdentifiable.swift in Sources */,
 				A5E40CD9254DD7270028B475 /* EditValueService.swift in Sources */,
@@ -659,10 +703,14 @@
 				A5DEEDAE2559E9ED00CD4E25 /* EditValuePresenterTests.swift in Sources */,
 				A5DEEDB32559F77900CD4E25 /* EditValueServiceTests.swift in Sources */,
 				A5C1B472255A26CA00DD35D2 /* EditValueViewTests.swift in Sources */,
+				A51E164425BCF0BF00DAED7B /* BuildGroupInteractorTests.swift in Sources */,
 				A567573525682CFD0038C61D /* EditEntryPresenterTests.swift in Sources */,
 				A567573325682CFD0038C61D /* EditEntryInteractorTests.swift in Sources */,
 				A567573625682CFD0038C61D /* EditEntryServiceTests.swift in Sources */,
+				A51E164725BCF0BF00DAED7B /* BuildGroupServiceTests.swift in Sources */,
+				A51E164525BCF0BF00DAED7B /* BuildGroupViewTests.swift in Sources */,
 				A567573425682CFD0038C61D /* EditEntryViewTests.swift in Sources */,
+				A51E164625BCF0BF00DAED7B /* BuildGroupPresenterTests.swift in Sources */,
 				A5DEEDA02559E6A500CD4E25 /* EditValueInteractorTests.swift in Sources */,
 				A5BB05A1251FCD2400694FF9 /* RaindropTests.swift in Sources */,
 			);
