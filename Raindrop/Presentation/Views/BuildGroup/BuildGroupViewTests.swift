@@ -38,6 +38,10 @@ class BuildGroupViewTests: XCTestCase {
         XCTAssertTrue(interactor.prepareRouteToOtherSceneCalled)
     }
     
+    func testColorsNotNill() {
+        XCTAssertNotNil(UIColor(named: "AccentColor"))
+    }
+    
     // MARK: - Test Setup
     
     override func setUp() {

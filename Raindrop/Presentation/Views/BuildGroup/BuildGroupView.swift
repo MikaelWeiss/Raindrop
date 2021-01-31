@@ -13,13 +13,12 @@ protocol BuildGroupInputting {
     func didTapSave()
     func didTapGroupName()
     func didTapAddEntryItem()
-    func prepareRouteToSheet()
-    func prepareRouteToOtherScene()
 }
 
 struct BuildGroupView: View {
     @ObservedObject private var viewModel: BuildGroup.ViewModel
     private let interactor: BuildGroupRequesting
+    @State private var color = Color(.blue)
     
     init(interactor: BuildGroupRequesting, viewModel: BuildGroup.ViewModel) {
         self.interactor = interactor
@@ -33,8 +32,22 @@ struct BuildGroupView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 0) {
-                
+            VStack(spacing: 20) {
+                VStack(alignment: .leading, spacing: 20) {
+                    TextEntry("Group Name", value: viewModel.group.name, withoutCellStyle: true) { _ in }
+                    HStack {
+                        ColorPicker("Group Color", selection: $color)
+                    }
+                }
+                .cellStyle()
+                .overlay(
+                    Text("Group Info")
+                        .padding(.horizontal, 5)
+                        .background(Color(.systemBackground))
+                        .padding(.leading)
+                        .offset(y: -10)
+                        .fontStyle(viewModel.group.tintColor),
+                    alignment: .topLeading)
                 // Items
                 ForEach(viewModel.group.groupEntryOutline) { item in
                     switch item.type {
@@ -59,6 +72,7 @@ struct BuildGroupView: View {
                 .padding(.bottom, 32)
                 .onTapGesture { didTapAddEntryItem() }
             }
+            .padding(.horizontal)
         }
         .navigationBarTitle(viewModel.group.name, displayMode: .automatic)
         .navigationBarItems(
@@ -78,25 +92,19 @@ struct BuildGroupView: View {
 
 extension BuildGroupView: BuildGroupInputting {
     func didTapCancel() {
-        //        interactor.didTapCancel()
+        interactor.didTapCancel()
     }
     
     func didTapSave() {
-        //        interactor.didTapSave()
+        interactor.didTapSave()
     }
     
     func didTapGroupName() {
-        //        interactor.didTapGroupName()
+        interactor.didTapGroupName()
     }
     
     func didTapAddEntryItem() {
-        //        interactor.didTapAddEntryItem()
-    }
-    
-    func prepareRouteToSheet() {
-    }
-    
-    func prepareRouteToOtherScene() {
+        interactor.didTapAddEntryItem()
     }
 }
 
@@ -119,7 +127,6 @@ extension BuildGroupView {
                 Color(.systemBackground)
             }
             .cellStyle()
-            .padding(.bottom, 14)
             .onTapGesture { callback() }
         }
     }

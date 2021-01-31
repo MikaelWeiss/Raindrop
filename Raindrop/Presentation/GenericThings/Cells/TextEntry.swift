@@ -12,10 +12,12 @@ struct TextEntry: View {
     let title: String
     let value: String
     let onTextChanged: (String) -> Void
+    let withoutCellStyle: Bool
     
-    init(_ title: String, value: String, onTextChanged: @escaping (String) -> Void) {
+    init(_ title: String, value: String, withoutCellStyle: Bool = false, onTextChanged: @escaping (String) -> Void) {
         self.title = title
         self.value = value
+        self.withoutCellStyle = withoutCellStyle
         self.onTextChanged = onTextChanged
     }
     
@@ -26,17 +28,20 @@ struct TextEntry: View {
             TextField(title, text: binding, onEditingChanged: { isTyping = $0 })
                 .valueFontStyle()
         }
-        .cellStyle()
-        .overlay(
-            Text(title)
-                .padding(.horizontal, 4)
-                .background(Color(.systemBackground))
-                .font(.system(size: 16, weight: .bold, design: .rounded))
-                .fontStyle()
-                .offset(x: 28, y: -19)
-                .if(value.isEmpty) { $0.hidden() }
-                .animation(.default)
-            , alignment: .leading)
+        .if(!withoutCellStyle) {
+            $0
+                .cellStyle()
+                .overlay(
+                    Text(title)
+                        .padding(.horizontal, 4)
+                        .background(Color(.systemBackground))
+                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                        .fontStyle()
+                        .offset(x: 28, y: -19)
+                        .if(value.isEmpty) { $0.hidden() }
+                        .animation(.default)
+                    , alignment: .leading)
+        }
     }
 }
 

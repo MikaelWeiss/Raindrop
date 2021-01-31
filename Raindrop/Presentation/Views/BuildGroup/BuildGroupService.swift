@@ -9,15 +9,30 @@
 import Foundation
 
 protocol BuildGroupService {
+    func save() throws
+    func fetchGroup() throws -> EntryGroup
 }
 
 extension BuildGroup {
     
+    enum ServiceError: Error {
+        case fetchFailed
+        case saveFailed
+    }
+    
     class Service: BuildGroupService {
-        
+        func save() throws {
+        }
+        func fetchGroup() throws -> EntryGroup {
+            EntryGroup(name: "Some Name", groupEntryOutline: [OutlineType(type: .text)], entrys: [])
+        }
     }
     
     class DemoService: BuildGroupService {
-        
+        func save() {
+        }
+        func fetchGroup() -> EntryGroup {
+            EntryGroup(name: "Some Name", groupEntryOutline: [OutlineType(type: .text)], entrys: [])
+        }
     }
 }

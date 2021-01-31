@@ -5,13 +5,14 @@
 //  Created by Mikael Weiss on 1/15/21.
 //
 
-import Foundation
+import SwiftUI
 
 class EntryGroup: Identifiable, ObservableObject {
     let id = UUID()
     @Published var name: String
     @Published var groupEntryOutline: [OutlineType]
     @Published var entrys: [Entry]
+    @Published var tintColor: Color = .tintColor
     
     init(name: String, groupEntryOutline: [OutlineType], entrys: [Entry]) {
         self.name = name
