@@ -19,7 +19,7 @@ struct ValueFontStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(Styles.standardValueFontStyle)
-            .foregroundColor(.standardCellValueFontColor)
+            .foregroundColor(.entryItemValueColor)
     }
 }
 
