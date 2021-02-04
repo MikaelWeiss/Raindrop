@@ -225,6 +225,7 @@
 		A54C0438251FE7C300EEA9D2 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				A5B8AE7B25CA4F42008D4730 /* Domain Types */,
 				A54C0441251FE8C600EEA9D2 /* SupportTypes */,
 			);
 			path = Domain;
@@ -333,6 +334,13 @@
 				A5DEEDB72559FA3F00CD4E25 /* EditValueViewTests.swift */,
 			);
 			path = EditValue;
+			sourceTree = "<group>";
+		};
+		A5B8AE7B25CA4F42008D4730 /* Domain Types */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Domain Types";
 			sourceTree = "<group>";
 		};
 		A5BB0582251FCD2300694FF9 = {
