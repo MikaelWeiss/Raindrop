@@ -77,16 +77,16 @@ struct ItemSelection_Previews: PreviewProvider {
         Group {
             ItemSelectionCell("Some title",
                               value: Selection(
-                                items: [Selection.SelectionItem(
+                                items: [SelectionItem(
                                             title: "Some selection item")],
                                 currentlySelectedItem: nil),
                               onValueChanged: {_ in })
             
             ItemSelectionCell("Some title",
                               value: Selection(
-                                items: [Selection.SelectionItem(
-                                            title: "Some selection item"), Selection.SelectionItem(
-                                                title: "Some selection item"), Selection.SelectionItem(
+                                items: [SelectionItem(
+                                            title: "Some selection item"), SelectionItem(
+                                                title: "Some selection item"), SelectionItem(
                                                     title: "Some selection item")],
                                 currentlySelectedItem: nil),
                               onValueChanged: {_ in })

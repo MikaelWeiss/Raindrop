@@ -23,7 +23,7 @@ struct TextEntry: View {
         let binding = Binding(
             get: { value }, set: { onTextChanged($0) })
         ZStack(alignment: .leading) {
-            TextField(title, text: binding, onEditingChanged: { isTyping = $0 }, onCommit: { })
+            TextField(title, text: binding, onEditingChanged: { isTyping = $0 })
                 .valueFontStyle()
         }
         .cellStyle()

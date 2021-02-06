@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item: Identifiable, UIdentifiable {
+struct Item: Identifiable, UIdentifiable, Equatable {
     let id = UUID()
     let title: String
     var type: InputType
@@ -15,5 +15,12 @@ struct Item: Identifiable, UIdentifiable {
     init(title: String, type: InputType) {
         self.title = title
         self.type = type
+    }
+    
+    static func == (lhs: Item, rhs: Item) -> Bool {
+        if (lhs.id == rhs.id) {
+            return true
+        }
+        return false
     }
 }

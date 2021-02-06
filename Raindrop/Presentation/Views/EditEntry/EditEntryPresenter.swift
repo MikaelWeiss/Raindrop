@@ -19,6 +19,7 @@ protocol EditEntryPresenting {
 }
 
 struct EditEntryPresenter: EditEntryPresenting {
+    typealias Strings = EditEntry.Strings
     let viewModel = EditEntry.ViewModel()
     
     func presentUpdateTheme() {
@@ -45,17 +46,17 @@ struct EditEntryPresenter: EditEntryPresenting {
     func presentError(_ error: Error) {
         if let error = error as? EditEntry.ServiceError {
             switch error {
-            case .invalidFormat, .itemNotFound, .wrongItemType: viewModel.errorMessage = EditEntry.Strings.defaultErrorMessage
-            case .saveFailed: viewModel.errorMessage = EditEntry.Strings.saveFailedErrorMessage
+            case .invalidFormat, .itemNotFound, .wrongItemType: viewModel.errorMessage = Strings.defaultErrorMessage
+            case .saveFailed: viewModel.errorMessage = Strings.saveFailedErrorMessage
             }
         } else {
-            viewModel.errorMessage = EditEntry.Strings.defaultErrorMessage
+            viewModel.errorMessage = Strings.defaultErrorMessage
         }
         viewModel.showError = true
     }
     
     func presentDidTapSave() {
-        viewModel.saveMessage = EditEntry.Strings.defaultSaveMessage
+        viewModel.saveMessage = Strings.defaultSaveMessage
         viewModel.showSuccessfulMessage = true
     }
     
