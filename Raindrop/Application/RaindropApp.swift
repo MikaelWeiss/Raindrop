@@ -37,6 +37,7 @@ struct RaindropApp: App {
                 viewCoordinator.currentView
                     .animation(.easeIn)
             )
+            .colorScheme(.dark)
         }
     }
 }

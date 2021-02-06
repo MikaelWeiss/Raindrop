@@ -13,7 +13,7 @@ struct CellStyle: ViewModifier {
             .padding()
             .overlay (
                 RoundedRectangle(cornerRadius: 14, style: .continuous)
-                    .stroke(Color.standardCellValueFontColor, lineWidth: 1.5)
+                    .stroke(Color.cellOutlineColor, lineWidth: 1.5)
             )
         .fontStyle()
     }

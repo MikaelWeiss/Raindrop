@@ -43,7 +43,7 @@
 		A5B6D7D2254768E000DDB5E2 /* EditValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6D7D1254768E000DDB5E2 /* EditValueView.swift */; };
 		A5BAFF5325CC4E3E004203B7 /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BAFF5225CC4E3E004203B7 /* ColorSelector.swift */; };
 		A5BAFF5C25CC5211004203B7 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BAFF5B25CC5211004203B7 /* ViewModifiers.swift */; };
-		A5BAFF6125CC538B004203B7 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BAFF6025CC538B004203B7 /* ColorView.swift */; };
+		A5BAFF6125CC538B004203B7 /* ColorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BAFF6025CC538B004203B7 /* ColorSheet.swift */; };
 		A5BB058F251FCD2300694FF9 /* RaindropApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB058E251FCD2300694FF9 /* RaindropApp.swift */; };
 		A5BB0593251FCD2400694FF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BB0592251FCD2400694FF9 /* Assets.xcassets */; };
 		A5BB0596251FCD2400694FF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5BB0595251FCD2400694FF9 /* Preview Assets.xcassets */; };
@@ -129,7 +129,7 @@
 		A5B6D7D1254768E000DDB5E2 /* EditValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditValueView.swift; sourceTree = "<group>"; };
 		A5BAFF5225CC4E3E004203B7 /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		A5BAFF5B25CC5211004203B7 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
-		A5BAFF6025CC538B004203B7 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		A5BAFF6025CC538B004203B7 /* ColorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSheet.swift; sourceTree = "<group>"; };
 		A5BB058B251FCD2300694FF9 /* Raindrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raindrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5BB058E251FCD2300694FF9 /* RaindropApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaindropApp.swift; sourceTree = "<group>"; };
 		A5BB0592251FCD2400694FF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -268,6 +268,7 @@
 		A54C0438251FE7C300EEA9D2 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				A5B8AE7B25CA4F42008D4730 /* Domain Types */,
 				A54C0441251FE8C600EEA9D2 /* SupportTypes */,
 			);
 			path = Domain;
@@ -380,6 +381,13 @@
 			path = EditValue;
 			sourceTree = "<group>";
 		};
+		A5B8AE7B25CA4F42008D4730 /* Domain Types */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Domain Types";
+			sourceTree = "<group>";
+		};
 		A5BAFF5725CC4E46004203B7 /* Other views */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,7 +399,7 @@
 		A5BAFF6525CC53C2004203B7 /* ColorView */ = {
 			isa = PBXGroup;
 			children = (
-				A5BAFF6025CC538B004203B7 /* ColorView.swift */,
+				A5BAFF6025CC538B004203B7 /* ColorSheet.swift */,
 			);
 			path = ColorView;
 			sourceTree = "<group>";
@@ -685,7 +693,7 @@
 				A59D1E9B256DE2DB0066555E /* TestingThingsOutSwiftUI.swift in Sources */,
 				A51E163A25BCF0B000DAED7B /* BuildGroupInteractor.swift in Sources */,
 				A59D1EAF256E00350066555E /* NumberEntry.swift in Sources */,
-				A5BAFF6125CC538B004203B7 /* ColorView.swift in Sources */,
+				A5BAFF6125CC538B004203B7 /* ColorSheet.swift in Sources */,
 				A5C6515F25708D0D00192BD2 /* Decimal+Extensions.swift in Sources */,
 				A5E7988E255616BC00DCC918 /* WrapInPlainNavigationView.swift in Sources */,
 				A5DE779E254A113100832862 /* EditValueModels.swift in Sources */,

@@ -15,19 +15,17 @@ struct ColorSelector: View {
     var body: some View {
         HStack {
             Text(title)
+                .fontStyle()
             Spacer()
             Circle()
                 .foregroundColor(selectedColor)
                 .background(
                     Circle()
                         .frame(width: 36, height: 36)
-                        .accentColor(.secondary)
+                        .accentColor(Color(.secondarySystemBackground))
                 )
                 .frame(width: 26, height: 26)
                 .padding(.trailing, 6)
-            if colorPickerShowing {
-                Color.blue
-            }
         }
         .padding(.vertical)
         .onTapGesture {
@@ -40,7 +38,7 @@ struct ColorSelector: View {
     func buildColorView() -> some View {
         VStack {
             Spacer()
-            ColorView("Group Color",
+            ColorSheet("Group Color",
                       colors: Color.appColors.map { IdentifiableColor($0) },
                       currentColor: IdentifiableColor(selectedColor)) {
                 selectedColor = $0
@@ -52,6 +50,6 @@ struct ColorSelector: View {
 struct ColorSelector_Previews: PreviewProvider {
     static var previews: some View {
         ColorSelector(title: "Group Color")
-        //            .makePreviewKind()
+                    .makePreviewKind()
     }
 }

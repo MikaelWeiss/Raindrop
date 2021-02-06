@@ -32,7 +32,7 @@ struct CardSheet: ViewModifier {
             .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                    .foregroundColor(Color(.systemBackground))
+                    .foregroundColor(Color(.secondarySystemBackground))
             )
             .shadow(radius: 10)
             .offset(y: 25)

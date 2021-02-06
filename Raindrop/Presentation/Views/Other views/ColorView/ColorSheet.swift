@@ -1,5 +1,5 @@
 //
-//  ColorView.swift
+//  ColorSheet.swift
 //  Raindrop
 //
 //  Created by Mikael Weiss on 2/4/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ColorView: View {
+struct ColorSheet: View {
     private let columns: [GridItem] = [
         GridItem(.adaptive(minimum: 40))]
     
@@ -65,7 +65,7 @@ struct ColorView: View {
 struct ColorView_Previews: PreviewProvider {
     static var previews: some View {
         var selectedColor = IdentifiableColor(.blue)
-        return ColorView("Group Background",
+        return ColorSheet("Group Background",
                   colors: [
                     selectedColor,
                     .init(.green),

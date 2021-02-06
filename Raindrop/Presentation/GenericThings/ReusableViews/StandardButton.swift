@@ -9,16 +9,17 @@ import SwiftUI
 
 struct StandardButton: View {
     @Environment(\.colorScheme) var colorScheme
+    
     let title: String
     let onTap: () -> Void
     
     var body: some View {
         RoundedRectangle(cornerRadius: 25.0)
             .frame(height: 56, alignment: .center)
-            .foregroundColor(.blue)
+            .foregroundColor(.deepBlue)
             .overlay (
                 Text(title)
-                    .foregroundColor(colorScheme == .dark ? Color.darkPurpleTextColor : Color.white)
+                    .foregroundColor(colorScheme == .dark ? Color.black : Color.white)
                     .fontStyle()
             )
             .padding(.horizontal)
