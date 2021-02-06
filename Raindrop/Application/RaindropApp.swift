@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct RaindropApp: App {
     @State private var selectedTab = Tabs.editValue
+    @ObservedObject var viewCoordinator = ViewCoordinator.shared
     
     enum Tabs: Hashable {
         case editValue
@@ -20,7 +21,7 @@ struct RaindropApp: App {
         WindowGroup {
             TabView(selection: $selectedTab) {
                 NavigationView {
-                    EditEntry.Scene().view
+                    ColorSelector(title: "Something")
                 }
                     .tabItem {
                         Image(systemName: "pencil.circle.fill")
@@ -32,6 +33,16 @@ struct RaindropApp: App {
                         Text("Overview")
                     }.tag(Tabs.secondTab)
             }
+            .overlay(
+                viewCoordinator.currentView
+                    .animation(.easeIn)
+            )
         }
     }
+}
+
+class ViewCoordinator: ObservableObject {
+    static var shared = ViewCoordinator()
+    
+    @Published var currentView: AnyView?
 }

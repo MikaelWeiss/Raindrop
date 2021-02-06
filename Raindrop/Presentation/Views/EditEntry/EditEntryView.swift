@@ -50,6 +50,7 @@ struct EditEntryView: View {
                     
                     StandardButton(title: "Save", onTap: { didTapSave() } )
                 }
+                .padding(.horizontal)
             }
             GroupSelectionBar()
         }

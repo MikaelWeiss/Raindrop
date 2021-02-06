@@ -32,6 +32,7 @@ extension BuildGroup {
         @Published var displayDidTapGroupName = false
         @Published var displayDidTapAddEntryItem = false
         @Published var displayShowError = false
+        @Published var sceneTintColor = Color.tintColor
         var errorTitle = BuildGroup.Strings.errorTitle
         var errorMessage = BuildGroup.Strings.errorMessage
         

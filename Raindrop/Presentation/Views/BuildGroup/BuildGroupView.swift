@@ -18,7 +18,6 @@ protocol BuildGroupInputting {
 struct BuildGroupView: View {
     @ObservedObject private var viewModel: BuildGroup.ViewModel
     private let interactor: BuildGroupRequesting
-    @State private var color = Color(.blue)
     
     init(interactor: BuildGroupRequesting, viewModel: BuildGroup.ViewModel) {
         self.interactor = interactor
@@ -36,7 +35,7 @@ struct BuildGroupView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     TextEntry("Group Name", value: viewModel.group.name, withoutCellStyle: true) { _ in }
                     HStack {
-                        ColorPicker("Group Color", selection: $color)
+                        ColorPicker("Group Color", selection: $viewModel.sceneTintColor)
                     }
                 }
                 .cellStyle()
@@ -64,7 +63,7 @@ struct BuildGroupView: View {
                 // Add Entry Item
                 HStack(alignment: .center) {
                     Image(systemName: "plus.circle.fill")
-                        .foregroundColor(.tintColor)
+                        .foregroundColor(viewModel.sceneTintColor)
                         .font(.system(size: 20, weight: .black))
                     Text("Add Entry Item")
                 }
@@ -85,6 +84,7 @@ struct BuildGroupView: View {
         .onAppear {
             interactor.updateTheme()
         }
+        .accentColor(viewModel.sceneTintColor)
     }
 }
 
@@ -112,7 +112,7 @@ struct BuildGroup_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             BuildGroup.Scene().view
-        }
+        }.colorScheme(.dark)
     }
 }
 
