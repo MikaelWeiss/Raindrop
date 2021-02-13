@@ -20,9 +20,7 @@ enum BuildGroup {
         }
         
         private func buildService() -> BuildGroupService {
-            if true {
-                return BuildGroup.DemoService()
-            }
+            return BuildGroup.Service()
         }
         
         let service = BuildGroup.Service()

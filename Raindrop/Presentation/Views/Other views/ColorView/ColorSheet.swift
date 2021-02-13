@@ -39,14 +39,25 @@ struct ColorSheet: View {
             Text(title)
                 .padding(.top)
                 .fontStyle()
-            Spacer()
+            Spacer().frame(height: 26)
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(colors) { color in
-                    Circle().frame(width: 36, height: 36)
-                        .foregroundColor(color.color)
-                        .onTapGesture {
-                            onSelectedColor(color.color)
+                    ZStack {
+                        if currentColor.color == color.color {
+                            Circle()
+                                .stroke(Color(.tertiarySystemFill), lineWidth: 3)
+                                .frame(width: 36, height: 36)
+                                .shadow(radius: 0)
                         }
+                        Circle()
+                            .frame(width: 32, height: 32)
+                            .foregroundColor(color.color)
+                            .onTapGesture {
+                                onSelectedColor(color.color)
+                            }
+                            .shadow(radius: 0)
+                    }
+                    .shadow(radius: 0)
                     if color.id == colors.last?.id {
                         ColorPicker("", selection: binding)
                             .scaleEffect(CGSize(width: 1.25, height: 1.25))
@@ -54,9 +65,7 @@ struct ColorSheet: View {
                     }
                 }
             }
-            .padding(.bottom, 35)
             .padding(.horizontal)
-            Spacer()
         }
         .makeCardSheet()
     }
@@ -75,12 +84,13 @@ struct ColorView_Previews: PreviewProvider {
                     .init(.blue),
                     .init(.green),
                     .init(.yellow),
-                    .init(.orange),
+                    selectedColor,
                     .init(.red)],
                   currentColor: selectedColor) {
             selectedColor = IdentifiableColor($0)
         }
         .makePreviewKind()
+        .ignoresSafeArea()
     }
 }
 

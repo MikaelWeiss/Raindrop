@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ColorSelector: View {
-    @State private var colorPickerShowing = false
-    @State private var selectedColor: Color = .tintColor
     let title: String
+    let currentlySelectedColor: Color
+    let onSelectedColor: (Color) -> Void
     
     var body: some View {
         HStack {
@@ -18,7 +18,7 @@ struct ColorSelector: View {
                 .fontStyle()
             Spacer()
             Circle()
-                .foregroundColor(selectedColor)
+                .foregroundColor(currentlySelectedColor)
                 .background(
                     Circle()
                         .frame(width: 36, height: 36)
@@ -27,21 +27,19 @@ struct ColorSelector: View {
                 .frame(width: 26, height: 26)
                 .padding(.trailing, 6)
         }
-        .padding(.vertical)
+        .padding(.vertical, 6)
         .onTapGesture {
-            colorPickerShowing.toggle()
-            if colorPickerShowing {
-                ViewCoordinator.shared.currentView = AnyView(buildColorView())
-            }
+            ViewCoordinator.shared.currentView = AnyView(buildColorView())
         }
     }
-    func buildColorView() -> some View {
+    
+    private func buildColorView() -> some View {
         VStack {
             Spacer()
             ColorSheet("Group Color",
                       colors: Color.appColors.map { IdentifiableColor($0) },
-                      currentColor: IdentifiableColor(selectedColor)) {
-                selectedColor = $0
+                      currentColor: IdentifiableColor(currentlySelectedColor)) {
+                onSelectedColor($0)
             }
         }
     }
@@ -49,7 +47,7 @@ struct ColorSelector: View {
 
 struct ColorSelector_Previews: PreviewProvider {
     static var previews: some View {
-        ColorSelector(title: "Group Color")
+        ColorSelector(title: "Group Color", currentlySelectedColor: Color.red) {_ in }
                     .makePreviewKind()
     }
 }

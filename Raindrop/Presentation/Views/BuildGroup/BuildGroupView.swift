@@ -13,6 +13,8 @@ protocol BuildGroupInputting {
     func didTapSave()
     func didTapGroupName()
     func didTapAddEntryItem()
+    func didChangeGroupName(_ name: String)
+    func didSelectColor(color: Color)
 }
 
 struct BuildGroupView: View {
@@ -33,9 +35,11 @@ struct BuildGroupView: View {
         ScrollView {
             VStack(spacing: 20) {
                 VStack(alignment: .leading, spacing: 20) {
-                    TextEntry("Group Name", value: viewModel.group.name, withoutCellStyle: true) { _ in }
+                    TextEntry("Group Name", value: viewModel.group.name, withoutCellStyle: true) { didChangeGroupName($0) }
                     HStack {
-                        ColorPicker("Group Color", selection: $viewModel.sceneTintColor)
+                        ColorSelector(title: "GroupColor", currentlySelectedColor: viewModel.group.tintColor) {
+                            didSelectColor(color: $0)
+                        }
                     }
                 }
                 .cellStyle()
@@ -63,7 +67,7 @@ struct BuildGroupView: View {
                 // Add Entry Item
                 HStack(alignment: .center) {
                     Image(systemName: "plus.circle.fill")
-                        .foregroundColor(viewModel.sceneTintColor)
+                        .foregroundColor(viewModel.group.tintColor)
                         .font(.system(size: 20, weight: .black))
                     Text("Add Entry Item")
                 }
@@ -84,7 +88,12 @@ struct BuildGroupView: View {
         .onAppear {
             interactor.updateTheme()
         }
-        .accentColor(viewModel.sceneTintColor)
+    }
+    
+    func showModal() {
+        let window = UIApplication.shared.windows.first
+        window?.rootViewController?.present(UIHostingController(rootView: EditEntry.Scene().view), animated: true)
+//        window?.rootViewController?.show(UIHostingController(rootView: EditEntry.Scene().view), sender: nil)
     }
 }
 
@@ -105,6 +114,16 @@ extension BuildGroupView: BuildGroupInputting {
     
     func didTapAddEntryItem() {
         interactor.didTapAddEntryItem()
+    }
+    
+    func didChangeGroupName(_ name: String) {
+        let request = BuildGroup.ValidateGroupName.Request(groupName: name)
+        interactor.didChangeGroupName(with: request)
+    }
+    
+    func didSelectColor(color: Color) {
+        let request = BuildGroup.SelectColor.Request(color: color)
+        interactor.didSelectColor(with: request)
     }
 }
 

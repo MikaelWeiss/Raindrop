@@ -6,11 +6,14 @@
 //  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 protocol BuildGroupService {
+    func canSave() -> Bool
     func save() throws
     func fetchGroup() throws -> EntryGroup
+    func setGroupName(_ name: String)
+    func setGroupColor(color: Color)
 }
 
 extension BuildGroup {
@@ -21,18 +24,17 @@ extension BuildGroup {
     }
     
     class Service: BuildGroupService {
-        func save() throws {
+        
+        func canSave() -> Bool {
+            true
         }
+        func save() throws { }
         func fetchGroup() throws -> EntryGroup {
             EntryGroup(name: "Some Name", groupEntryOutline: [OutlineType(type: .text)], entrys: [])
         }
-    }
-    
-    class DemoService: BuildGroupService {
-        func save() {
-        }
-        func fetchGroup() -> EntryGroup {
-            EntryGroup(name: "Some Name", groupEntryOutline: [OutlineType(type: .text)], entrys: [])
-        }
+        
+        func setGroupName(_ name: String) { }
+        
+        func setGroupColor(color: Color) { }
     }
 }

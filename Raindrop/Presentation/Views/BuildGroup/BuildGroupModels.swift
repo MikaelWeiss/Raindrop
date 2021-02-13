@@ -24,6 +24,24 @@ extension BuildGroup {
         }
     }
     
+    enum SelectColor {
+        struct Request {
+            let color: Color
+        }
+        struct Response {
+            let color: Color
+        }
+    }
+    
+    enum ValidateGroupName {
+        struct Request {
+            let groupName: String
+        }
+        struct Response {
+            let groupName: String
+        }
+    }
+    
     class ViewModel: ObservableObject {
         @Published var group: EntryGroup
         @Published var isShowingEditEntryItem = false
@@ -32,13 +50,12 @@ extension BuildGroup {
         @Published var displayDidTapGroupName = false
         @Published var displayDidTapAddEntryItem = false
         @Published var displayShowError = false
-        @Published var sceneTintColor = Color.tintColor
         var errorTitle = BuildGroup.Strings.errorTitle
         var errorMessage = BuildGroup.Strings.errorMessage
         
         init() {
             // This should never actually display. I just can't make group optional.
-            group = EntryGroup(name: "Some title", groupEntryOutline: [], entrys: [])
+            group = EntryGroup(name: "Default Group", groupEntryOutline: [], entrys: [])
         }
     }
     

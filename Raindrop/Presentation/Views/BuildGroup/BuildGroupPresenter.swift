@@ -15,6 +15,8 @@ protocol BuildGroupPresenting {
     func presentDidTapSave()
     func presentDidTapGroupName()
     func presentDidTapAddEntryItem()
+    func presentValidateGroupName(with response: BuildGroup.ValidateGroupName.Response)
+    func presentDidSelectColor(with response: BuildGroup.SelectColor.Response)
     func presentShowError(with response: BuildGroup.ShowError.Response)
 }
 
@@ -39,6 +41,14 @@ struct BuildGroupPresenter: BuildGroupPresenting {
     
     func presentDidTapAddEntryItem() {
         viewModel.displayDidTapAddEntryItem = true
+    }
+    
+    func presentValidateGroupName(with response: BuildGroup.ValidateGroupName.Response) {
+        viewModel.group.name = response.groupName
+    }
+    
+    func presentDidSelectColor(with response: BuildGroup.SelectColor.Response) {
+        viewModel.group.tintColor = response.color
     }
     
     func presentShowError(with response: BuildGroup.ShowError.Response) {

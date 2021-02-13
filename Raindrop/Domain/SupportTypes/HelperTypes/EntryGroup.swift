@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-class EntryGroup: Identifiable, ObservableObject {
+struct EntryGroup: Identifiable {
     let id = UUID()
-    @Published var name: String
-    @Published var groupEntryOutline: [OutlineType]
-    @Published var entrys: [Entry]
-    @Published var tintColor: Color = .tintColor
+    var name: String
+    var groupEntryOutline: [OutlineType]
+    var entrys: [Entry]
+    var tintColor: Color = .tintColor
     
     init(name: String, groupEntryOutline: [OutlineType], entrys: [Entry]) {
         self.name = name

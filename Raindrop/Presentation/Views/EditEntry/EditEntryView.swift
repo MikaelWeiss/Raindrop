@@ -107,6 +107,6 @@ struct EditEntry_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             EditEntry.Scene().view
-        }.colorScheme(.dark)
+        }
     }
 }

@@ -21,7 +21,7 @@ struct RaindropApp: App {
         WindowGroup {
             TabView(selection: $selectedTab) {
                 NavigationView {
-                    ColorSelector(title: "Something")
+                    BuildGroup.Scene().view
                 }
                     .tabItem {
                         Image(systemName: "pencil.circle.fill")
@@ -35,7 +35,7 @@ struct RaindropApp: App {
             }
             .overlay(
                 viewCoordinator.currentView
-                    .animation(.easeIn)
+                    .ignoresSafeArea()
             )
             .colorScheme(.dark)
         }
