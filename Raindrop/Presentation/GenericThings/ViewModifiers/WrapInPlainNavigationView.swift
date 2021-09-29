@@ -9,15 +9,15 @@ import SwiftUI
 
 struct PlainNavigationViewWrapper: ViewModifier {
     func body(content: Content) -> some View {
-        NavigationView {
-            content
-                .navigationBarHidden(true)
-        }
+        
     }
 }
 
 extension View {
     func wrapInPlainNavigationView() -> some View {
-        self.modifier(PlainNavigationViewWrapper())
+        NavigationView {
+            self
+                .navigationBarHidden(true)
+        }
     }
 }

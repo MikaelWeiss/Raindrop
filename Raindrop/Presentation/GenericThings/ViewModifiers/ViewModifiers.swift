@@ -7,20 +7,14 @@
 
 import SwiftUI
 
-struct PreviewKind: ViewModifier {
-    func body(content: Content) -> some View {
+extension View {
+    func makePreviewKind(previewLayout: PreviewLayout = .sizeThatFits) -> some View {
         Group {
-            content
-            content
+            self
+            self
                 .background(Color(.systemBackground))
                 .colorScheme(.dark)
         }
-    }
-}
-
-extension View {
-    func makePreviewKind(previewLayout: PreviewLayout = .sizeThatFits) -> some View {
-        self.modifier(PreviewKind())
             .previewLayout(previewLayout)
     }
 }
